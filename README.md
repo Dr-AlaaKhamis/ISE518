@@ -1,7 +1,7 @@
 # ISE 518: Data Analytics for Reliability and Maintenance 🔧📊
 
 ## 📚 Course Description
-This course provides a **comprehensive overview** of data analytics techniques that enhance asset reliability and maintenance performance in an Industry 4.0 environment. Coverage spans the entire analytics pipeline: data ingestion and cleansing, feature engineering, descriptive and diagnostic analysis, predictive modeling, prescriptive optimization, and system observability. Theory is paired with hands-on exercises, and work culminates in a team project applying multiple analytic methods to a real or simulated maintenance problem.
+This course provides a comprehensive overview of data analytics techniques that enhance asset reliability and maintenance performance in an Industry 4.0 environment. Coverage spans the entire analytics pipeline: data ingestion and cleansing, feature engineering, descriptive and diagnostic analysis, predictive modeling, prescriptive optimization, and system observability. Theory is paired with hands-on exercises, and work culminates in a team project applying multiple analytic methods to a real or simulated maintenance problem.
 
 ## 🎯 Course Objectives
 By the end of the course, participants will be able to  
