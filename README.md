@@ -1,3 +1,10 @@
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Dr-AlaaKhamis/ISE518/blob/main/LICENSE)
+![Last Commit](https://img.shields.io/github/last-commit/Dr-AlaaKhamis/ISE518)
+![Repo Size](https://img.shields.io/github/repo-size/Dr-AlaaKhamis/ISE518)
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+![GitHub Stars](https://img.shields.io/github/stars/Dr-AlaaKhamis/ISE518?style=social)
+
+
 # ISE 518: Data Analytics for Reliability and Maintenance 🔧📊
 
 ## 📚 Course Description
