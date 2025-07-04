@@ -13,7 +13,7 @@ By the end of the course, participants will be able to
 - 🌐 Implement observability pipelines that use metrics, logs, traces, and dashboards for real‑time monitoring  
 
 ## 🗂️ Course Outline
-- 🐍 **Python Refresher**
+- 🐍 [Python Refresher](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
 - 🏭 **Introduction to Reliability & Maintenance**
 - 📊 **Introduction to Data Analytics**
 - 🗄️ **Data Sources**
