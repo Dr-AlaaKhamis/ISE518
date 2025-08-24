@@ -1,4 +1,4 @@
-# ​ Time-Series Datasets for Reliability Engineering & Industrial Maintenance
+# Time-Series Datasets for Reliability Engineering & Industrial Maintenance
 
 A curated collection of **publicly available datasets**—both from open repositories and Kaggle—for:
 
