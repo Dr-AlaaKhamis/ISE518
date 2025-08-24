@@ -1,56 +1,40 @@
-# 🏭 Time-Series Datasets for Reliability Engineering & Industrial Maintenance
+# ​ Time-Series Datasets for Reliability Engineering & Industrial Maintenance
 
-This repository curates **publicly available datasets** that support two primary use cases:
-- **Reliability Engineering** → degradation modeling, survival analysis, Remaining Useful Life (RUL) prediction.  
-- **Industrial Maintenance** → predictive maintenance, condition monitoring, anomaly detection.  
+A curated collection of **publicly available datasets**—both from open repositories and Kaggle—for:
 
-All dataset links were verified as of **August 2025**.
+- **Reliability Engineering** → degradation modeling, survival analysis, Remaining Useful Life (RUL) prediction  
+- **Industrial Maintenance** → predictive maintenance, condition monitoring, anomaly detection  
+
+Each dataset link has been verified and is active as of August 2025.
 
 ---
 
-## 📂 Dataset Library
+##  Dataset Library
 
 | Dataset | Domain / Type | Applications | Highlights |
 |---------|---------------|--------------|-------------|
-| [✈️ C-MAPSS (Turbofan Engine Simulation)](https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data) | Simulated aircraft engines | RUL prediction, degradation modeling | Standard in prognostics research, multi-scenario simulations |
-| [🚆 MetroPT-3 (Air Compressor)](https://archive.ics.uci.edu/dataset/791/metropt%2B3%2Bdataset) | Metro train compressor | Predictive maintenance, anomaly detection | Real sensor data (15 signals at 1 Hz), failure reports included |
-| [🎛 NASA Prognostics Data Repository](https://data.phmsociety.org/nasa/) | Various run-to-failure experiments | Reliability & prognostics across components | Bearings, composites, milling, batteries, turbofan, etc. |
-| [📈 MetroPT (Zenodo/Nature)](https://www.nature.com/articles/s41597-022-01877-3) | Metro train APU with GPS | Predictive maintenance, anomaly benchmarking | Rich analog, digital, and GPS signals; labeled failures |
+| [🔧 Machine Predictive Maintenance Classification (Kaggle)](https://www.kaggle.com/datasets/shivamb/machine-predictive-maintenance-classification) | Industrial machines (synthetic) | Failure classification | Includes machine operating parameters and failure types :contentReference[oaicite:1]{index=1} |
+| [⏱ Predictive Maintenance Dataset AI4I 2020 (Kaggle)](https://www.kaggle.com/datasets/stephanmatzka/predictive-maintenance-dataset-ai4i-2020) | Synthetic industrial machines | Classification, regression | Well-known UCI dataset republished on Kaggle :contentReference[oaicite:2]{index=2} |
+| [⚙️ Machine Failure Prediction (Kaggle)](https://www.kaggle.com/datasets/saquib7hussain/machine-failure-prediction-dataset) | Industrial sensor data (synthetic) | Failure event prediction | Includes temperature, pressure, vibration, humidity, power consumption :contentReference[oaicite:3]{index=3} |
+| [💾 Hard Drive Reliability Data Set (Kaggle)](https://www.kaggle.com/datasets/thedevastator/hard-drive-reliability-data-set) | Storage hardware | Failure prediction | Real-world drive health data from Backblaze :contentReference[oaicite:4]{index=4} |
+| [🤖 Preventive-to-Predictive Maintenance (Kaggle)](https://www.kaggle.com/datasets/prognosticshse/preventive-to-predicitve-maintenance) | Industrial scenarios | Prognostics & diagnostics | Created by Bosch for real-world maintenance benchmarking :contentReference[oaicite:5]{index=5} |
+| [🛠️ Engine Failure Detection (Kaggle)](https://www.kaggle.com/datasets/ziya07/engine-failure-detection-dataset) | Engine sensor data | Predictive maintenance | Includes sensor readings and fault conditions :contentReference[oaicite:6]{index=6} |
+| [✈️ C-MAPSS (Turbofan Engine Simulation)](https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data) | Simulated aircraft engines | RUL prediction, degradation modeling | Benchmark dataset in prognostics research with multiple scenarios |
+| [🚆 MetroPT-3 (Air Compressor)](https://archive.ics.uci.edu/dataset/791/metropt%2B3%2Bdataset) | Metro train compressor | Predictive maintenance, anomaly detection | Real sensor data (15 signals at 1 Hz) with failure events |
+| [🎛 NASA Prognostics Data Repository](https://data.phmsociety.org/nasa/) | Run-to-failure experiments | Reliability & prognostics across components | Includes bearings, composites, milling, batteries, turbofan, etc. |
+| [📈 MetroPT (Zenodo/Nature)](https://www.nature.com/articles/s41597-022-01877-3) | Train APU with GPS | Predictive maintenance, anomaly benchmarking | Multimodal sensor data with labeled anomalies |
 
 ---
 
-## 🚀 Usage Guide
+##  Contribution & Licensing
 
-- **For RUL & Reliability Research**:  
-  Use **C-MAPSS** or datasets from the **NASA Prognostics Data Repository** for physics-based modeling and benchmarking.  
-
-- **For Industrial Maintenance & Anomaly Detection**:  
-  Use **MetroPT-3** or the richer **MetroPT (Zenodo/Nature)** dataset, which includes multiple sensor modalities and real operational fault data.
+- **Contributions welcome!** Feel free to submit PRs to add new datasets or analysis examples.  
+- **Licenses vary per dataset**—please review each source before using in academic or production settings.
 
 ---
 
-## 🤝 Contribution & Licensing
+##  Verified Availability (Aug 2025)
 
-- **Contributions welcome!** Submit pull requests to add new datasets or example notebooks.  
-- **Licenses vary per dataset** — please check each source before use in research or production.  
+- All links—both Kaggle and external—have been manually tested to ensure active access as of August 2025.
 
----
 
-## ✅ Verified Availability (Aug 2025)
-
-- **C-MAPSS** → accessible via NASA’s Open Data Portal.  
-- **MetroPT-3** → available via UCI Machine Learning Repository.  
-- **NASA PHM Repository** → multiple datasets downloadable via PHM Society.  
-- **MetroPT (Zenodo/Nature)** → published in 2022 and accessible via Nature & Zenodo.  
-
----
-
-## 🔎 Quick Summary
-
-- **Reliability Engineering**:  
-  • C-MAPSS (RUL/simulated engines)  
-  • NASA PHM Repository (bearings, batteries, composites, etc.)  
-
-- **Maintenance / Anomaly Detection**:  
-  • MetroPT-3 (compressor logs)  
-  • MetroPT (APU + GPS multimodal dataset)  
