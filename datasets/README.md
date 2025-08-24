@@ -1,49 +1,52 @@
-# 🔧 Industrial Time-Series Datasets for Predictive Maintenance & Anomaly Detection
+# 🔧 Publicly Available Datasets for Reliability Engineering & Maintenance in Industry
 
-This repository collects **publicly available datasets** that are well-suited for **time-series modeling**, **predictive maintenance (PdM)**, and **anomaly detection** in industrial settings.
+This repository collects **time-series and event-based datasets** that are useful for:  
+- **Reliability Engineering** → degradation processes, survival analysis, remaining useful life (RUL) estimation.  
+- **Maintenance in Industrial Contexts** → predictive maintenance, anomaly detection, condition monitoring in real industrial systems.  
 
 ---
 
-## 📊 Dataset Collection
+## 📐 Reliability Engineering Datasets
 
 | Dataset | Domain / Type | Applications | Highlights |
 |---------|---------------|--------------|-------------|
-| [🚆 MetroPT-3 (UCI)](https://archive.ics.uci.edu/dataset/791/metropt%2B3%2Bdataset) | Compressor (train) | RUL, anomaly detection | Real sensor data, labeled failures |
-| [✈️ NASA C-MAPSS](https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository) | Turbofan engine simulation | RUL, degradation modeling | Standard benchmark, synthetic but realistic |
-| [🚚 SCANIA Component X](https://www.nature.com/articles/s41597-025-04802-6.pdf) | Truck engine component | Anomaly detection, survival analysis | Real-world, varied features, large population |
-| [🌬️ CARE (Wind Turbines)](https://arxiv.org/abs/2401.15199) | Wind turbines | Fault prediction, anomaly detection | Real multi-site data with fault labels |
-| [🌀 FAN-COIL-I](https://arxiv.org/abs/2408.14448) | Fan coil motor vibration | Predictive maintenance | High-frequency, real-world continuous data |
-| [🎙️ MIMII Sound Dataset](https://arxiv.org/abs/1909.09347) | Industrial machine audio | Acoustic anomaly detection | Audio-based, diverse fault types |
-| [🛩️ NGAFID Aviation](https://arxiv.org/abs/2210.07317) | Aircraft flight recordings | Predictive maintenance | Massive scale, annotated maintenance events |
+| [✈️ NASA C-MAPSS](https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository) | Turbofan engine simulation | RUL, degradation modeling, prognostics | Standard benchmark, synthetic but realistic |
+| [🔧 PHM08 Challenge Data (IEEE PHM Society)](https://www.phmsociety.org/events/data-challenges/) | Turbofan & system degradation | RUL, survival analysis | Official benchmark for prognostics & health management |
+| [🧰 IMS Bearing Dataset](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/) | Bearing vibration signals | Degradation, survival modeling | Real-world accelerated bearing test data |
+| [🛠️ XJTU-SY Bearing Dataset](https://biaowang.tech/xjtu-sy-bearing-datasets/) | Rotating machinery bearings | Reliability modeling, RUL prediction | High-frequency vibration, run-to-failure |
+| [🚚 SCANIA Component X](https://www.nature.com/articles/s41597-025-04802-6.pdf) | Truck engine component | Anomaly detection, survival analysis | Real-world, fleet-level, long-term data |
+| [⚙️ AI4I 2020 (UCI)](https://archive.ics.uci.edu/ml/datasets/AI4I%2B2020%2BPredictive%2BMaintenance%2BDataset) | Synthetic industrial machines | Classification, regression, reliability testing | Easy-to-use, labeled operating conditions |
 
 ---
 
-## 📚 Other Notable Resources
+## 🏭 Maintenance in Industry Contexts
 
-- [⚙️ AI4I 2020 Predictive Maintenance Dataset (UCI)](https://archive.ics.uci.edu/ml/datasets/AI4I%2B2020%2BPredictive%2BMaintenance%2BDataset) – Synthetic dataset mimicking real industrial conditions.
-- [💧 SWaT Dataset](https://itrust.sutd.edu.sg/itrust-labs_datasets/) – Water treatment testbed data for cyber-physical security & anomaly detection.
-- [📈 NAB (Numenta Anomaly Benchmark)](https://github.com/numenta/NAB) – Benchmark of real and synthetic anomaly-laden time-series.
-- [🛠️ Industrial ML Datasets (GitHub)](https://github.com/nicolasj92/industrial-ml-datasets) – Curated list of multiple industrial datasets.
-- [📂 Predictive Maintenance Dataset Collection (GitHub)](https://github.com/kokikwbt/predictive-maintenance) – Another curated dataset list.
+| Dataset | Domain / Type | Applications | Highlights |
+|---------|---------------|--------------|-------------|
+| [🚆 MetroPT-3 (UCI)](https://archive.ics.uci.edu/dataset/791/metropt%2B3%2Bdataset) | Train compressor system | Predictive maintenance, anomaly detection | Real sensor data (pressures, currents, temps), labeled failures |
+| [🌬️ CARE (Wind Turbines)](https://arxiv.org/abs/2401.15199) | Wind turbines | Fault prediction, anomaly detection | 36 turbines across 3 farms, labeled anomalies |
+| [🌀 FAN-COIL-I](https://arxiv.org/abs/2408.14448) | Fan coil motor vibration | Condition monitoring, predictive maintenance | High-resolution vibration, real-world |
+| [🎙️ MIMII Sound Dataset](https://arxiv.org/abs/1909.09347) | Industrial machine audio | Acoustic anomaly detection | Valves, pumps, fans with labeled anomalies |
+| [🛩️ NGAFID Aviation](https://arxiv.org/abs/2210.07317) | Aircraft flight recordings | Predictive maintenance, anomaly detection | 31,000+ flight hours, 2,000+ maintenance events |
+| [💧 SWaT Dataset](https://itrust.sutd.edu.sg/itrust-labs_datasets/) | Water treatment plant | Fault injection, anomaly detection | Secure Water Treatment (SWaT) testbed with normal + attack data |
+| [📈 NAB (Numenta Anomaly Benchmark)](https://github.com/numenta/NAB) | Mixed (industrial + synthetic) | Anomaly detection, benchmarking | Standard anomaly detection benchmark repo |
 
 ---
 
 ## 🚀 Usage
 
-These datasets can be applied to:
-- Remaining Useful Life (**RUL**) estimation
-- Predictive maintenance scheduling
-- Anomaly detection and fault isolation
-- Survival analysis for industrial components
+These datasets can support tasks in:  
+- **Reliability Engineering**: Remaining Useful Life (RUL) estimation, degradation and survival modeling.  
+- **Industrial Maintenance**: Predictive maintenance scheduling, anomaly detection, condition monitoring, fault isolation.  
 
 ---
 
 ## 🤝 Contributing
 
-Contributions welcome! Feel free to submit a pull request to add new datasets, tools, or benchmark results.
+Contributions are welcome! Submit a pull request to add new datasets, benchmark results, or preprocessing scripts.
 
 ---
 
 ## 📜 License
 
-Please check each dataset's original license before use in research or production. Most are free for academic purposes.
+Please check each dataset's **original license/terms of use** before applying in research or production.
