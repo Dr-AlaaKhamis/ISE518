@@ -26,6 +26,23 @@ Each dataset link has been verified and is active as of August 2025.
 
 ---
 
+## 📊 Sample Analytics Notebook
+
+👉 To help you get started, we provide a **[sample Jupyter notebook](Sample.ipynb)**:
+
+This notebook demonstrates **EDA** for the AI4I 2020 dataset (or similar CSVs):
+
+- Load and inspect the dataset  
+- Summary statistics and missing values  
+- Class distribution plots  
+- Histograms & boxplots for numeric features  
+- Correlation heatmap (matplotlib)  
+- Outlier checks  
+
+You can easily adapt it to any dataset from the list above (e.g., MetroPT-3, C-MAPSS, or Kaggle datasets).
+
+---
+
 ##  Contribution & Licensing
 
 - **Contributions welcome!** Feel free to submit PRs to add new datasets or analysis examples.  
