@@ -30,11 +30,3 @@ Each dataset link has been verified and is active as of August 2025.
 
 - **Contributions welcome!** Feel free to submit PRs to add new datasets or analysis examples.  
 - **Licenses vary per dataset**—please review each source before using in academic or production settings.
-
----
-
-##  Verified Availability (Aug 2025)
-
-- All links—both Kaggle and external—have been manually tested to ensure active access as of August 2025.
-
-
