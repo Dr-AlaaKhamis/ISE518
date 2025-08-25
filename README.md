@@ -37,15 +37,6 @@ By the end of the course, participants will be able to
 
 ## 🚀 Getting Started
 
-This repository will host:
-
-- Lecture notebooks 📓  
-- Assignments 📝  
-- Sample datasets 📂  
-- Project templates 🛠️  
-
-Clone the repo and follow along!
-
 ```bash
 git clone https://github.com/Dr-AlaaKhamis/ISE518.git
 
