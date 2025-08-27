@@ -8,7 +8,7 @@ import math
 
 # 2. Define constants
 # Define fixed values to be used throughout the program.
-PI = 3.14159
+PI=math.pi
 
 # 3. Define classes
 # Classes are used to model real-world entities or concepts, encapsulating data and behavior.

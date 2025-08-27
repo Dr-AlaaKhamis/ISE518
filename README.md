@@ -39,4 +39,4 @@ By the end of the course, participants will be able to
 
 ```bash
 git clone https://github.com/Dr-AlaaKhamis/ISE518.git
-
+```
