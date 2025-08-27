@@ -1,54 +1,49 @@
-# Circle Calculator
+"""Storage Tank Volume Calculator
+Simple script to estimate the volume of a vertical cylindrical storage tank.
+Computes volume in cubic meters, liters, and US barrels, with an optional fill percentage.
+Formula: v = pi * r^2 * h
+"""
 
-"""Python program to calculate area and circumference of a circle """
-
-# 1. Import necessary modules
-# Import any libraries or modules your program requires.
 import math
 
-# 2. Define constants
-# Define fixed values to be used throughout the program.
-PI=math.pi
+# Constants
+PI = math.pi
 
-# 3. Define classes
-# Classes are used to model real-world entities or concepts, encapsulating data and behavior.
-class Circle:
-    """A class to represent a circle."""
-    
-    def __init__(self, radius):
-        """Initialize the circle with a radius."""
+class Tank:
+    # Initialize tank with radius and height
+    def __init__(self, radius, height):
         self.radius = radius
+        self.height = height
 
-    def calculate_area(self):
-        """Calculate the area of the circle."""
-        return PI * self.radius ** 2
+    # Calculate tank volume in cubic meters
+    def calculate_volume(self):
+        return PI * self.radius ** 2 * self.height
 
-    def calculate_circumference(self):
-        """Calculate the circumference of the circle."""
-        return 2 * PI * self.radius
+    # Calculate capacity in barrels (1 m³ ≈ 6.2898 barrels)
+    def calculate_capacity(self):
+        return self.calculate_volume() * 6.2898
 
-# 4. Define other functions
-# Additional functions can be defined outside of the class for specific tasks.
-def greet_user():
-    """Greet the user."""
-    print("Welcome to the Circle Calculator!")
+def greet_operator():
+    print("Welcome to the Storage Tank Volume Calculator!")
 
-# 5. Main program execution
-# The main logic of the program is placed here.
-if __name__ == "__main__":
-    # Greet the user
-    greet_user()
 
-    # Get user input
-    radius = float(input("Enter the radius of the circle: "))
-    
+def main():
+    greet_operator()
+
+    # Get user inputs
+    radius = float(input("Enter the radius of the tank: "))
+    height = float(input("Enter the height of the tank: "))
+
     # Create a Circle object
-    circle = Circle(radius)
-    
+    tank = Tank(radius, height)
+
     # Perform calculations
-    area = circle.calculate_area()
-    circumference = circle.calculate_circumference()
-    
+    volume=tank.calculate_volume() 
+    capacity=tank.calculate_capacity()
+
     # Display results
-    print(f"The area of the circle is: {area}")
-    print(f"The circumference of the circle is: {circumference}")
+    print(f"The volume of the tank is: ${volume:.2f} cubic meters")
+    print(f"The capacity of the tank is: ${capacity:.2f} barrels")
+
+if __name__ == "__main__":
+    main()
