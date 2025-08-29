@@ -1,5 +1,5 @@
 
-#  Python Refresher
+#  Basics of Statistics in Python
 
 | Example  | Notebook  |
 |---|---|
