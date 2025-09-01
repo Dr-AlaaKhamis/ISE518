@@ -3,6 +3,7 @@
 
 | Example  | Notebook  |
 |---|---|
+| Exploratory data analysis on last-mile delivery data  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/2_Statistics/EDA_LaDe-D.ipynb)  |
 | Working with Data in Python  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/2_Statistics/Intro_Stats_RM_Section_1.ipynb)  |
 | Summarizing Data  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/2_Statistics/Intro_Stats_RM_Section_2.ipynb)  |
 | Probability Distributions  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/2_Statistics/Intro_Stats_RM_Section_3.ipynb)  |
