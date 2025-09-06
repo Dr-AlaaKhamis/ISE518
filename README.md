@@ -20,8 +20,7 @@ By the end of the course, participants will be able to
 - 🌐 Implement observability pipelines that use metrics, logs, traces, and dashboards for real‑time monitoring  
 
 ## 🗂️ Course Outline
-- 📚 Course Presentation: 👉 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L1-Course_Presentation.pdf) <iframe src="https://docs.google.com/gview?url=https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L1-Course_Presentation.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0">
-</iframe>
+- 📚 Course Presentation: 👉 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L1-Course_Presentation.pdf) 
 - 🐍 Python Refresher: 👉 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L2-Python-I.pdf), [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
 - 📈 Basics of Statistics: 👉 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L3-Statistics.pdf), [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
 - 🏭 Introduction to Reliability & Maintenance: 👉 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L4-RM.pdf), [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
