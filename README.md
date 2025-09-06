@@ -23,7 +23,7 @@ By the end of the course, participants will be able to
 - 🐍 [Python Refresher](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
 - 📈 [Basics of Statistics](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
 - 🏭 [Introduction to Reliability & Maintenance](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
-- 📊 **Introduction to Data Analytics**
+- 📊 [Introduction to Data Analytics](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Intro_DA)
 - 🗄️ **Data Sources**
 - ⚠️ **Data Imperfection Aspects**
 - 🛠️ **Data Preparation**
