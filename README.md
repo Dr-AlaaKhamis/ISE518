@@ -24,7 +24,7 @@ By the end of the course, participants will be able to
 - 🐍 Python Refresher: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L2-Python-I.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
 - 📈 Basics of Statistics: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L3-Statistics.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
 - 🏭 Introduction to Reliability & Maintenance: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L4-RM.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
-- 📊 **Introduction to Data Analytics**
+- 📊 Introduction to Data Analytics: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L5-Intro_to_DA.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Intro_DA)
 - 🗄️ **Data Sources**
 - ⚠️ **Data Imperfection Aspects**
 - 🛠️ **Data Preparation**
