@@ -25,7 +25,7 @@ By the end of the course, participants will be able to
 - 📈 Basics of Statistics: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L3-Statistics.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
 - 🏭 Introduction to Reliability & Maintenance: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L4-RM.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
 - 📊 Introduction to Data Analytics: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L5-Intro_to_DA.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Intro_DA)
-- 🗄️ Data Sources: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L6-Datafication.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/5_Datafication)
+- 🗄️ Datafication: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L6-Datafication.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/5_Datafication)
 - ⚠️ Data Imperfection Aspects
 - 🛠️ Data Preparation
 - 🧬 Feature Engineering
