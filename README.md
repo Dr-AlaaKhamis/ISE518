@@ -26,7 +26,7 @@ By the end of the course, participants will be able to
 - 🏭 Introduction to Reliability & Maintenance: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L4-RM.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
 - 📊 Introduction to Data Analytics: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L5-Intro_to_DA.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Intro_DA)
 - 🗄️ Datafication: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L6-Datafication.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/5_Datafication)
-- ⚠️ Data Imperfection Aspects
+- ⚠️ Data Imperfection Aspects: 📖 [Slides](), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
 - 🛠️ Data Preparation
 - 🧬 Feature Engineering
 - 📉 Descriptive Analytics
