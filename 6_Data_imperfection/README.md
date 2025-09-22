@@ -1,5 +1,5 @@
 
-#  Data Types
+#  Data Imperfection & Data Prep
 
 | Example  | Notebook  |
 |---|---|
