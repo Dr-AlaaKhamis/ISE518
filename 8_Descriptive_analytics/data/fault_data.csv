@@ -1,0 +1,507 @@
+Fault ID,Fault Type,"Fault Location (Latitude, Longitude)",Voltage (V),Current (A),Power Load (MW),Temperature (C),Wind Speed (km/h),Weather Condition,Maintenance Status,Component Health,Duration of Fault (hrs),Down time (hrs)
+F001,Line Breakage,"(34.0522, -118.2437)",2200,250,50,25,20,Clear,Scheduled,Normal,2,1
+F002,Transformer Failure,"(34.056, -118.245)",1800,180,45,28,15,Rainy,Completed,Faulty,3,5
+F003,Overheating,"(34.0525, -118.244)",2100,230,55,35,25,Windstorm,Pending,Overheated,4,6
+F004,Line Breakage,"(34.055, -118.242)",2050,240,48,23,10,Clear,Completed,Normal,2.5,3
+F005,Transformer Failure,"(34.0545, -118.243)",1900,190,50,30,18,Snowy,Scheduled,Faulty,3.5,4
+F006,Overheating,"(34.05, -118.24)",2150,220,52,32,22,Thunderstorm,Pending,Overheated,5,7
+F007,Line Breakage,"(34.9449, -118.9839)",1994,233,51,23,21,Snowy,Completed,Normal,3.7,6.1
+F008,Transformer Failure,"(34.2294, -118.2988)",2133,229,52,20,18,Snowy,Scheduled,Normal,5.4,2.1
+F009,Line Breakage,"(34.1279, -118.8442)",2155,240,45,21,29,Rainy,Pending,Overheated,3.2,4.7
+F010,Line Breakage,"(34.4192, -118.8254)",2065,199,55,25,21,Clear,Scheduled,Normal,4,2.8
+F011,Overheating,"(34.3732, -118.1586)",2118,221,45,20,20,Clear,Completed,Normal,4.9,1.9
+F012,Transformer Failure,"(34.0465, -118.623)",2106,247,47,25,13,Clear,Completed,Normal,2.4,6.9
+F013,Line Breakage,"(34.9687, -118.5356)",2012,248,52,24,29,Clear,Completed,Faulty,3.9,6.4
+F014,Line Breakage,"(34.3229, -118.46)",2289,192,52,35,28,Rainy,Scheduled,Normal,4.1,5.8
+F015,Line Breakage,"(34.2256, -118.9178)",1848,231,49,39,13,Rainy,Scheduled,Faulty,2.7,5
+F016,Transformer Failure,"(34.7105, -118.5379)",2102,246,53,38,18,Rainy,Completed,Faulty,3.5,1.9
+F017,Overheating,"(34.9346, -118.9658)",2263,229,55,21,16,Rainy,Scheduled,Normal,4.5,6
+F018,Line Breakage,"(34.1619, -118.6775)",2092,241,52,31,16,Thunderstorm,Completed,Faulty,6,3.7
+F019,Transformer Failure,"(34.5459, -118.8822)",1943,245,50,30,15,Snowy,Completed,Faulty,5.1,3.7
+F020,Line Breakage,"(34.668, -118.6576)",2065,213,46,31,23,Clear,Pending,Normal,2.4,6.9
+F021,Line Breakage,"(34.1203, -118.2873)",1864,224,49,34,23,Thunderstorm,Scheduled,Overheated,2.7,5.9
+F022,Overheating,"(34.1949, -118.16)",1913,182,48,31,26,Thunderstorm,Scheduled,Overheated,5.4,4.2
+F023,Overheating,"(34.3627, -118.7696)",2284,247,47,31,15,Clear,Pending,Normal,4.5,6.2
+F024,Line Breakage,"(34.8432, -118.2489)",1877,249,54,33,16,Snowy,Scheduled,Faulty,3.2,6.4
+F025,Transformer Failure,"(34.8937, -118.532)",1869,218,45,22,18,Thunderstorm,Pending,Faulty,2.8,5.4
+F026,Overheating,"(34.9593, -118.9408)",2010,197,47,35,15,Rainy,Completed,Normal,4.6,3.3
+F027,Line Breakage,"(34.2486, -118.6496)",1915,215,47,32,13,Thunderstorm,Pending,Normal,2.8,1.9
+F028,Transformer Failure,"(34.7606, -118.9892)",1860,246,49,36,13,Thunderstorm,Completed,Normal,4.6,2.8
+F029,Line Breakage,"(34.5413, -118.39)",1878,189,50,28,11,Windstorm,Completed,Normal,4.5,3.6
+F030,Line Breakage,"(34.8762, -118.3086)",2206,242,49,27,26,Clear,Scheduled,Overheated,4.4,4.6
+F031,Transformer Failure,"(34.2413, -118.15)",2053,235,51,21,30,Clear,Completed,Overheated,4.9,6.4
+F032,Overheating,"(34.5078, -118.5804)",2228,212,50,22,10,Clear,Pending,Faulty,3,4
+F033,Overheating,"(34.4338, -118.7342)",2199,242,53,39,28,Windstorm,Pending,Overheated,5.5,5
+F034,Line Breakage,"(34.6017, -118.4097)",2206,192,54,23,13,Rainy,Completed,Overheated,4.7,6.4
+F035,Transformer Failure,"(34.8153, -118.2817)",1820,224,55,34,24,Thunderstorm,Pending,Normal,5.8,5.9
+F036,Overheating,"(34.7444, -118.5682)",2264,183,48,38,15,Clear,Pending,Faulty,2.4,6.5
+F037,Line Breakage,"(34.7291, -118.1506)",1929,225,55,31,21,Rainy,Completed,Faulty,5.1,2.9
+F038,Overheating,"(34.991, -118.7368)",2206,200,48,37,27,Snowy,Pending,Faulty,5,5.7
+F039,Line Breakage,"(34.8447, -118.1434)",1970,225,54,37,17,Snowy,Completed,Normal,5.7,1.5
+F040,Transformer Failure,"(34.3129, -118.5028)",1895,228,48,28,25,Snowy,Completed,Faulty,5.6,5.5
+F041,Line Breakage,"(34.3228, -118.8885)",2097,219,53,40,27,Snowy,Pending,Overheated,2.7,4.7
+F042,Line Breakage,"(34.1986, -118.9095)",2106,231,49,24,20,Thunderstorm,Completed,Faulty,2.5,3.3
+F043,Overheating,"(34.8146, -118.1125)",1950,190,50,27,24,Clear,Scheduled,Overheated,2.6,7
+F044,Line Breakage,"(34.4945, -118.1668)",1912,211,48,34,30,Rainy,Scheduled,Normal,3.2,6.8
+F045,Overheating,"(34.4833, -118.5611)",2084,250,54,26,23,Rainy,Pending,Overheated,3.6,4.5
+F046,Transformer Failure,"(34.7468, -118.2933)",1986,213,51,31,21,Rainy,Completed,Overheated,3.4,6.7
+F047,Line Breakage,"(34.3217, -118.1726)",2159,211,53,38,14,Clear,Pending,Overheated,3.9,2.9
+F048,Overheating,"(34.2278, -118.6517)",2159,250,48,34,18,Thunderstorm,Scheduled,Faulty,4.5,4
+F049,Transformer Failure,"(34.0647, -118.0042)",1811,237,53,40,11,Snowy,Completed,Overheated,2.6,5.1
+F050,Line Breakage,"(34.9547, -118.7239)",1929,183,54,35,23,Rainy,Completed,Normal,4.6,2.9
+F051,Overheating,"(34.6747, -118.6695)",2091,245,51,24,27,Thunderstorm,Completed,Normal,5.9,1.3
+F052,Transformer Failure,"(34.5874, -118.2254)",1836,188,53,33,15,Rainy,Scheduled,Overheated,5.1,6.9
+F053,Line Breakage,"(34.0295, -118.0712)",2173,195,50,22,13,Windstorm,Pending,Overheated,5.8,3.3
+F054,Transformer Failure,"(34.3813, -118.5256)",2233,223,47,23,19,Snowy,Scheduled,Overheated,3.7,2.5
+F055,Line Breakage,"(34.1846, -118.5986)",1916,224,55,40,12,Snowy,Completed,Normal,4.1,1.1
+F056,Overheating,"(34.0609, -118.4429)",2149,227,46,25,10,Thunderstorm,Scheduled,Normal,3.3,2.8
+F057,Overheating,"(34.5634, -118.1406)",2289,202,48,40,29,Windstorm,Scheduled,Overheated,2.9,3.1
+F058,Overheating,"(34.9126, -118.4003)",2093,202,52,25,26,Rainy,Completed,Normal,4.5,6.6
+F059,Line Breakage,"(34.8072, -118.6883)",1949,193,50,25,28,Thunderstorm,Scheduled,Normal,4,4.6
+F060,Overheating,"(34.92, -118.0622)",2275,250,51,34,13,Thunderstorm,Scheduled,Faulty,3,1.8
+F061,Transformer Failure,"(34.1883, -118.5957)",1983,187,52,38,13,Thunderstorm,Scheduled,Overheated,4.6,6.5
+F062,Overheating,"(34.5751, -118.4681)",2001,249,55,26,19,Snowy,Scheduled,Faulty,5.1,2.8
+F063,Overheating,"(34.4263, -118.5649)",1842,242,45,35,13,Snowy,Pending,Faulty,4.4,2.8
+F064,Transformer Failure,"(34.7708, -118.3011)",2070,185,48,22,19,Thunderstorm,Pending,Overheated,4.2,4.8
+F065,Overheating,"(34.048, -118.972)",2294,218,51,26,21,Thunderstorm,Scheduled,Overheated,5.5,5.4
+F066,Overheating,"(34.8492, -118.4913)",2148,185,48,23,24,Rainy,Scheduled,Overheated,3.3,5.3
+F067,Transformer Failure,"(34.2067, -118.3596)",1807,185,51,26,13,Snowy,Scheduled,Normal,4.6,6.5
+F068,Transformer Failure,"(34.9844, -118.0129)",2223,209,50,32,11,Rainy,Scheduled,Overheated,3,5
+F069,Transformer Failure,"(34.6804, -118.2898)",2261,219,48,40,18,Windstorm,Pending,Normal,3.7,3.5
+F070,Transformer Failure,"(34.8426, -118.8105)",2198,242,49,39,10,Windstorm,Scheduled,Overheated,5.1,1.8
+F071,Overheating,"(34.223, -118.3624)",1859,200,52,22,15,Thunderstorm,Completed,Normal,5.8,2.5
+F072,Overheating,"(34.715, -118.305)",1945,248,49,29,28,Snowy,Scheduled,Normal,3.6,6.3
+F073,Line Breakage,"(34.9502, -118.4453)",2054,205,47,36,11,Windstorm,Completed,Normal,2.4,1.2
+F074,Transformer Failure,"(34.1845, -118.2375)",2212,188,48,33,29,Snowy,Completed,Overheated,2.6,4.6
+F075,Line Breakage,"(34.6629, -118.4964)",2298,204,48,30,11,Thunderstorm,Scheduled,Normal,3.4,6.7
+F076,Line Breakage,"(34.3501, -118.7994)",2129,187,51,32,14,Snowy,Pending,Normal,2.9,4.8
+F077,Transformer Failure,"(34.658, -118.5611)",2246,236,46,27,29,Thunderstorm,Completed,Overheated,2.6,4.3
+F078,Transformer Failure,"(34.0567, -118.3152)",2009,246,53,20,29,Rainy,Pending,Faulty,3.5,1.9
+F079,Line Breakage,"(34.6843, -118.9941)",1801,187,51,38,13,Rainy,Pending,Normal,4.3,1.4
+F080,Overheating,"(34.824, -118.5236)",2092,229,49,39,22,Windstorm,Pending,Normal,4.7,4.7
+F081,Transformer Failure,"(34.9801, -118.3633)",2045,199,52,37,21,Rainy,Scheduled,Faulty,4.5,2
+F082,Transformer Failure,"(34.9991, -118.1181)",1988,182,51,29,14,Clear,Completed,Faulty,4.8,4.2
+F083,Line Breakage,"(34.9875, -118.875)",2120,225,48,32,23,Windstorm,Completed,Overheated,3.8,6.7
+F084,Transformer Failure,"(34.3636, -118.674)",2004,197,53,26,17,Rainy,Pending,Normal,4.3,6.7
+F085,Overheating,"(34.6593, -118.3811)",2260,239,53,33,21,Snowy,Scheduled,Faulty,2.6,1.7
+F086,Overheating,"(34.4523, -118.0953)",2289,232,45,26,16,Snowy,Pending,Normal,4.6,6.6
+F087,Transformer Failure,"(34.1803, -118.557)",2155,206,51,38,15,Snowy,Pending,Overheated,4.3,1.9
+F088,Transformer Failure,"(34.5751, -118.1992)",1877,232,50,34,17,Rainy,Completed,Faulty,4.4,5.6
+F089,Overheating,"(34.7353, -118.1241)",2146,192,46,22,10,Clear,Scheduled,Faulty,5.4,2.9
+F090,Transformer Failure,"(34.203, -118.8494)",1909,219,46,31,29,Snowy,Pending,Faulty,3.9,5.2
+F091,Transformer Failure,"(34.3032, -118.1977)",1881,199,47,33,13,Thunderstorm,Pending,Faulty,2.6,4.3
+F092,Transformer Failure,"(34.6999, -118.7188)",2234,211,46,24,24,Clear,Scheduled,Normal,5.5,3.8
+F093,Transformer Failure,"(34.1705, -118.98)",2152,226,52,38,28,Rainy,Completed,Normal,5.9,6.7
+F094,Overheating,"(34.3438, -118.6602)",1843,227,46,25,14,Thunderstorm,Completed,Overheated,3.6,1.9
+F095,Overheating,"(34.1971, -118.3658)",1949,190,50,39,25,Clear,Pending,Overheated,3.7,2
+F096,Transformer Failure,"(34.192, -118.7198)",2066,183,52,30,15,Clear,Pending,Normal,4.8,2.6
+F097,Transformer Failure,"(34.3375, -118.7272)",2188,238,55,22,20,Thunderstorm,Scheduled,Normal,5.5,6.6
+F098,Line Breakage,"(34.7346, -118.9808)",1994,205,52,32,22,Clear,Pending,Overheated,3.1,3.3
+F099,Transformer Failure,"(34.8031, -118.1464)",2201,234,51,30,14,Snowy,Pending,Faulty,4.2,3.9
+F100,Transformer Failure,"(34.0833, -118.5501)",2143,190,55,30,26,Clear,Scheduled,Normal,5.2,1.6
+F101,Line Breakage,"(34.1771, -118.935)",2092,210,46,22,10,Clear,Pending,Faulty,5.5,4.7
+F102,Line Breakage,"(34.5828, -118.0344)",2296,238,55,30,13,Thunderstorm,Scheduled,Normal,4.8,2.2
+F103,Overheating,"(34.9266, -118.8144)",2167,191,45,33,17,Rainy,Scheduled,Overheated,2.3,2.9
+F104,Overheating,"(34.1926, -118.1824)",2162,243,54,25,25,Snowy,Pending,Overheated,4.4,6.2
+F105,Transformer Failure,"(34.1849, -118.9937)",1890,205,49,24,27,Thunderstorm,Scheduled,Overheated,2.5,5.6
+F106,Line Breakage,"(34.187, -118.6786)",1916,200,51,40,28,Snowy,Pending,Faulty,4,2.7
+F107,Transformer Failure,"(34.2509, -118.6552)",1923,247,45,40,18,Snowy,Scheduled,Normal,2.2,4
+F108,Overheating,"(34.0604, -118.2443)",2020,190,55,34,10,Clear,Completed,Overheated,5.1,6.5
+F109,Overheating,"(34.6811, -118.3218)",1833,213,50,34,21,Windstorm,Completed,Faulty,3.2,3.9
+F110,Overheating,"(34.9991, -118.8097)",2100,201,45,31,23,Windstorm,Completed,Faulty,5.7,6.1
+F111,Transformer Failure,"(34.4636, -118.1009)",2031,199,47,32,23,Clear,Scheduled,Faulty,3.5,6.2
+F112,Line Breakage,"(34.3994, -118.986)",2205,202,47,38,15,Rainy,Scheduled,Normal,3.6,1.9
+F113,Transformer Failure,"(34.1978, -118.5027)",1881,218,53,28,17,Rainy,Completed,Overheated,4.9,3.6
+F114,Line Breakage,"(34.4873, -118.3342)",1980,193,46,30,25,Thunderstorm,Completed,Normal,2.9,6.7
+F115,Line Breakage,"(34.4163, -118.987)",1957,200,50,40,19,Thunderstorm,Completed,Overheated,2.5,1.8
+F116,Transformer Failure,"(34.3411, -118.6266)",2152,196,50,38,25,Clear,Scheduled,Faulty,3.5,2.5
+F117,Transformer Failure,"(34.6883, -118.0899)",2262,220,55,35,18,Thunderstorm,Completed,Overheated,5.2,5.2
+F118,Line Breakage,"(34.9655, -118.2184)",2093,209,54,39,17,Rainy,Completed,Overheated,3.9,1.1
+F119,Overheating,"(34.8807, -118.6159)",1875,221,46,36,25,Windstorm,Pending,Overheated,3.1,3.7
+F120,Line Breakage,"(34.7913, -118.7238)",1873,226,45,35,17,Rainy,Pending,Normal,3.3,5.9
+F121,Transformer Failure,"(34.5619, -118.2163)",2289,220,52,30,29,Thunderstorm,Scheduled,Overheated,2.8,6.5
+F122,Overheating,"(34.1204, -118.2666)",2176,204,53,36,19,Rainy,Completed,Faulty,4.8,6.1
+F123,Transformer Failure,"(34.261, -118.8559)",1812,183,55,40,23,Clear,Completed,Faulty,5.1,7
+F124,Transformer Failure,"(34.6259, -118.4447)",2104,236,50,23,18,Windstorm,Completed,Normal,4.8,3.7
+F125,Line Breakage,"(34.5865, -118.6772)",1808,195,45,30,27,Windstorm,Completed,Normal,3.3,5.3
+F126,Overheating,"(34.0255, -118.5657)",1965,230,47,30,29,Clear,Pending,Faulty,3.3,5.5
+F127,Line Breakage,"(34.8833, -118.9441)",2167,196,52,22,12,Rainy,Scheduled,Normal,4.1,6.6
+F128,Line Breakage,"(34.0919, -118.6397)",1982,223,46,33,20,Clear,Completed,Faulty,4.2,4.1
+F129,Overheating,"(34.7897, -118.3054)",2080,191,48,34,15,Clear,Completed,Normal,3,4.9
+F130,Overheating,"(34.0242, -118.3571)",2157,208,52,21,11,Rainy,Scheduled,Normal,5.8,1.8
+F131,Transformer Failure,"(34.323, -118.244)",2143,230,45,36,19,Windstorm,Scheduled,Overheated,4.9,3.5
+F132,Line Breakage,"(34.0401, -118.4103)",1906,209,54,35,10,Snowy,Pending,Normal,4.3,3.2
+F133,Line Breakage,"(34.3972, -118.8477)",1803,216,49,37,21,Thunderstorm,Completed,Normal,5.3,5.5
+F134,Transformer Failure,"(34.3345, -118.6729)",1933,230,46,40,19,Windstorm,Scheduled,Faulty,4.4,4.9
+F135,Overheating,"(34.77, -118.7954)",1857,185,51,23,16,Rainy,Pending,Overheated,5,6
+F136,Overheating,"(34.2143, -118.4067)",1955,226,52,21,30,Rainy,Pending,Faulty,2.9,1.1
+F137,Line Breakage,"(34.2164, -118.8191)",1970,206,52,32,20,Windstorm,Completed,Overheated,5,6.5
+F138,Transformer Failure,"(34.5608, -118.7147)",2141,211,46,39,13,Clear,Scheduled,Overheated,2.2,1.1
+F139,Transformer Failure,"(34.9302, -118.6966)",1995,200,46,21,21,Rainy,Pending,Normal,5.9,5.5
+F140,Transformer Failure,"(34.0761, -118.5825)",1811,218,45,23,19,Rainy,Completed,Faulty,5.7,6.3
+F141,Line Breakage,"(34.1203, -118.3633)",2287,183,52,25,10,Clear,Scheduled,Overheated,2.9,6.2
+F142,Overheating,"(34.6949, -118.7269)",1811,241,46,24,16,Clear,Completed,Overheated,3.5,1.2
+F143,Transformer Failure,"(34.8305, -118.5876)",2298,181,54,21,12,Snowy,Pending,Faulty,4.9,2.2
+F144,Transformer Failure,"(34.0244, -118.728)",2246,204,48,34,10,Clear,Pending,Faulty,4.2,5.2
+F145,Line Breakage,"(34.7156, -118.2575)",1946,226,46,39,21,Windstorm,Completed,Overheated,2.7,5
+F146,Transformer Failure,"(34.7262, -118.4592)",1964,224,51,25,28,Windstorm,Completed,Faulty,5.9,5.6
+F147,Line Breakage,"(34.8142, -118.2483)",2053,249,51,31,23,Clear,Pending,Faulty,5.5,3
+F148,Transformer Failure,"(34.6455, -118.5492)",2076,201,45,30,26,Rainy,Pending,Faulty,4.2,6
+F149,Line Breakage,"(34.8511, -118.4263)",2300,206,51,22,23,Clear,Pending,Overheated,2.2,1.6
+F150,Line Breakage,"(34.2547, -118.4496)",2282,201,48,30,25,Clear,Completed,Overheated,5.3,3.2
+F151,Transformer Failure,"(34.5231, -118.1806)",1912,224,51,23,17,Windstorm,Scheduled,Overheated,5.6,2.1
+F152,Line Breakage,"(34.8932, -118.0307)",2209,193,52,24,12,Snowy,Scheduled,Faulty,3.2,2.3
+F153,Overheating,"(34.0966, -118.1855)",1812,182,45,29,13,Rainy,Scheduled,Overheated,2.3,2.5
+F154,Line Breakage,"(34.4219, -118.6425)",2006,181,54,29,20,Windstorm,Completed,Normal,3.2,4.7
+F155,Transformer Failure,"(34.6352, -118.4067)",2147,242,45,35,20,Snowy,Scheduled,Faulty,4.8,6.2
+F156,Transformer Failure,"(34.7529, -118.2302)",2016,224,55,35,10,Windstorm,Scheduled,Faulty,5,1.5
+F157,Transformer Failure,"(34.5437, -118.917)",2170,192,52,32,20,Rainy,Pending,Faulty,2.1,2.9
+F158,Overheating,"(34.8546, -118.7834)",2010,192,45,24,28,Clear,Pending,Faulty,2.3,2.1
+F159,Transformer Failure,"(34.6971, -118.6118)",2273,248,55,21,18,Thunderstorm,Scheduled,Overheated,4.1,2
+F160,Transformer Failure,"(34.2934, -118.8373)",1948,222,51,23,14,Clear,Scheduled,Faulty,3.9,1
+F161,Overheating,"(34.8068, -118.0946)",2195,228,45,29,15,Rainy,Completed,Overheated,4.3,4
+F162,Overheating,"(34.4447, -118.2992)",2266,194,46,25,14,Rainy,Pending,Overheated,4.3,3.6
+F163,Transformer Failure,"(34.7943, -118.57)",2162,247,50,40,27,Clear,Completed,Faulty,2.1,3.6
+F164,Overheating,"(34.4223, -118.9348)",1934,225,52,32,26,Rainy,Scheduled,Normal,2.1,1.5
+F165,Line Breakage,"(34.6646, -118.5539)",2079,227,53,28,25,Clear,Pending,Normal,4.3,1.7
+F166,Line Breakage,"(34.2322, -118.8526)",1868,230,45,31,11,Thunderstorm,Scheduled,Normal,4.1,2.6
+F167,Overheating,"(34.0089, -118.1196)",1870,220,48,35,16,Rainy,Pending,Faulty,3.9,2.3
+F168,Line Breakage,"(34.3879, -118.3666)",2077,189,47,24,26,Rainy,Scheduled,Faulty,4.1,6.9
+F169,Overheating,"(34.1647, -118.3731)",2011,226,48,28,23,Clear,Completed,Normal,5.5,5.7
+F170,Line Breakage,"(34.1926, -118.2735)",1991,230,52,39,17,Rainy,Completed,Overheated,5.8,4.1
+F171,Transformer Failure,"(34.646, -118.2446)",1880,210,54,36,19,Windstorm,Scheduled,Faulty,4.4,3.5
+F172,Overheating,"(34.0848, -118.1083)",1874,185,50,28,22,Snowy,Completed,Overheated,5.2,6.5
+F173,Transformer Failure,"(34.8363, -118.3947)",2270,219,52,36,25,Windstorm,Pending,Overheated,4.8,6.5
+F174,Overheating,"(34.5993, -118.2142)",1870,240,50,22,25,Snowy,Pending,Overheated,4.5,1.4
+F175,Overheating,"(34.2682, -118.7287)",1947,245,48,30,20,Rainy,Pending,Normal,3.4,2.8
+F176,Transformer Failure,"(34.5177, -118.5885)",1935,234,55,26,29,Rainy,Pending,Faulty,2.8,5.1
+F177,Overheating,"(34.5428, -118.6789)",2208,239,54,36,15,Clear,Pending,Overheated,5.5,4.8
+F178,Line Breakage,"(34.5981, -118.3666)",1972,203,55,35,21,Rainy,Completed,Faulty,4.9,6.6
+F179,Transformer Failure,"(34.5374, -118.8537)",2110,189,49,23,22,Thunderstorm,Completed,Normal,2.3,5.9
+F180,Transformer Failure,"(34.9278, -118.5452)",2081,215,53,38,23,Rainy,Completed,Normal,5.9,4.8
+F181,Transformer Failure,"(34.5953, -118.5236)",1998,220,46,24,15,Clear,Completed,Normal,2.2,1.4
+F182,Line Breakage,"(34.5485, -118.7316)",2201,192,55,33,16,Clear,Pending,Overheated,2.2,1.7
+F183,Overheating,"(34.7196, -118.7158)",1923,209,48,39,29,Thunderstorm,Completed,Overheated,3.4,2.4
+F184,Line Breakage,"(34.5537, -118.6833)",1912,201,51,26,27,Thunderstorm,Scheduled,Normal,2.4,5.4
+F185,Transformer Failure,"(34.8096, -118.8754)",1926,232,48,27,24,Thunderstorm,Scheduled,Normal,5.7,2.7
+F186,Line Breakage,"(34.2388, -118.6915)",2096,229,52,26,17,Clear,Scheduled,Faulty,4.8,3.7
+F187,Overheating,"(34.8881, -118.1494)",2184,228,45,37,18,Rainy,Pending,Faulty,3.7,6.3
+F188,Transformer Failure,"(34.3221, -118.501)",2115,229,52,39,16,Snowy,Scheduled,Overheated,2.3,6
+F189,Overheating,"(34.3777, -118.2119)",1906,207,50,31,22,Snowy,Scheduled,Overheated,3.2,2.4
+F190,Overheating,"(34.8777, -118.0393)",2151,211,55,22,24,Clear,Completed,Overheated,3.4,3.3
+F191,Transformer Failure,"(34.4363, -118.5547)",2017,191,51,28,21,Rainy,Completed,Faulty,5.6,2.6
+F192,Line Breakage,"(34.1685, -118.1464)",2130,246,54,36,16,Clear,Completed,Faulty,2.2,2.4
+F193,Overheating,"(34.9158, -118.9076)",2156,250,45,28,12,Thunderstorm,Completed,Faulty,2.6,1.8
+F194,Transformer Failure,"(34.2785, -118.084)",1917,232,49,25,26,Clear,Scheduled,Normal,4.5,4.4
+F195,Overheating,"(34.1759, -118.4521)",2282,234,47,27,10,Rainy,Pending,Overheated,2.3,5.6
+F196,Transformer Failure,"(34.8173, -118.8213)",1863,239,53,31,15,Rainy,Pending,Normal,3,1.1
+F197,Line Breakage,"(34.7663, -118.4868)",1810,244,53,21,22,Rainy,Scheduled,Normal,3.9,6.1
+F198,Line Breakage,"(34.8617, -118.1657)",2093,215,52,27,24,Rainy,Pending,Normal,4.9,2
+F199,Overheating,"(34.7545, -118.9329)",1993,197,45,29,24,Thunderstorm,Completed,Overheated,5,4.3
+F200,Overheating,"(34.4039, -118.4749)",2292,246,50,39,28,Windstorm,Completed,Overheated,5.7,2
+F201,Transformer Failure,"(34.1262, -118.9636)",1837,227,49,23,29,Windstorm,Completed,Faulty,3.2,1.1
+F202,Transformer Failure,"(34.1987, -118.984)",2022,198,52,38,14,Snowy,Completed,Normal,2.6,6.4
+F203,Transformer Failure,"(34.2529, -118.6008)",2164,239,50,26,24,Rainy,Completed,Normal,3,1.9
+F204,Overheating,"(34.9227, -118.7046)",1827,224,52,32,30,Windstorm,Scheduled,Overheated,3.2,5.9
+F205,Overheating,"(34.4771, -118.066)",2244,241,46,31,20,Rainy,Completed,Overheated,2.7,7
+F206,Line Breakage,"(34.7443, -118.4384)",1830,183,53,26,30,Thunderstorm,Completed,Normal,3.8,3
+F207,Overheating,"(34.4603, -118.3782)",1945,227,45,36,28,Clear,Completed,Faulty,3.7,4.1
+F208,Overheating,"(34.7793, -118.2713)",2089,244,46,24,22,Snowy,Pending,Overheated,3.8,5.3
+F209,Transformer Failure,"(34.144, -118.2379)",1900,191,54,32,18,Windstorm,Scheduled,Normal,2.2,1.1
+F210,Line Breakage,"(34.1945, -118.4307)",2013,199,51,37,28,Snowy,Scheduled,Normal,6,2
+F211,Line Breakage,"(34.2655, -118.5173)",1833,208,52,25,25,Clear,Scheduled,Overheated,3.8,6.4
+F212,Overheating,"(34.7279, -118.6279)",2040,213,54,37,27,Snowy,Pending,Overheated,3.3,1.9
+F213,Overheating,"(34.8354, -118.4102)",2149,215,54,27,17,Clear,Completed,Faulty,3.1,6.6
+F214,Transformer Failure,"(34.4989, -118.2757)",2007,186,54,29,18,Clear,Scheduled,Overheated,2.9,5.7
+F215,Line Breakage,"(34.4643, -118.8467)",1850,249,53,31,23,Windstorm,Completed,Overheated,3.3,1.5
+F216,Line Breakage,"(34.6231, -118.0515)",2139,188,50,21,23,Windstorm,Completed,Normal,3.7,6.9
+F217,Transformer Failure,"(34.9376, -118.8818)",1920,242,52,32,28,Rainy,Completed,Faulty,5.4,2.7
+F218,Overheating,"(34.8045, -118.6639)",2106,221,54,32,12,Clear,Scheduled,Normal,5.2,1.1
+F219,Overheating,"(34.4285, -118.1034)",2278,199,45,20,25,Rainy,Scheduled,Normal,3.2,6.1
+F220,Overheating,"(34.6857, -118.1732)",1982,191,45,25,19,Snowy,Scheduled,Normal,6,1.5
+F221,Line Breakage,"(34.6144, -118.1786)",1898,201,51,35,13,Snowy,Pending,Faulty,4.5,4.2
+F222,Overheating,"(34.2844, -118.9351)",2110,213,47,40,26,Clear,Completed,Overheated,2.9,2.7
+F223,Transformer Failure,"(34.8522, -118.335)",2155,240,52,31,26,Snowy,Completed,Overheated,4.8,3.4
+F224,Line Breakage,"(34.7943, -118.1529)",2141,221,48,27,24,Rainy,Pending,Normal,2.1,1.4
+F225,Line Breakage,"(34.1477, -118.0018)",1864,199,46,29,20,Snowy,Pending,Normal,4.9,3.6
+F226,Line Breakage,"(34.9299, -118.3317)",2143,250,54,29,16,Windstorm,Pending,Normal,3.5,3.3
+F227,Transformer Failure,"(34.0661, -118.9686)",2236,212,51,25,25,Windstorm,Pending,Faulty,5.1,6.2
+F228,Transformer Failure,"(34.1329, -118.6731)",2294,234,55,30,28,Rainy,Scheduled,Normal,5.8,3.5
+F229,Transformer Failure,"(34.8755, -118.6654)",1821,197,48,36,29,Windstorm,Completed,Normal,4.9,3.5
+F230,Line Breakage,"(34.6315, -118.2886)",2209,227,50,20,13,Windstorm,Pending,Normal,2.8,3
+F231,Overheating,"(34.8578, -118.2559)",1940,247,51,36,28,Thunderstorm,Pending,Normal,3.7,6.7
+F232,Line Breakage,"(34.455, -118.2809)",2080,217,53,34,11,Snowy,Completed,Normal,3.6,4.8
+F233,Line Breakage,"(34.4745, -118.1218)",2275,239,54,38,17,Snowy,Pending,Normal,3.8,2.8
+F234,Overheating,"(34.8522, -118.1833)",2142,212,51,28,10,Thunderstorm,Scheduled,Normal,2.9,5.9
+F235,Line Breakage,"(34.397, -118.57)",2290,189,49,37,27,Windstorm,Scheduled,Overheated,5.5,5.4
+F236,Overheating,"(34.788, -118.2311)",2139,186,52,38,16,Thunderstorm,Pending,Overheated,3.2,1.7
+F237,Line Breakage,"(34.9256, -118.611)",2171,222,47,37,30,Rainy,Scheduled,Overheated,3.7,3
+F238,Line Breakage,"(34.9466, -118.9793)",1866,213,47,29,18,Windstorm,Scheduled,Faulty,2.8,2
+F239,Line Breakage,"(34.7651, -118.7112)",2077,250,55,22,12,Rainy,Scheduled,Normal,5.8,1.4
+F240,Transformer Failure,"(34.9651, -118.8866)",2031,223,46,36,27,Windstorm,Pending,Normal,3.9,4.7
+F241,Line Breakage,"(34.3563, -118.908)",1890,229,48,37,18,Clear,Pending,Normal,6,2
+F242,Transformer Failure,"(34.1603, -118.1848)",2073,204,52,40,21,Clear,Completed,Faulty,5.2,3.6
+F243,Overheating,"(34.7759, -118.5975)",1885,204,54,40,25,Thunderstorm,Pending,Overheated,2.3,7
+F244,Line Breakage,"(34.8345, -118.0662)",2199,243,53,34,22,Snowy,Pending,Faulty,2.8,1.3
+F245,Transformer Failure,"(34.1881, -118.4291)",1808,227,55,30,23,Clear,Completed,Faulty,2.3,6.1
+F246,Overheating,"(34.5205, -118.2339)",2103,197,52,35,27,Thunderstorm,Pending,Faulty,2.5,5.9
+F247,Overheating,"(34.3171, -118.6879)",2220,234,49,21,13,Clear,Completed,Overheated,5.9,1.8
+F248,Transformer Failure,"(34.8157, -118.0007)",1943,223,51,22,26,Snowy,Scheduled,Faulty,3.2,2.8
+F249,Line Breakage,"(34.0261, -118.7148)",1894,191,47,36,29,Thunderstorm,Scheduled,Faulty,2.5,6.8
+F250,Transformer Failure,"(34.3183, -118.8763)",2095,207,54,22,17,Clear,Completed,Faulty,5.4,4.3
+F251,Overheating,"(34.913, -118.9203)",2164,250,54,37,19,Thunderstorm,Pending,Faulty,2.4,3.4
+F252,Line Breakage,"(34.3119, -118.122)",1847,222,49,21,14,Clear,Scheduled,Overheated,2,6.3
+F253,Line Breakage,"(34.4692, -118.6389)",2077,193,49,25,28,Thunderstorm,Scheduled,Normal,3.3,2.1
+F254,Overheating,"(34.7007, -118.8961)",2215,182,52,26,14,Rainy,Pending,Overheated,4,6.9
+F255,Line Breakage,"(34.6814, -118.1249)",2095,204,52,37,17,Clear,Completed,Normal,4.5,3.3
+F256,Overheating,"(34.2927, -118.8638)",2298,232,54,29,18,Rainy,Pending,Normal,4.8,2.5
+F257,Overheating,"(34.4977, -118.0222)",2007,204,49,24,28,Rainy,Pending,Overheated,2.5,5
+F258,Line Breakage,"(34.7111, -118.7691)",1927,185,46,32,14,Rainy,Completed,Normal,4.3,4.9
+F259,Overheating,"(34.1108, -118.3038)",2011,193,50,26,24,Rainy,Scheduled,Overheated,4.6,1.7
+F260,Transformer Failure,"(34.3251, -118.5889)",2137,246,55,28,24,Rainy,Pending,Normal,2.8,3.1
+F261,Overheating,"(34.8581, -118.3377)",2050,242,49,33,11,Snowy,Scheduled,Faulty,3.9,1.4
+F262,Line Breakage,"(34.7483, -118.4757)",1904,232,46,29,14,Snowy,Completed,Normal,3.7,1.1
+F263,Overheating,"(34.0653, -118.5456)",1955,208,52,26,18,Windstorm,Completed,Faulty,2.6,2.3
+F264,Line Breakage,"(34.0171, -118.7656)",2048,229,48,37,26,Rainy,Scheduled,Faulty,4.9,4.1
+F265,Overheating,"(34.0988, -118.138)",2064,219,51,20,12,Thunderstorm,Scheduled,Normal,5.6,2.5
+F266,Line Breakage,"(34.7577, -118.3316)",2084,247,47,40,25,Thunderstorm,Scheduled,Normal,5.8,3
+F267,Overheating,"(34.7697, -118.5803)",1974,180,52,26,15,Clear,Pending,Faulty,4.9,3.5
+F268,Overheating,"(34.8046, -118.4138)",2121,231,55,39,28,Thunderstorm,Completed,Normal,3.5,4.7
+F269,Line Breakage,"(34.3247, -118.1422)",1982,240,48,37,20,Windstorm,Scheduled,Faulty,5.8,1.1
+F270,Line Breakage,"(34.1032, -118.1041)",1918,232,45,26,24,Windstorm,Pending,Overheated,2.3,5.1
+F271,Overheating,"(34.4413, -118.8643)",2177,207,48,31,13,Clear,Completed,Normal,5.7,3.5
+F272,Transformer Failure,"(34.643, -118.1102)",2257,206,46,30,17,Thunderstorm,Scheduled,Normal,5.2,5.7
+F273,Overheating,"(34.7464, -118.0617)",1923,185,52,28,27,Rainy,Pending,Overheated,4.9,6.6
+F274,Transformer Failure,"(34.8171, -118.7836)",2010,222,46,22,26,Thunderstorm,Scheduled,Overheated,3.1,3.6
+F275,Transformer Failure,"(34.9347, -118.2467)",2084,201,45,23,30,Thunderstorm,Scheduled,Overheated,3.1,2
+F276,Line Breakage,"(34.2342, -118.9548)",1891,205,48,26,14,Snowy,Completed,Normal,4.6,2.4
+F277,Line Breakage,"(34.0315, -118.2743)",2170,206,50,40,19,Windstorm,Scheduled,Overheated,2.3,6.4
+F278,Transformer Failure,"(34.3781, -118.8286)",1817,248,47,33,13,Clear,Scheduled,Normal,2.3,3.5
+F279,Transformer Failure,"(34.2293, -118.1874)",1936,246,53,36,28,Thunderstorm,Completed,Faulty,2.6,7
+F280,Overheating,"(34.6605, -118.7844)",2029,234,47,39,24,Snowy,Completed,Faulty,4.4,6.6
+F281,Line Breakage,"(34.1963, -118.7045)",2195,248,52,22,28,Clear,Pending,Normal,5.6,2.4
+F282,Overheating,"(34.5335, -118.1428)",2086,241,51,40,28,Rainy,Scheduled,Overheated,2.7,6.3
+F283,Line Breakage,"(34.2405, -118.9492)",2239,249,46,27,27,Thunderstorm,Scheduled,Faulty,4.1,1.6
+F284,Transformer Failure,"(34.3321, -118.8638)",1891,185,51,35,16,Rainy,Scheduled,Overheated,4.5,4.1
+F285,Overheating,"(34.4423, -118.5779)",2124,249,46,30,24,Rainy,Pending,Faulty,6,3
+F286,Line Breakage,"(34.7655, -118.22)",2196,183,45,22,20,Rainy,Pending,Overheated,4.3,1.5
+F287,Line Breakage,"(34.4808, -118.1946)",2024,248,55,31,11,Thunderstorm,Scheduled,Overheated,2.6,3.1
+F288,Transformer Failure,"(34.6722, -118.2053)",2058,217,49,28,15,Clear,Pending,Normal,4.4,4.5
+F289,Transformer Failure,"(34.2872, -118.4778)",2193,189,47,25,19,Thunderstorm,Pending,Normal,3.3,3.8
+F290,Overheating,"(34.4347, -118.9737)",2106,186,45,28,17,Windstorm,Completed,Overheated,3.4,3.2
+F291,Overheating,"(34.2751, -118.85)",1993,195,48,33,14,Snowy,Pending,Normal,6,3.2
+F292,Line Breakage,"(34.3662, -118.1784)",2201,228,45,37,11,Windstorm,Scheduled,Faulty,2.8,3.5
+F293,Overheating,"(34.5583, -118.3819)",2202,182,54,40,26,Rainy,Scheduled,Normal,2.2,5.8
+F294,Line Breakage,"(34.8653, -118.7472)",2070,195,53,36,10,Snowy,Pending,Overheated,3,6.1
+F295,Line Breakage,"(34.5475, -118.5264)",2250,211,53,26,22,Rainy,Pending,Overheated,2.3,2.6
+F296,Line Breakage,"(34.673, -118.8585)",2004,217,47,36,28,Snowy,Completed,Faulty,2.6,2.5
+F297,Transformer Failure,"(34.7565, -118.8695)",2169,247,51,26,13,Snowy,Completed,Normal,3.8,1.2
+F298,Transformer Failure,"(34.2916, -118.0178)",1999,200,50,31,19,Clear,Scheduled,Faulty,5.2,5.3
+F299,Transformer Failure,"(34.3399, -118.3168)",1950,204,45,22,25,Windstorm,Completed,Faulty,5.2,6.2
+F300,Overheating,"(34.5757, -118.1853)",2058,182,48,23,21,Rainy,Pending,Overheated,4,2.1
+F301,Transformer Failure,"(34.3316, -118.0275)",2038,187,55,30,11,Snowy,Pending,Overheated,2.2,6.1
+F302,Line Breakage,"(34.2046, -118.7839)",2296,225,48,36,18,Thunderstorm,Completed,Overheated,2.5,5.4
+F303,Line Breakage,"(34.8059, -118.9099)",2164,238,53,34,13,Thunderstorm,Scheduled,Overheated,5.9,2.4
+F304,Line Breakage,"(34.6309, -118.802)",1910,197,51,40,20,Rainy,Scheduled,Faulty,5.4,5.3
+F305,Line Breakage,"(34.9181, -118.3881)",2058,243,50,32,13,Windstorm,Pending,Faulty,5.1,5.3
+F306,Overheating,"(34.8918, -118.9893)",1894,206,45,20,28,Clear,Completed,Faulty,2.4,1.8
+F307,Overheating,"(34.5239, -118.9869)",2152,228,50,35,30,Windstorm,Completed,Overheated,3.1,6.9
+F308,Line Breakage,"(34.9604, -118.0921)",2269,180,54,26,22,Snowy,Pending,Faulty,2.5,1.3
+F309,Transformer Failure,"(34.6037, -118.1915)",2245,247,55,38,19,Clear,Pending,Faulty,2.9,3.4
+F310,Transformer Failure,"(34.343, -118.9736)",1871,232,48,25,15,Rainy,Pending,Overheated,4,1.4
+F311,Transformer Failure,"(34.275, -118.6623)",1839,191,49,21,19,Rainy,Pending,Overheated,3.6,5.5
+F312,Transformer Failure,"(34.6305, -118.222)",1972,210,52,32,23,Windstorm,Pending,Normal,4.1,1.6
+F313,Overheating,"(34.1288, -118.2197)",1809,185,48,21,26,Rainy,Completed,Faulty,3.6,4.6
+F314,Line Breakage,"(34.3863, -118.3151)",1837,221,48,23,15,Rainy,Completed,Faulty,3.4,5.9
+F315,Overheating,"(34.5503, -118.5638)",1855,242,55,35,23,Thunderstorm,Pending,Normal,4.5,6.9
+F316,Transformer Failure,"(34.2904, -118.0369)",1859,210,49,37,10,Thunderstorm,Completed,Normal,3.4,2.4
+F317,Overheating,"(34.9127, -118.2633)",2070,197,51,21,16,Rainy,Pending,Faulty,4.5,1.7
+F318,Line Breakage,"(34.667, -118.5485)",2155,182,54,21,26,Snowy,Pending,Overheated,4.8,5.8
+F319,Transformer Failure,"(34.5741, -118.065)",2165,237,49,38,15,Windstorm,Pending,Overheated,4.3,6.7
+F320,Transformer Failure,"(34.7666, -118.4273)",1992,217,53,40,29,Thunderstorm,Pending,Overheated,4.7,5.6
+F321,Transformer Failure,"(34.0897, -118.4778)",1874,248,50,38,22,Thunderstorm,Scheduled,Normal,3.3,1.6
+F322,Line Breakage,"(34.7723, -118.1127)",2091,204,47,26,13,Rainy,Scheduled,Faulty,5.1,5.7
+F323,Transformer Failure,"(34.4042, -118.4402)",2280,187,51,39,10,Thunderstorm,Completed,Normal,3.6,1.7
+F324,Transformer Failure,"(34.9723, -118.9695)",2026,202,48,29,27,Rainy,Pending,Overheated,2.9,5
+F325,Overheating,"(34.9079, -118.3498)",2260,246,47,37,10,Snowy,Scheduled,Faulty,5.8,6.3
+F326,Line Breakage,"(34.9816, -118.0978)",2089,235,50,20,27,Rainy,Completed,Overheated,5.1,4.3
+F327,Line Breakage,"(34.4341, -118.734)",2201,250,51,38,22,Snowy,Completed,Overheated,2.3,6
+F328,Line Breakage,"(34.5618, -118.1913)",1850,198,48,36,20,Thunderstorm,Completed,Normal,3,2.2
+F329,Transformer Failure,"(34.3987, -118.851)",2100,219,53,28,30,Clear,Scheduled,Normal,3.9,2.3
+F330,Line Breakage,"(34.6677, -118.4861)",2107,230,51,22,11,Clear,Completed,Overheated,2.8,1.5
+F331,Line Breakage,"(34.8143, -118.6652)",2296,183,45,22,22,Thunderstorm,Scheduled,Overheated,4.6,1.5
+F332,Overheating,"(34.6065, -118.1422)",1964,186,52,33,15,Thunderstorm,Scheduled,Overheated,5.8,4.9
+F333,Overheating,"(34.1436, -118.27)",1912,215,49,20,25,Windstorm,Completed,Overheated,3.1,2
+F334,Overheating,"(34.9429, -118.1146)",2171,231,51,24,29,Rainy,Completed,Normal,4.2,1.6
+F335,Transformer Failure,"(34.725, -118.174)",2272,229,45,25,28,Thunderstorm,Scheduled,Faulty,2.1,6.6
+F336,Overheating,"(34.5335, -118.9328)",1899,205,48,34,17,Clear,Scheduled,Faulty,3.4,6.6
+F337,Line Breakage,"(34.3447, -118.039)",1855,239,53,22,24,Clear,Scheduled,Normal,4.7,1.5
+F338,Line Breakage,"(34.0005, -118.8874)",2184,234,48,36,20,Rainy,Completed,Faulty,4.2,6.9
+F339,Transformer Failure,"(34.1213, -118.7817)",1838,249,49,29,18,Thunderstorm,Scheduled,Overheated,5.8,6.2
+F340,Transformer Failure,"(34.0478, -118.1359)",1950,245,45,23,23,Snowy,Completed,Normal,2.9,2.2
+F341,Transformer Failure,"(34.832, -118.6016)",2073,193,47,34,25,Thunderstorm,Scheduled,Normal,2.3,6
+F342,Overheating,"(34.0923, -118.5084)",2220,248,47,23,30,Rainy,Completed,Overheated,5.7,3.5
+F343,Overheating,"(34.5461, -118.2655)",2051,236,48,33,17,Thunderstorm,Scheduled,Normal,5.4,2.1
+F344,Overheating,"(34.9959, -118.5916)",1973,209,54,34,10,Windstorm,Pending,Overheated,4.2,4.8
+F345,Transformer Failure,"(34.6807, -118.0055)",2032,241,45,32,25,Rainy,Completed,Overheated,5.1,1.9
+F346,Line Breakage,"(34.3651, -118.9977)",2076,198,46,25,15,Rainy,Pending,Faulty,3.3,2
+F347,Transformer Failure,"(34.6787, -118.3404)",1807,222,53,34,13,Snowy,Completed,Overheated,2.6,1.4
+F348,Overheating,"(34.7701, -118.8258)",2092,197,50,38,22,Windstorm,Pending,Normal,4.2,4.2
+F349,Overheating,"(34.2685, -118.57)",2111,249,49,37,10,Rainy,Scheduled,Normal,5.4,5.8
+F350,Overheating,"(34.6918, -118.7702)",2230,249,51,39,18,Thunderstorm,Completed,Overheated,2.5,6.3
+F351,Transformer Failure,"(34.8461, -118.3903)",2083,188,55,22,19,Snowy,Completed,Overheated,4.2,3.7
+F352,Line Breakage,"(34.6953, -118.5586)",1982,202,48,37,22,Windstorm,Completed,Faulty,2.8,5.6
+F353,Overheating,"(34.1868, -118.0661)",2031,215,51,22,29,Clear,Pending,Overheated,4.7,3.8
+F354,Overheating,"(34.5322, -118.6155)",1876,235,53,35,14,Rainy,Completed,Overheated,4.3,4
+F355,Overheating,"(34.0382, -118.3567)",1962,247,45,32,30,Rainy,Pending,Overheated,5.2,3.2
+F356,Overheating,"(34.2693, -118.9701)",2258,226,51,32,29,Snowy,Pending,Faulty,4.3,1.2
+F357,Line Breakage,"(34.1679, -118.1002)",1890,223,50,28,18,Rainy,Pending,Faulty,3.8,3.4
+F358,Line Breakage,"(34.353, -118.1848)",1950,203,55,27,30,Rainy,Pending,Overheated,5,6.1
+F359,Transformer Failure,"(34.8303, -118.7778)",2281,204,53,38,13,Snowy,Completed,Normal,3,5.1
+F360,Transformer Failure,"(34.1866, -118.2385)",2169,241,47,30,22,Rainy,Pending,Normal,3.6,4.5
+F361,Overheating,"(34.2223, -118.4703)",2200,227,46,27,26,Clear,Pending,Overheated,3.6,3.2
+F362,Overheating,"(34.4896, -118.7372)",1997,221,45,39,20,Windstorm,Pending,Faulty,5.3,2.3
+F363,Line Breakage,"(34.3066, -118.3768)",2249,245,54,22,13,Windstorm,Pending,Faulty,2.7,2.2
+F364,Overheating,"(34.3336, -118.764)",2206,184,46,31,16,Windstorm,Completed,Normal,3.3,3.7
+F365,Transformer Failure,"(34.8276, -118.7977)",1910,202,50,39,16,Windstorm,Completed,Overheated,5.4,4.1
+F366,Line Breakage,"(34.7988, -118.5527)",1962,185,45,39,18,Rainy,Pending,Overheated,5.2,2.7
+F367,Line Breakage,"(34.0352, -118.6461)",2033,229,54,36,13,Thunderstorm,Pending,Faulty,4.2,4.6
+F368,Line Breakage,"(34.7578, -118.9933)",1984,196,48,36,26,Thunderstorm,Completed,Faulty,2.7,1.8
+F369,Transformer Failure,"(34.5574, -118.0871)",2197,234,51,21,20,Thunderstorm,Pending,Faulty,5.2,3.7
+F370,Transformer Failure,"(34.2795, -118.1374)",1870,243,50,36,20,Snowy,Pending,Overheated,3.4,4.5
+F371,Transformer Failure,"(34.7966, -118.6827)",2164,216,47,36,14,Snowy,Pending,Normal,5.9,5.9
+F372,Transformer Failure,"(34.9854, -118.9746)",2277,180,45,21,14,Snowy,Completed,Overheated,2.9,4.9
+F373,Line Breakage,"(34.0727, -118.7636)",2129,194,50,30,12,Rainy,Scheduled,Faulty,3.4,1.2
+F374,Line Breakage,"(34.6334, -118.5743)",2177,203,55,23,19,Snowy,Completed,Overheated,4.1,3.3
+F375,Overheating,"(34.62, -118.2833)",1873,243,48,33,24,Windstorm,Pending,Faulty,4.6,1.9
+F376,Line Breakage,"(34.1297, -118.154)",2178,201,50,29,16,Clear,Pending,Normal,5.2,2
+F377,Overheating,"(34.8077, -118.8941)",1868,204,46,24,16,Thunderstorm,Scheduled,Overheated,2,2.8
+F378,Line Breakage,"(34.059, -118.2617)",2253,191,53,27,23,Snowy,Completed,Normal,2.8,4.3
+F379,Transformer Failure,"(34.0242, -118.8349)",2041,231,53,22,24,Rainy,Scheduled,Faulty,3.9,2.9
+F380,Overheating,"(34.9733, -118.438)",1936,241,47,32,14,Thunderstorm,Scheduled,Faulty,2.6,1.5
+F381,Overheating,"(34.7419, -118.6176)",2136,250,48,23,22,Clear,Pending,Normal,4.9,6.8
+F382,Overheating,"(34.4688, -118.9367)",2151,207,48,34,16,Thunderstorm,Pending,Overheated,5.9,6.7
+F383,Line Breakage,"(34.3258, -118.8275)",2095,207,51,25,13,Windstorm,Completed,Overheated,5.4,1.5
+F384,Transformer Failure,"(34.2363, -118.4493)",1921,201,50,40,21,Rainy,Pending,Overheated,2.8,4.3
+F385,Transformer Failure,"(34.2668, -118.8778)",2171,239,52,27,15,Windstorm,Completed,Normal,5.8,4.4
+F386,Transformer Failure,"(34.8654, -118.4224)",2287,243,54,23,15,Windstorm,Pending,Overheated,3.8,2.1
+F387,Line Breakage,"(34.4401, -118.8379)",1969,211,55,39,24,Thunderstorm,Completed,Overheated,2.5,3.9
+F388,Transformer Failure,"(34.1383, -118.0488)",2284,246,48,24,14,Clear,Pending,Normal,2.5,3.2
+F389,Overheating,"(34.7906, -118.137)",2080,204,47,21,11,Snowy,Pending,Faulty,4.4,6.6
+F390,Transformer Failure,"(34.5186, -118.4941)",2091,236,50,26,21,Thunderstorm,Completed,Normal,2.9,4.2
+F391,Line Breakage,"(34.7987, -118.0775)",2204,185,48,20,18,Snowy,Scheduled,Faulty,4.6,5.9
+F392,Overheating,"(34.3207, -118.5398)",1977,200,48,38,12,Clear,Scheduled,Overheated,4.3,5.7
+F393,Overheating,"(34.9418, -118.2507)",2139,183,46,29,16,Windstorm,Completed,Overheated,5.5,4.1
+F394,Line Breakage,"(34.6121, -118.8037)",1802,233,52,22,16,Thunderstorm,Completed,Normal,4.4,1.7
+F395,Transformer Failure,"(34.0484, -118.8491)",1877,194,48,25,13,Windstorm,Completed,Faulty,5,1.8
+F396,Line Breakage,"(34.6058, -118.254)",1845,194,46,32,22,Clear,Scheduled,Normal,2.2,4.7
+F397,Line Breakage,"(34.4465, -118.277)",2138,247,52,27,16,Thunderstorm,Pending,Overheated,2.9,2.8
+F398,Line Breakage,"(34.4314, -118.6627)",2074,181,55,25,24,Snowy,Pending,Normal,2.6,5.7
+F399,Line Breakage,"(34.1005, -118.7155)",2204,230,55,36,14,Snowy,Scheduled,Overheated,4.7,6.9
+F400,Line Breakage,"(34.5963, -118.6244)",1808,204,50,31,22,Clear,Pending,Overheated,4.6,5.8
+F401,Line Breakage,"(34.7157, -118.4311)",1976,196,54,35,10,Clear,Scheduled,Faulty,2.5,2.7
+F402,Transformer Failure,"(34.9352, -118.4503)",2076,226,51,29,14,Rainy,Scheduled,Faulty,5.8,6.3
+F403,Line Breakage,"(34.0256, -118.0099)",2276,186,51,23,21,Thunderstorm,Scheduled,Faulty,2.9,4
+F404,Line Breakage,"(34.1664, -118.3806)",2026,190,51,33,28,Clear,Completed,Normal,2.5,6.2
+F405,Overheating,"(34.6501, -118.0989)",1975,220,49,25,30,Clear,Scheduled,Overheated,4.8,2.7
+F406,Line Breakage,"(34.0586, -118.9831)",1985,231,52,38,30,Windstorm,Completed,Faulty,5.6,2.8
+F407,Line Breakage,"(34.3709, -118.4099)",2198,224,50,29,23,Rainy,Scheduled,Faulty,3.9,1.6
+F408,Transformer Failure,"(34.4617, -118.9973)",1822,187,46,36,13,Clear,Scheduled,Normal,5.2,5.4
+F409,Transformer Failure,"(34.5538, -118.8996)",2004,215,46,35,15,Windstorm,Pending,Normal,4.2,4.1
+F410,Overheating,"(34.6702, -118.5522)",1875,183,46,30,11,Windstorm,Scheduled,Normal,4,3.5
+F411,Line Breakage,"(34.2465, -118.5381)",1917,222,46,21,19,Snowy,Pending,Faulty,4,2.2
+F412,Transformer Failure,"(34.175, -118.2959)",1812,182,54,33,15,Snowy,Pending,Overheated,4.7,3.7
+F413,Overheating,"(34.4295, -118.7462)",1815,206,46,37,10,Snowy,Scheduled,Overheated,5.2,5.7
+F414,Overheating,"(34.4026, -118.1774)",2270,236,49,33,22,Windstorm,Scheduled,Normal,3.4,1.4
+F415,Line Breakage,"(34.8307, -118.3005)",2043,182,45,21,18,Windstorm,Completed,Faulty,2.4,6.8
+F416,Overheating,"(34.5893, -118.2449)",2207,194,45,34,28,Windstorm,Pending,Faulty,2.5,2.5
+F417,Line Breakage,"(34.749, -118.7373)",1920,249,53,22,28,Snowy,Pending,Normal,3.3,5
+F418,Overheating,"(34.0658, -118.2155)",1821,212,54,39,26,Clear,Pending,Faulty,4.6,4.6
+F419,Transformer Failure,"(34.9293, -118.605)",2110,247,52,40,17,Clear,Scheduled,Faulty,4.4,5.1
+F420,Transformer Failure,"(34.3822, -118.4435)",1949,193,51,32,13,Rainy,Scheduled,Faulty,3.1,1.3
+F421,Transformer Failure,"(34.571, -118.7518)",2225,202,50,33,15,Rainy,Pending,Overheated,5.9,5
+F422,Overheating,"(34.2891, -118.4315)",1858,237,45,22,18,Rainy,Completed,Overheated,2.6,2.3
+F423,Line Breakage,"(34.5156, -118.1802)",2076,201,46,22,23,Clear,Scheduled,Overheated,4.7,1.2
+F424,Overheating,"(34.6278, -118.9049)",2276,249,46,27,21,Thunderstorm,Pending,Overheated,4.4,6.3
+F425,Overheating,"(34.4486, -118.8534)",1857,190,52,20,27,Thunderstorm,Pending,Overheated,5.9,6.6
+F426,Overheating,"(34.0305, -118.1797)",1836,249,51,28,19,Thunderstorm,Scheduled,Normal,5,3.7
+F427,Transformer Failure,"(34.5219, -118.2626)",1919,236,53,31,24,Clear,Pending,Normal,2.2,1.2
+F428,Overheating,"(34.0468, -118.5257)",2042,191,47,26,22,Thunderstorm,Scheduled,Faulty,4.4,1.5
+F429,Overheating,"(34.668, -118.0659)",2061,243,55,38,18,Rainy,Pending,Overheated,3.7,6.4
+F430,Line Breakage,"(34.4634, -118.2478)",2096,241,55,40,11,Snowy,Scheduled,Overheated,3.4,5.3
+F431,Transformer Failure,"(34.9047, -118.9116)",2097,234,46,31,23,Clear,Completed,Overheated,4.6,2.1
+F432,Transformer Failure,"(34.6742, -118.1915)",2083,208,50,32,21,Clear,Completed,Overheated,5.2,5.8
+F433,Overheating,"(34.6412, -118.8183)",2127,185,54,33,30,Snowy,Pending,Faulty,3.5,2.5
+F434,Transformer Failure,"(34.9356, -118.5707)",1936,237,53,29,14,Clear,Completed,Normal,2.6,3
+F435,Transformer Failure,"(34.1423, -118.0188)",1982,211,55,33,18,Thunderstorm,Pending,Normal,2,6.8
+F436,Line Breakage,"(34.2659, -118.5999)",2156,244,48,39,11,Windstorm,Scheduled,Faulty,3.6,1.9
+F437,Overheating,"(34.4452, -118.4242)",2017,182,54,22,12,Snowy,Scheduled,Normal,6,1.7
+F438,Overheating,"(34.2483, -118.3388)",2107,200,48,33,13,Rainy,Scheduled,Faulty,4.9,6.4
+F439,Transformer Failure,"(34.1866, -118.7514)",2270,212,50,37,26,Clear,Completed,Faulty,5.1,5.2
+F440,Line Breakage,"(34.3603, -118.0439)",2184,218,52,24,18,Clear,Pending,Normal,3.7,4.9
+F441,Line Breakage,"(34.697, -118.7264)",2203,233,51,22,25,Windstorm,Pending,Normal,5.1,1.8
+F442,Transformer Failure,"(34.5945, -118.4268)",2079,185,53,37,10,Windstorm,Completed,Overheated,2.6,2.6
+F443,Transformer Failure,"(34.2709, -118.483)",1853,208,50,39,15,Windstorm,Pending,Faulty,5.8,4.3
+F444,Overheating,"(34.6632, -118.3826)",2268,211,54,32,29,Thunderstorm,Completed,Faulty,5.7,3.3
+F445,Transformer Failure,"(34.6887, -118.1333)",1967,223,54,28,20,Clear,Scheduled,Normal,4.5,5.3
+F446,Overheating,"(34.1806, -118.1552)",2199,241,50,27,22,Clear,Completed,Normal,2.3,1.5
+F447,Overheating,"(34.7282, -118.7729)",2105,248,53,32,16,Windstorm,Completed,Normal,3.6,5.3
+F448,Line Breakage,"(34.1, -118.4207)",1967,227,54,21,22,Windstorm,Scheduled,Normal,2.1,4.9
+F449,Overheating,"(34.3011, -118.8641)",2071,212,47,21,19,Windstorm,Completed,Overheated,5.5,5.7
+F450,Overheating,"(34.8616, -118.3866)",2020,243,51,21,20,Windstorm,Completed,Normal,2.1,5.7
+F451,Transformer Failure,"(34.3147, -118.1348)",2050,236,50,37,10,Thunderstorm,Completed,Faulty,5.1,6.8
+F452,Line Breakage,"(34.7813, -118.1947)",1814,234,47,27,21,Snowy,Completed,Faulty,5.1,6.1
+F453,Line Breakage,"(34.7704, -118.6635)",1948,186,46,32,30,Snowy,Pending,Overheated,3.4,6.6
+F454,Line Breakage,"(34.6948, -118.3247)",1882,203,46,25,14,Snowy,Scheduled,Faulty,3.7,6.3
+F455,Overheating,"(34.6566, -118.6894)",1868,220,54,22,22,Clear,Scheduled,Normal,2.7,5.3
+F456,Line Breakage,"(34.0923, -118.0893)",2236,244,49,37,26,Windstorm,Scheduled,Normal,5,6.9
+F457,Line Breakage,"(34.1083, -118.4112)",2002,241,52,37,14,Rainy,Scheduled,Normal,4.3,6.3
+F458,Transformer Failure,"(34.4441, -118.2144)",1806,214,52,24,23,Snowy,Scheduled,Overheated,5.2,1.5
+F459,Overheating,"(34.1109, -118.8354)",1904,247,49,27,25,Snowy,Scheduled,Faulty,3.4,4.5
+F460,Transformer Failure,"(34.8664, -118.4677)",2036,250,50,40,15,Snowy,Completed,Overheated,2.7,1.8
+F461,Overheating,"(34.5575, -118.2488)",2057,221,49,31,18,Clear,Scheduled,Overheated,5.8,2.5
+F462,Overheating,"(34.3674, -118.3478)",1973,198,48,22,13,Rainy,Scheduled,Normal,5.7,6.9
+F463,Transformer Failure,"(34.7698, -118.3852)",2177,242,55,39,12,Windstorm,Completed,Faulty,5.1,2.5
+F464,Transformer Failure,"(34.6451, -118.3215)",1885,242,47,20,16,Thunderstorm,Pending,Faulty,4.7,5.9
+F465,Transformer Failure,"(34.3536, -118.9874)",2077,187,46,39,22,Rainy,Scheduled,Faulty,3.3,4.8
+F466,Line Breakage,"(34.3866, -118.0057)",1917,221,53,36,14,Snowy,Pending,Normal,3.3,2.4
+F467,Transformer Failure,"(34.0118, -118.1422)",2241,193,53,22,22,Windstorm,Completed,Overheated,3.1,6.4
+F468,Transformer Failure,"(34.3453, -118.8278)",1930,212,55,31,18,Snowy,Completed,Normal,5.3,2.3
+F469,Overheating,"(34.879, -118.3116)",2043,207,52,37,13,Clear,Pending,Overheated,4.6,6.5
+F470,Overheating,"(34.6695, -118.7591)",2105,195,47,37,24,Thunderstorm,Pending,Overheated,3,4.2
+F471,Transformer Failure,"(34.8039, -118.4321)",2017,247,53,24,29,Clear,Completed,Faulty,3.9,5.2
+F472,Transformer Failure,"(34.1047, -118.1603)",2148,197,49,32,17,Clear,Scheduled,Overheated,5.9,4.2
+F473,Transformer Failure,"(34.7105, -118.825)",1867,206,53,40,17,Thunderstorm,Completed,Normal,4.1,2.4
+F474,Line Breakage,"(34.1509, -118.8873)",2130,250,52,20,22,Rainy,Pending,Normal,5.9,4.1
+F475,Overheating,"(34.9242, -118.2883)",2085,207,47,24,13,Clear,Scheduled,Normal,2.7,2.1
+F476,Line Breakage,"(34.0163, -118.3083)",1997,239,51,32,13,Clear,Scheduled,Overheated,5.4,4.6
+F477,Overheating,"(34.9196, -118.3233)",2166,229,46,20,27,Clear,Completed,Normal,3.5,5.8
+F478,Transformer Failure,"(34.0617, -118.2755)",2259,250,49,30,30,Rainy,Pending,Normal,4.4,5.5
+F479,Transformer Failure,"(34.2764, -118.217)",2192,250,55,24,16,Snowy,Completed,Faulty,5.5,4.5
+F480,Overheating,"(34.7901, -118.9651)",1901,182,52,32,15,Clear,Completed,Faulty,5.8,6.7
+F481,Overheating,"(34.3792, -118.1659)",1969,182,45,33,23,Windstorm,Completed,Faulty,2.4,1.1
+F482,Overheating,"(34.393, -118.629)",2244,191,46,27,19,Clear,Completed,Overheated,3.3,3.4
+F483,Overheating,"(34.2689, -118.3814)",1821,246,54,20,21,Thunderstorm,Scheduled,Faulty,3.7,2.2
+F484,Overheating,"(34.1408, -118.4657)",2090,231,47,32,29,Windstorm,Scheduled,Overheated,2.9,3.6
+F485,Overheating,"(34.52, -118.3647)",1860,240,53,40,25,Thunderstorm,Scheduled,Faulty,2.1,5.8
+F486,Transformer Failure,"(34.1806, -118.5465)",1839,238,51,20,29,Rainy,Scheduled,Normal,5.8,1.8
+F487,Overheating,"(34.764, -118.6415)",2234,246,54,37,15,Windstorm,Scheduled,Faulty,5.9,4.3
+F488,Line Breakage,"(34.7611, -118.0196)",2092,227,47,22,24,Snowy,Completed,Overheated,3.3,6.7
+F489,Transformer Failure,"(34.4867, -118.7092)",1846,197,52,29,22,Thunderstorm,Scheduled,Normal,2.4,5
+F490,Overheating,"(34.5514, -118.7197)",2111,231,47,33,18,Rainy,Scheduled,Normal,4.4,3.9
+F491,Overheating,"(34.5876, -118.5507)",2215,213,50,28,14,Clear,Pending,Faulty,4.7,3.2
+F492,Line Breakage,"(34.319, -118.2205)",1864,180,54,24,14,Snowy,Completed,Normal,4.8,1.1
+F493,Overheating,"(34.0498, -118.3679)",1912,223,51,28,11,Windstorm,Scheduled,Normal,5.3,2.7
+F494,Transformer Failure,"(34.9919, -118.4969)",2270,221,49,20,11,Clear,Completed,Overheated,4.6,6.5
+F495,Overheating,"(34.1828, -118.3112)",2167,237,48,22,14,Windstorm,Scheduled,Faulty,5.8,4.3
+F496,Transformer Failure,"(34.0062, -118.9341)",2202,224,53,40,11,Clear,Scheduled,Overheated,3.5,1
+F497,Line Breakage,"(34.8438, -118.1141)",1855,191,50,25,23,Clear,Pending,Normal,5,2.4
+F498,Transformer Failure,"(34.0532, -118.4305)",1902,185,45,34,12,Windstorm,Pending,Faulty,4.7,1
+F499,Transformer Failure,"(34.2564, -118.2993)",2134,191,53,38,19,Thunderstorm,Pending,Faulty,4.8,2.4
+F500,Overheating,"(34.1408, -118.4325)",2039,232,54,37,28,Rainy,Completed,Faulty,2.5,2.5
+F501,Transformer Failure,"(34.766, -118.5866)",2175,191,54,36,14,Windstorm,Scheduled,Faulty,5.2,1.5
+F502,Overheating,"(34.7734, -118.9645)",1970,185,47,31,27,Thunderstorm,Completed,Normal,4.7,1.4
+F503,Transformer Failure,"(34.2133, -118.1184)",2204,226,52,28,26,Rainy,Completed,Normal,3.7,1.4
+F504,Transformer Failure,"(34.979, -118.5646)",2181,234,52,26,28,Thunderstorm,Scheduled,Overheated,6,6.3
+F505,Overheating,"(34.5034, -118.4528)",2295,202,50,27,22,Snowy,Completed,Normal,4.2,3
+F506,Line Breakage,"(34.4455, -118.5557)",1941,186,51,31,24,Thunderstorm,Completed,Faulty,2.3,6.8
