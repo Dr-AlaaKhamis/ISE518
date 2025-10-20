@@ -30,7 +30,7 @@ By the end of the course, participants will be able to
 - 🛠️ Data Preparation: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L7-8-Data_Imperfection_Data_Prep.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
 - 🧬 Feature Engineering: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/7_Feature_engineering)
 - 📉 Descriptive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/8_Descriptive_analytics)
-- 🔍 Diagnostic Analytics
+- 🔍 Diagnostic Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/9_Diagnostic_analytics)
 - 🔮 Predictive Analytics
 - 🚀 Prescriptive Analytics
 - 👁️ Observability for Reliability and Maintenance Monitoring
