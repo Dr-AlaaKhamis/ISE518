@@ -31,6 +31,8 @@ By the end of the course, participants will be able to
 - 🧬 Feature Engineering: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/7_Feature_engineering)
 - 📉 Descriptive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/8_Descriptive_analytics)
 - 🔍 Diagnostic Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/9_Diagnostic_analytics)
+- 🔢 Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/10_Parametric_modeling)
+- 🌿 Non-Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_NonParametric_modeling)
 - 🔮 Predictive Analytics
 - 🚀 Prescriptive Analytics
 - 👁️ Observability for Reliability and Maintenance Monitoring
