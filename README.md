@@ -38,8 +38,7 @@ By the end of the course, participants will be able to
 - 👁️ Observability for Reliability and Maintenance Monitoring
 
 ## 🧩 Datasets Repository
-Sample datasets used in the course can be found here:  
-📦 [Datasets Folder (GitHub)](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/datasets)
+Sample datasets used in the course can be found here:  📦 [Datasets](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/datasets)
 
 
 ---
