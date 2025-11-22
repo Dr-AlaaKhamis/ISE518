@@ -48,3 +48,28 @@ Sample datasets used in the course can be found here:  📦 [Datasets](https://g
 ```bash
 git clone https://github.com/Dr-AlaaKhamis/ISE518.git
 ```
+
+---
+
+## 📝 Citation
+
+If you use this repo, please cite the following:
+
+> **Alaa Khamis.**  
+> *ISE 518: Data Analytics for Reliability and Maintenance*,  
+> King Fahd University of Petroleum and Minerals (KFUPM), Saudi Arabia, 2025.
+
+**APA style:**
+> Khamis, A. (2025). *ISE 518: Data Analytics for Reliability and Maintenance*.  
+> King Fahd University of Petroleum and Minerals (KFUPM).
+
+**BibTeX:**
+```bibtex
+@misc{Khamis2025ISE518,
+  author       = {Alaa Khamis},
+  title        = {ISE 518: Data Analytics for Reliability and Maintenance},
+  year         = {2025},
+  institution  = {King Fahd University of Petroleum and Minerals (KFUPM)},
+  note         = {Course materials},
+  url          = {https://github.com/YourRepoName/Course-Materials}
+}
