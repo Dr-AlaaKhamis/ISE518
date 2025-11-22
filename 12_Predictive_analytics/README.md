@@ -9,7 +9,6 @@
 | NN Training | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/NN_Training.ipynb) |
 | Predicting Penguin Species | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/MLP_Penguins.ipynb) |
 | MLP for predictive maintenace| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/MLP.ipynb) |
-
 | CNN-based Fault Detection - Colab version | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/CNN_Fault_Detection.ipynb) |
 
 
