@@ -1,4 +1,4 @@
-# Datasets for Reliability Engineering & Industrial Maintenance
+# Datasets for Reliability and Maintenance
 
 A curated collection of **publicly available datasets**—both from open repositories and Kaggle—for:
 
