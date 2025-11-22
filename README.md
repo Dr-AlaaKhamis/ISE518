@@ -55,8 +55,6 @@ git clone https://github.com/Dr-AlaaKhamis/ISE518.git
 
 If you use this repo, please cite the following:
 
-> Alaa Khamis. ISE 518: Data Analytics for Reliability and Maintenance. Course materials, King Fahd University of Petroleum and Minerals (KFUPM), Saudi Arabia, available at: https://github.com/Dr-AlaaKhamis/ISE518, 2025.
-
 **APA style:**
 > Khamis, A. (2025). *ISE 518: Data Analytics for Reliability and Maintenance*. Course materials, King Fahd University of Petroleum and Minerals (KFUPM), Saudi Arabia, available at: https://github.com/Dr-AlaaKhamis/ISE518, 2025.
 
