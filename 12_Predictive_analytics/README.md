@@ -12,7 +12,7 @@
 |  Convolutional Neural Network (CNN) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/CNN.ipynb) |
 | CNN-based Fault Detection | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/CNN_Fault_Detection.ipynb) |
 | CNN-based Predictive Maintenance | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/CNN_Predictive_Maintenance.ipynb) |
-
+| RNN-based NASA RUL Prediction | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/RNN_RUL.ipynb) |
 
 > [!IMPORTANT]
 > Make sure to install the necessary libraries by uncommenting the `pip` command included at the beginning of each cell.
