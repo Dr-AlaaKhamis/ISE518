@@ -14,8 +14,8 @@
 | CNN-based Predictive Maintenance | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/CNN_Predictive_Maintenance.ipynb) |
 | RNN-based NASA RUL Prediction | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/RNN_RUL.ipynb) |
 | LSTM-based NASA RUL Prediction | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/LSTM_RUL.ipynb) |
-| TimeSeries forecasting using statistical and ML models | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/TimeSeries_Forecasting_Stat_ML.ipynb) |
-| TimeSeries forecasting using foundation models | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/TimeSeries__Forecasting_FoundationModels.ipynb) |
+| Time-series forecasting using statistical and ML models | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/TimeSeries_Forecasting_Stat_ML.ipynb) |
+| Time-series forecasting using foundation models | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/12_Predictive_analytics/TimeSeries__Forecasting_FoundationModels.ipynb) |
 
 
 > [!IMPORTANT]
