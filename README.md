@@ -21,20 +21,20 @@ By the end of the course, participants will be able to
 
 ## 🗂️ Course Outline
 - 📚 Course Presentation: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L1-Course_Presentation.pdf) 
-- 🐍 Python Refresher: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L2-Python-I.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
-- 📈 Basics of Statistics: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L3-Statistics.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
-- 🏭 Introduction to Reliability & Maintenance: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L4-RM.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
-- 📊 Introduction to Data Analytics: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L5-Intro_to_DA.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Intro_DA)
-- 🗄️ Datafication: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L6-Datafication.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/5_Datafication)
-- ⚠️ Data Imperfection Aspects: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L7-8-Data_Imperfection_Data_Prep.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
-- 🛠️ Data Preparation: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L7-8-Data_Imperfection_Data_Prep.pdf), 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
+- 🐍 Python Refresher: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
+- 📈 Basics of Statistics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
+- 🏭 Introduction to Reliability & Maintenance: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
+- 📊 Introduction to Data Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Intro_DA)
+- 🗄️ Datafication:💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/5_Datafication)
+- ⚠️ Data Imperfection Aspects: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
+- 🛠️ Data Preparation: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
 - 🧬 Feature Engineering: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/7_Feature_engineering)
 - 📉 Descriptive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/8_Descriptive_analytics)
 - 🔍 Diagnostic Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/9_Diagnostic_analytics)
 - 🔢 Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/10_Parametric_modeling)
 - 🌿 Non-Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_NonParametric_modeling)
 - 🔮 Predictive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/12_Predictive_analytics) 
-- 👁️ Observability for Reliability and Maintenance Monitoring
+- 👁️ Observability for Reliability and Maintenance Monitoring: 💻 [Grafana](https://grafana.com/)
 <!-- - 🚀 Prescriptive Analytics -->
 
 
