@@ -5,17 +5,19 @@
 ![GitHub Stars](https://img.shields.io/github/stars/Dr-AlaaKhamis/ISE518?style=social)
 
 
-# 📊 ISE518 – Data Analytics for Reliability and Maintenance
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Dr-AlaaKhamis/ISE518)
+## 📊 ISE518 – Data Analytics for Reliability and Maintenance
+
+<!-- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Dr-AlaaKhamis/ISE518) -->
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Run%20in-Codespaces-2ea44f?logo=github)](https://codespaces.new/Dr-AlaaKhamis/ISE518)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518)
 
 This repository contains lecture slides, Jupyter notebooks, datasets, assignments, and projects for the course **ISE518 – Data Analytics for Reliability and Maintenance**.
 
-## 📚 Course Description
+### 📚 Course Description
 This course introduces the principles and applications of data analytics for reliability and maintenance engineering in the context of Industry 4.0 and smart asset management. It begins with the foundations of Python programming, statistics, and reliability engineering before progressing through the complete data analytics lifecycle, including datafication, data quality, data preparation, feature engineering, and the four analytics paradigms: descriptive, diagnostic, predictive, and prescriptive analytics. Throughout the course, students gain hands-on experience with modern Python libraries and analytical tools to solve real-world reliability and maintenance problems.
 
-## 🎯 Course Objectives
+### 🎯 Course Objectives
 By the end of the course, participants will be able to
 
 - 🐍 Apply Python programming and statistical techniques to analyze reliability and maintenance data.
@@ -28,7 +30,7 @@ By the end of the course, participants will be able to
 - 🛠️ Integrate multiple analytics techniques to address practical reliability and maintenance challenges in Industry 4.0 environments.
 - 👁️ Design basic observability solutions using metrics, logs, traces, and dashboards to monitor asset health and maintenance performance.
 
-## 🗂️ Course Outline
+### 🗂️ Course Outline
 - 📚 Course Presentation: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L1-Course_Presentation.pdf) 
 - 🐍 Python Refresher: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
 - 📈 Basics of Statistics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
@@ -47,13 +49,13 @@ By the end of the course, participants will be able to
 - 👁️ Observability for Reliability and Maintenance Monitoring: 💻 [Grafana](https://grafana.com/)
 
 
-## 🧩 Datasets Repository
+### 🧩 Datasets Repository
 Sample datasets used in the course can be found here:  📦 [Datasets](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/datasets)
 
 
 ---
 
-## 🚀 Getting Started
+### 🚀 Getting Started
 
 ```bash
 git clone https://github.com/Dr-AlaaKhamis/ISE518.git
@@ -61,7 +63,7 @@ git clone https://github.com/Dr-AlaaKhamis/ISE518.git
 
 ---
 
-## 📝 Citation
+### 📝 Citation
 
 If you use this repo, please cite the following:
 
