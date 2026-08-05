@@ -28,7 +28,7 @@ Each dataset link has been verified and is active as of August 2025.
 
 ## 📊 Sample Analytics Notebook
 
-👉 To help you get started, we provide a **[sample Jupyter notebook] [![Open In Colab]https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/datasets/Sample.ipynb)**:
+👉 To help you get started, we provide a **sample Jupyter notebook | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/datasets/Sample.ipynb)**:
 
 This notebook demonstrates **EDA** for the AI4I 2020 dataset (or similar CSVs):
 
