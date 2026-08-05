@@ -3,12 +3,13 @@
 ![Repo Size](https://img.shields.io/github/repo-size/Dr-AlaaKhamis/ISE518)
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
 ![GitHub Stars](https://img.shields.io/github/stars/Dr-AlaaKhamis/ISE518?style=social)
+[![Run in Codespaces](https://img.shields.io/badge/Run%20in-Codespaces-2ea44f?logo=github)](https://codespaces.new/Dr-AlaaKhamis/ISE518)
 
 
 # ISE 518: Data Analytics for Reliability and Maintenance
 
 ## 📚 Course Description
-This course introduces the principles and applications of data analytics for reliability and maintenance engineering in the context of Industry 4.0 and smart asset management. It begins with the foundations of Python programming, statistics, and reliability engineering before progressing through the complete data analytics lifecycle, including datafication, data quality, data preparation, feature engineering, and the four analytics paradigms: descriptive, diagnostic, predictive, and prescriptive analytics. The course concludes with observability concepts for real-time monitoring of industrial systems using metrics, logs, traces, and dashboards. Throughout the course, students gain hands-on experience with modern Python libraries and analytical tools to solve real-world reliability and maintenance problems.
+This course introduces the principles and applications of data analytics for reliability and maintenance engineering in the context of Industry 4.0 and smart asset management. It begins with the foundations of Python programming, statistics, and reliability engineering before progressing through the complete data analytics lifecycle, including datafication, data quality, data preparation, feature engineering, and the four analytics paradigms: descriptive, diagnostic, predictive, and prescriptive analytics. Throughout the course, students gain hands-on experience with modern Python libraries and analytical tools to solve real-world reliability and maintenance problems.
 
 ## 🎯 Course Objectives
 By the end of the course, participants will be able to
