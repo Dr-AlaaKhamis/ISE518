@@ -8,34 +8,38 @@
 # ISE 518: Data Analytics for Reliability and Maintenance
 
 ## 📚 Course Description
-This course provides a comprehensive overview of data analytics techniques that enhance asset reliability and maintenance performance in an Industry 4.0 environment. Coverage spans the entire analytics pipeline: data ingestion and cleansing, feature engineering, descriptive and diagnostic analysis, predictive modeling, prescriptive optimization, and system observability. Theory is paired with hands-on exercises, and work culminates in a team project applying multiple analytic methods to a real or simulated maintenance problem.
+This course introduces the principles and applications of data analytics for reliability and maintenance engineering in the context of Industry 4.0 and smart asset management. It begins with the foundations of Python programming, statistics, and reliability engineering before progressing through the complete data analytics lifecycle, including datafication, data quality, data preparation, feature engineering, and the four analytics paradigms: descriptive, diagnostic, predictive, and prescriptive analytics. The course concludes with observability concepts for real-time monitoring of industrial systems using metrics, logs, traces, and dashboards. Throughout the course, students gain hands-on experience with modern Python libraries and analytical tools to solve real-world reliability and maintenance problems.
 
 ## 🎯 Course Objectives
-By the end of the course, participants will be able to  
-- 📥 Collect, cleanse, and engineer features from maintenance data sources  
-- 📈 Summarize and visualize reliability data, perform clustering, discover association rules, and detect anomalies  
-- 🕵️‍♂️ Diagnose failure causes using correlation analysis and structured root‑cause techniques  
-- 🔮 Predict failures and remaining useful life to support predictive maintenance strategies  
-- 🛠️ Recommend optimal maintenance actions with optimization models and recommender systems  
-- 🌐 Implement observability pipelines that use metrics, logs, traces, and dashboards for real‑time monitoring  
+By the end of the course, participants will be able to
+
+- 🐍 Apply Python programming and statistical techniques to analyze reliability and maintenance data.
+- 🏭 Explain the fundamental concepts of reliability engineering, maintenance strategies, and reliability modeling.
+- 📊 Collect, integrate, cleanse, prepare, and engineer maintenance data for analytics applications.
+- 📉 Apply descriptive analytics techniques to summarize, visualize, and explore maintenance and reliability datasets.
+- 🔍 Perform diagnostic analytics to identify failure patterns, root causes, anomalies, and relationships among operational variables.
+- 🔮 Develop predictive analytics models for failure prediction, remaining useful life (RUL) estimation, and predictive maintenance.
+- 🚀 Formulate and solve prescriptive analytics problems to support maintenance planning, scheduling, resource allocation, and decision-making using optimization techniques.
+- 🛠️ Integrate multiple analytics techniques to address practical reliability and maintenance challenges in Industry 4.0 environments.
+- 👁️ Design basic observability solutions using metrics, logs, traces, and dashboards to monitor asset health and maintenance performance.
 
 ## 🗂️ Course Outline
 - 📚 Course Presentation: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L1-Course_Presentation.pdf) 
 - 🐍 Python Refresher: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
 - 📈 Basics of Statistics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
 - 🏭 Introduction to Reliability & Maintenance: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
-- 📊 Introduction to Data Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Intro_DA)
-- 🗄️ Datafication:💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/5_Datafication)
-- ⚠️ Data Imperfection Aspects: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
-- 🛠️ Data Preparation: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Data_imperfection)
-- 🧬 Feature Engineering: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/7_Feature_engineering)
-- 📉 Descriptive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/8_Descriptive_analytics)
-- 🔍 Diagnostic Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/9_Diagnostic_analytics)
-- 🔢 Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/10_Parametric_modeling)
-- 🌿 Non-Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_NonParametric_modeling)
+- 🔢 Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/4_Parametric_modeling)
+- 🌿 Non-Parametric Reliability Modeling: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/5_NonParametric_modeling)
+- 📊 Introduction to Data Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/6_Intro_DA)
+- 🗄️ Datafication:💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/7_Datafication)
+- ⚠️ Data Imperfection Aspects: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/8_Data_imperfection)
+- 🛠️ Data Preparation: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/8_Data_imperfection)
+- 🧬 Feature Engineering: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/9_Feature_engineering)
+- 📉 Descriptive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/10_Descriptive_analytics)
+- 🔍 Diagnostic Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_Diagnostic_analytics)
 - 🔮 Predictive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/12_Predictive_analytics) 
+- 🚀 Prescriptive Analytics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/13_Prescriptive_analytics)
 - 👁️ Observability for Reliability and Maintenance Monitoring: 💻 [Grafana](https://grafana.com/)
-<!-- - 🚀 Prescriptive Analytics -->
 
 
 ## 🧩 Datasets Repository
