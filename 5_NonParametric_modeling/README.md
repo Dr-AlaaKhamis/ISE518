@@ -6,6 +6,8 @@
 | KaplanMeier vs. Weibull | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/5_NonParametric_modeling/Weibull_vs_KaplanMeier_reliability.ipynb) |
 | Nelson_Aalen Estimator | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/5_NonParametric_modeling/Nelson_Aalen.ipynb) |
 | Rank_Adjustment Estimator | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/5_NonParametric_modeling/Rank_Adjustment.ipynb) |
+| Life Data Analysis | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/5_NonParametric_modeling/Life_Data_Analysis.ipynb) |
+
 
 
 > [!IMPORTANT]
