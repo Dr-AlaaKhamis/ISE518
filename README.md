@@ -27,7 +27,6 @@ By the end of the course, participants will be able to
 - 👁️ Design basic observability solutions using metrics, logs, traces, and dashboards to monitor asset health and maintenance performance.
 
 ### 🗂️ Course Outline
-- 📚 Course Presentation: 📖 [Slides](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/slides/L1-Course_Presentation.pdf) 
 - 🐍 Python Refresher: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/1_Python_refresher)
 - 📈 Basics of Statistics: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/2_Statistics)
 - 🏭 Introduction to Reliability & Maintenance: 💻 [Sample Code](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/3_R&M)
