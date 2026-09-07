@@ -3,8 +3,8 @@
 
 | Example  | Notebook  |
 |---|---|
-| Exponential Motor Reliability | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/4_Parametric_modeling/Exponential_motor_reliability.ipynb) |
 | Parametric Models | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/4_Parametric_modeling/Parametric_models.ipynb) |
+| Exponential Motor Reliability | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/4_Parametric_modeling/Exponential_motor_reliability.ipynb) |
 | Parametric models fitting to data | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/4_Parametric_modeling/Parametric_models_fitting_to_data.ipynb) |
 | Working with fitted distributions | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/4_Parametric_modeling/Working_with_fitted_distributions.ipynb) |
 
