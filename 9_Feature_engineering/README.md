@@ -5,6 +5,7 @@
 |---|---|
 | Time Series Features | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/9_Feature_engineering/time_series_features.ipynb)  |
 | Engine Audio Features | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/9_Feature_engineering/engine_audio_analysis.ipynb)  |
+| Label Encoding | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/9_Feature_engineering/label_encoding.ipynb)  |
 | Feature Encoding | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/9_Feature_engineering/feature_encoding.ipynb)  |
 | Feature Scaling | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/9_Feature_engineering/feature_scaling.ipynb)  |
 | Feature Binning | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/9_Feature_engineering/feature_binning.ipynb)  |
