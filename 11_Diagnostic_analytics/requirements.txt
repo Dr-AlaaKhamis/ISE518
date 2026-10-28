@@ -1,0 +1,8 @@
+dowhy>=0.12
+econml>=0.15
+pandas
+numpy
+networkx
+matplotlib
+scikit-learn
+jupyterlab
