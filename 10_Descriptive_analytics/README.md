@@ -10,7 +10,7 @@
 | Time Series Analysis | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/10_Descriptive_analytics/TimeSeries_Analysis.ipynb)  |
 | Anomaly Detection | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/10_Descriptive_analytics/Anomaly_Detection.ipynb)  |
 | Creating Interactive Dashboard using Claude AI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/10_Descriptive_analytics/Power_Faults_Claude_Dashboard.ipynb)  |
-| Power Faults Dashboard | [View Dashboard](https://htmlpreview.github.io/?https://github.com/Dr-AlaaKhamis/ISE518/blob/main/10_Descriptive_analytics/power_faults_dashboard.html) |
+| Power Faults Dashboard | [View Dashboard](https://github.com/Dr-AlaaKhamis/ISE518/blob/main/10_Descriptive_analytics/power_faults_dashboard.html) |
 | Use Cases | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/10_Descriptive_analytics/Use_Cases.ipynb)  |
 | Clustering | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/10_Descriptive_analytics/Clustering.ipynb)  |
 
