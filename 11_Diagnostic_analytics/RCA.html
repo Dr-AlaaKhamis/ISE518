@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostic Analytics Tutorial</title>
+<meta name="description" content="ISE 518 interactive tutorial on diagnostic analytics: correlation, causality, causal inference, and root cause analysis. Prepared by Ousman Khan, AI for Smart Mobility Lab, KFUPM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{
+  --bg:#F6F8FA; --surface:#FFFFFF; --surface-2:#EEF3F7; --ink:#14202B; --ink-2:#44525F; --muted:#6B7884;
+  --line:#D9E1E8; --brand:#00629B; --brand-ink:#004F7D; --navy:#002B49; --accent:#E8710A; --good:#2E9E6B;
+  --bad:#C9372C; --brand-soft:#E3F0F8; --accent-soft:#FDEEDF; --good-soft:#E2F3EA; --bad-soft:#FBE7E5;
+  --code-bg:#0F1E2B; --code-ink:#DDE7EF; --shadow:0 1px 2px rgba(16,32,48,.06),0 4px 16px rgba(16,32,48,.06);
+  --c1:#00629B; --c2:#E8710A; --c3:#2E9E6B; --grid:#E4EAF0;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E151C; --surface:#151F28; --surface-2:#1C2833; --ink:#E7EEF4; --ink-2:#B4C2CE; --muted:#8696A4;
+    --line:#2A3A48; --brand:#3A93C8; --brand-ink:#7DBCE3; --navy:#CFE5F3; --accent:#D9701C; --good:#2FA36E;
+    --bad:#E0685C; --brand-soft:#16324A; --accent-soft:#3A2714; --good-soft:#143326; --bad-soft:#3A1C19;
+    --code-bg:#0A1118; --code-ink:#DDE7EF; --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+    --c1:#3A93C8; --c2:#D9701C; --c3:#2FA36E; --grid:#24323F;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E151C; --surface:#151F28; --surface-2:#1C2833; --ink:#E7EEF4; --ink-2:#B4C2CE; --muted:#8696A4;
+  --line:#2A3A48; --brand:#3A93C8; --brand-ink:#7DBCE3; --navy:#CFE5F3; --accent:#D9701C; --good:#2FA36E;
+  --bad:#E0685C; --brand-soft:#16324A; --accent-soft:#3A2714; --good-soft:#143326; --bad-soft:#3A1C19;
+  --code-bg:#0A1118; --code-ink:#DDE7EF; --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  --c1:#3A93C8; --c2:#D9701C; --c3:#2FA36E; --grid:#24323F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--brand-ink)}
+code,pre,.mono{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace}
+:not(pre)>code{background:var(--surface-2);padding:.08em .35em;border-radius:5px;font-size:.88em}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .5em}
+h2{font-size:1.75rem;letter-spacing:-.01em}
+h3{font-size:1.2rem}
+p{margin:.4em 0 .9em}
+.icon{width:1.1em;height:1.1em;vertical-align:-.18em;stroke-width:2}
+
+/* ---------- layout ---------- */
+.topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar-inner{max-width:1240px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.brandmark{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);text-decoration:none;min-width:0}
+.brandmark .badge{width:32px;height:32px;border-radius:8px;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none}
+.brandmark span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spacer{flex:1}
+.progress{position:absolute;left:0;bottom:-1px;height:3px;background:var(--accent);width:0;transition:width .15s}
+.iconbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:9px;height:36px;min-width:36px;display:inline-grid;place-items:center;cursor:pointer;padding:0 8px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:36px}
+nav.toc{position:sticky;top:72px;align-self:start;padding:24px 0;max-height:calc(100vh - 80px);overflow:auto}
+nav.toc a{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-size:.92rem;font-weight:500}
+nav.toc a:hover{background:var(--surface-2)}
+nav.toc a.active{background:var(--brand-soft);color:var(--brand-ink);font-weight:600}
+nav.toc a .num{width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:.72rem;flex:none}
+nav.toc a.done .num{background:var(--good);border-color:var(--good);color:#fff}
+main{padding:28px 0 80px;min-width:0}
+section.sec{padding:34px 0 18px;border-bottom:1px dashed var(--line);scroll-margin-top:70px}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--brand-ink);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:6px}
+.lead{font-size:1.08rem;color:var(--ink-2);max-width:72ch}
+@media (max-width:900px){.wrap{grid-template-columns:1fr}nav.toc{display:none}}
+
+/* ---------- components ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.g2,.g3,.g4{grid-template-columns:minmax(0,1fr)}}
+.pill:empty{display:none}
+.card,.stat{min-width:0}
+.callout{display:flex;gap:12px;border-radius:12px;padding:14px 16px;margin:14px 0;border:1px solid var(--line);background:var(--surface-2)}
+.callout .icon{flex:none;margin-top:3px;width:20px;height:20px}
+.callout.key{background:var(--brand-soft);border-color:transparent}
+.callout.key .icon{color:var(--brand-ink)}
+.callout.warn{background:var(--accent-soft);border-color:transparent}
+.callout.warn .icon{color:var(--accent)}
+.callout p{margin:0}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:10px 16px;font:600 .95rem Inter,system-ui,sans-serif;text-decoration:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn:hover{border-color:var(--brand)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.sm{padding:6px 11px;font-size:.85rem;border-radius:8px}
+.btn[aria-pressed="true"],.seg button[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:0;border-right:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;font:600 .85rem Inter,system-ui,sans-serif;cursor:pointer}
+.seg button:last-child{border-right:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+label.ctl{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--ink-2);font-weight:600;min-width:160px;flex:1}
+input[type=range]{width:100%;accent-color:var(--brand)}
+select,input[type=text],input[type=number]{font:inherit;font-size:.9rem;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.stat{display:flex;flex-direction:column;padding:12px 14px;border-radius:12px;background:var(--surface-2)}
+.stat .v{font-size:1.6rem;font-weight:800;letter-spacing:-.02em}
+.stat .pill{align-self:flex-start;margin-top:4px}
+.nt{text-transform:none}
+.stat .l{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:700;background:var(--surface-2);color:var(--ink-2)}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.brand{background:var(--brand-soft);color:var(--brand-ink)}
+.pill.accent{background:var(--accent-soft);color:var(--accent)}
+table.t{border-collapse:collapse;width:100%;font-size:.88rem}
+table.t th,table.t td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left}
+table.t th{color:var(--muted);font-weight:700;font-size:.76rem;text-transform:uppercase;letter-spacing:.05em}
+table.t td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto}
+pre.code{background:var(--code-bg);color:var(--code-ink);padding:14px 16px;border-radius:12px;overflow-x:auto;font-size:.82rem;line-height:1.55;margin:10px 0;position:relative}
+pre.code .k{color:#7FC1FF}pre.code .s{color:#A5E3A0}pre.code .c{color:#7E8F9E;font-style:italic}pre.code .n{color:#FFC27A}
+pre.out{background:var(--surface-2);color:var(--ink);border-left:3px solid var(--brand);padding:10px 14px;border-radius:8px;font-size:.8rem;overflow-x:auto;margin:8px 0}
+.copy{position:absolute;top:8px;right:8px;border:1px solid #2B4156;background:#16293A;color:#CFE0EE;border-radius:6px;font-size:.72rem;padding:3px 8px;cursor:pointer}
+svg text{font-family:Inter,system-ui,sans-serif}
+.chart{width:100%;height:auto;display:block}
+.tip{position:fixed;pointer-events:none;z-index:50;background:var(--ink);color:var(--bg);padding:6px 9px;border-radius:7px;font-size:.8rem;opacity:0;transition:opacity .1s;max-width:240px}
+.hidden{display:none!important}
+details.more{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface);margin:10px 0}
+details.more summary{cursor:pointer;font-weight:600}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(135deg,#002B49 0%,#00629B 62%,#0A7DBF 100%);color:#fff;border-radius:20px;padding:36px 32px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(1.9rem,4.2vw,3rem);letter-spacing:-.02em;margin:.2em 0 .25em}
+.hero .sub{opacity:.92;font-size:1.08rem;max-width:62ch}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:20px 0 22px;font-size:.92rem}
+.hero .meta div{display:flex;align-items:center;gap:8px}
+.hero .btn{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff}
+.hero .btn.primary{background:#fff;color:#002B49;border-color:#fff}
+.hero svg.deco{position:absolute;right:-40px;top:-30px;width:380px;opacity:.16}
+.credit{margin-top:20px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;gap:10px;align-items:center;font-size:.92rem}
+
+/* ---------- specific ---------- */
+.stage{cursor:pointer;transition:transform .12s,border-color .12s}
+.stage:hover{transform:translateY(-2px)}
+.stage.sel{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.stage .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;margin-bottom:10px;background:var(--surface-2);color:var(--ink-2)}
+.stage.sel .ic,.stage.diag .ic{background:var(--brand);color:#fff}
+.stage .q{font-weight:700;color:var(--brand-ink);font-size:.92rem}
+.flip{perspective:900px;cursor:pointer}
+.flip-in{display:grid;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;border-radius:14px;padding:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);display:flex;flex-direction:column}
+.face.back{transform:rotateY(180deg);background:var(--brand-soft)}
+.face .hint{margin-top:auto;font-size:.8rem;color:var(--muted);display:flex;gap:6px;align-items:center}
+.rung{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;margin-bottom:10px}
+.rung.sel{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.rung .lvl{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;background:var(--surface-2);flex:none}
+.rung.sel .lvl{background:var(--brand);color:#fff}
+.quiz-q{margin-bottom:16px}
+.quiz-q .opts{display:grid;gap:8px;margin-top:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:640px){.quiz-q .opts{grid-template-columns:minmax(0,1fr)}}
+.quiz-q .opt{text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 12px;border-radius:10px;font:inherit;font-size:.93rem;cursor:pointer;display:flex;gap:10px;align-items:center}
+.quiz-q .opt:hover{border-color:var(--brand)}
+.quiz-q .opt.right{background:var(--good-soft);border-color:var(--good)}
+.quiz-q .opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.quiz-q .fb{font-size:.88rem;margin-top:8px;color:var(--ink-2)}
+.stepper{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.stepper button{flex:1;min-width:130px;display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:12px;cursor:pointer;font:600 .95rem Inter,system-ui,sans-serif}
+.stepper button .n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);font-size:.82rem}
+.stepper button.sel{border-color:var(--brand);background:var(--brand-soft);color:var(--brand-ink)}
+.stepper button.sel .n{background:var(--brand);color:#fff}
+.node rect{transition:fill .25s}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus rect{stroke-width:3}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--ink-2)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.match{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.match select{min-width:200px}
+@media (max-width:760px){
+  #playGrid,#confGrid,#junCard,#ladderGrid,#labGrid,#idGrid{grid-template-columns:minmax(0,1fr)!important}
+  .match{grid-template-columns:1fr}.match select{min-width:0;width:100%}.match .row{width:100%}
+  .hero{padding:26px 18px}.topbar .btn span{display:none}
+}
+main{overflow-x:clip}
+.katex-display{margin:.3em 0;overflow-x:auto;overflow-y:hidden}
+footer{margin-top:40px;padding:28px 0;color:var(--ink-2);font-size:.9rem}
+.k-formula{overflow-x:auto;padding:6px 0}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brandmark" href="#top"><div class="badge"><i data-lucide="search-check" class="icon"></i></div><span>ISE 518 · Diagnostic Analytics</span></a>
+    <div class="spacer"></div>
+    <a class="btn sm primary" id="colabTop" target="_blank" rel="noopener"><i data-lucide="play" class="icon"></i><span>Open in Colab</span></a>
+    <button class="iconbtn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><i data-lucide="moon" class="icon"></i></button>
+  </div>
+  <div class="progress" id="progress"></div>
+</div>
+
+<div class="wrap" id="top">
+<nav class="toc" id="toc" aria-label="Sections"></nav>
+<main>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3"><circle cx="40" cy="40" r="16"/><circle cx="160" cy="40" r="16"/><circle cx="100" cy="150" r="16"/><path d="M52 52 L92 136M148 52 L108 136M56 40 H144"/></g></svg>
+  <div class="kicker" style="color:#BFE2F7"><i data-lucide="graduation-cap" class="icon"></i> Interactive Tutorial · Lecture 14</div>
+  <h1>Diagnostic Analytics</h1>
+  <p class="sub">Why did a failure or anomaly happen? Move from correlation to causation, and from symptoms to root causes, using causal graphs, DoWhy, and a real microservice case study.</p>
+  <div class="meta">
+    <div><i data-lucide="building-2" class="icon"></i> ISE 518: Data Analytics for Reliability and Maintenance</div>
+    <div><i data-lucide="user-round" class="icon"></i> Instructor: Dr. Alaa Khamis</div>
+    <div><i data-lucide="landmark" class="icon"></i> ISE Department, KFUPM</div>
+  </div>
+  <div class="row">
+    <a class="btn primary" id="colabHero" target="_blank" rel="noopener"><i data-lucide="rocket" class="icon"></i> Run the notebook in Colab</a>
+    <a class="btn" href="Causal_Inference_and_Root_Cause_Analysis.ipynb" download><i data-lucide="download" class="icon"></i> Download notebook</a>
+    <a class="btn" href="#run"><i data-lucide="terminal" class="icon"></i> Run locally</a>
+  </div>
+  <div class="credit"><i data-lucide="award" class="icon"></i><div>Tutorial prepared by <b>Ousman Khan</b>, AI for Smart Mobility Lab (AI4SM), KFUPM.</div></div>
+</header>
+
+<!-- ================= 1. WHAT IS ================= -->
+<section class="sec" id="s-what" data-title="What is Diagnostic Analytics?" data-icon="compass">
+  <div class="kicker"><i data-lucide="compass" class="icon"></i> Part 1</div>
+  <h2>What is Diagnostic Analytics?</h2>
+  <p class="lead">Diagnostic analytics is the process of examining data to uncover the underlying causes of events or outcomes. In reliability and maintenance it answers one question: <b>“Why did a failure or anomaly happen?”</b></p>
+  <p>Click each stage of the analytics pipeline to see what it takes in, what it produces, and the question it answers.</p>
+  <div class="grid g4" id="stages"></div>
+  <div class="card" id="stageDetail" style="margin-top:14px"></div>
+
+  <h3 style="margin-top:28px"><i data-lucide="puzzle" class="icon"></i> Warm-up: match each effect to its likely cause</h3>
+  <p>These are the reliability examples from the lecture. Pick a cause for each observed effect, then check.</p>
+  <div class="card">
+    <div id="matchList"></div>
+    <div class="row" style="margin-top:12px"><button class="btn sm primary" id="matchCheck"><i data-lucide="check-check" class="icon"></i> Check answers</button><span id="matchScore" class="pill"></span></div>
+  </div>
+</section>
+
+<!-- ================= 2. CORRELATION ================= -->
+<section class="sec" id="s-corr" data-title="Correlation Analysis" data-icon="scatter-chart">
+  <div class="kicker"><i data-lucide="scatter-chart" class="icon"></i> Part 2</div>
+  <h2>Correlation Analysis</h2>
+  <p class="lead">Correlation measures the <b>strength</b> and <b>direction</b> of the relationship between two variables. It tells us whether changes in one variable are <i>associated</i> with changes in another.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3><i data-lucide="sigma" class="icon"></i> Pearson’s r (linear)</h3>
+      <div class="k-formula" data-tex="r=\dfrac{\sum (x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum (x_i-\bar x)^2}\,\sqrt{\sum (y_i-\bar y)^2}}">r = Σ(xᵢ−x̄)(yᵢ−ȳ) / √(Σ(xᵢ−x̄)² Σ(yᵢ−ȳ)²)</div>
+      <p style="font-size:.9rem;color:var(--ink-2)">Measures <b>linear</b> relationships between two continuous variables.</p>
+    </div>
+    <div class="card">
+      <h3><i data-lucide="list-ordered" class="icon"></i> Spearman’s ρ (monotonic)</h3>
+      <div class="k-formula" data-tex="\rho = 1-\dfrac{6\sum d_i^2}{n(n^2-1)},\quad d_i = R_{x_i}-R_{y_i}">ρ = 1 − 6Σdᵢ² / (n(n²−1))</div>
+      <p style="font-size:.9rem;color:var(--ink-2)">Works on <b>ranks</b>, so it captures monotonic (not necessarily linear) relationships and resists outliers.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:26px"><i data-lucide="sliders-horizontal" class="icon"></i> Correlation playground</h3>
+  <p>Choose a pattern and drag the sliders. Watch how Pearson and Spearman agree for straight lines, disagree for curves and outliers, and both miss a U-shape even though Y clearly depends on X.</p>
+  <div class="card">
+    <div class="row" style="margin-bottom:12px">
+      <div class="seg" id="patSeg">
+        <button data-p="linear" aria-pressed="true">Linear</button>
+        <button data-p="mono">Monotonic curve</button>
+        <button data-p="outlier">Linear + outlier</button>
+        <button data-p="u">U-shape</button>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom:6px">
+      <label class="ctl">Direction and slope <span class="mono" id="slopeV"></span><input type="range" id="slope" min="-1" max="1" step="0.05" value="0.8"></label>
+      <label class="ctl">Noise <span class="mono" id="noiseV"></span><input type="range" id="noise" min="0" max="1.5" step="0.05" value="0.4"></label>
+      <label class="ctl">Sample size <span class="mono" id="nV"></span><input type="range" id="nPts" min="10" max="300" step="10" value="120"></label>
+      <button class="btn sm" id="reseed"><i data-lucide="shuffle" class="icon"></i> New sample</button>
+    </div>
+    <div class="grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:start" id="playGrid">
+      <svg class="chart" id="scatter" viewBox="0 0 520 340" role="img" aria-label="Scatter plot of simulated X and Y"></svg>
+      <div class="grid" style="gap:10px">
+        <div class="stat"><span class="l">Pearson r</span><span class="v" id="rP">0</span><span id="rPl" class="pill"></span></div>
+        <div class="stat"><span class="l">Spearman <span class="nt">ρ</span></span><span class="v" id="rS">0</span><span id="rSl" class="pill"></span></div>
+        <div class="callout key" id="playMsg" style="margin:0"><i data-lucide="lightbulb" class="icon"></i><p></p></div>
+      </div>
+    </div>
+  </div>
+
+  <details class="more"><summary>Interpretation scale used in the lecture</summary>
+    <div class="tablewrap"><table class="t" style="margin-top:8px"><thead><tr><th>|r| or |ρ|</th><th>Strength</th><th>Direction</th></tr></thead>
+    <tbody><tr><td>1.0</td><td>Perfect</td><td>Sign of r</td></tr><tr><td>0.7 to 0.9</td><td>Strong</td><td>Sign of r</td></tr><tr><td>0.4 to 0.6</td><td>Moderate</td><td>Sign of r</td></tr><tr><td>0.1 to 0.3</td><td>Weak</td><td>Sign of r</td></tr><tr><td>0</td><td>None</td><td>None</td></tr></tbody></table></div>
+  </details>
+
+  <h3 style="margin-top:26px"><i data-lucide="calculator" class="icon"></i> Step-by-step calculator</h3>
+  <p>Edit the values (comma separated). The defaults are the lecture example, which gives r = 0.9588 and ρ = 0.9.</p>
+  <div class="card">
+    <div class="row">
+      <label class="ctl">X values<input type="text" id="calcX" value="10, 20, 30, 40, 50"></label>
+      <label class="ctl">Y values<input type="text" id="calcY" value="8, 22, 28, 50, 48"></label>
+    </div>
+    <div class="tablewrap" style="margin-top:12px"><table class="t" id="calcTable"></table></div>
+    <div class="grid g2" style="margin-top:12px"><div id="calcP"></div><div id="calcS"></div></div>
+  </div>
+
+  <h3 style="margin-top:26px"><i data-lucide="activity" class="icon"></i> Signal correlations</h3>
+  <p>For time series, correlation is computed as a function of the <b>lag τ</b>. Cross-correlation compares two different signals; auto-correlation compares a signal with a shifted copy of itself.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h4><i data-lucide="git-compare" class="icon"></i> Cross-correlation: find the delay</h4>
+      <div class="k-formula" data-tex="R_{xy}(\tau)=\sum_t x(t)\,y(t+\tau)">Rxy(τ) = Σ x(t) y(t+τ)</div>
+      <p style="font-size:.9rem">A temperature sensor responds to a vibration event after an unknown delay. Slide τ until the shifted vibration (blue) lines up with temperature (orange).</p>
+      <label class="ctl">Lag τ (samples) <span class="mono" id="tauV"></span><input type="range" id="tau" min="-30" max="30" step="1" value="0"></label>
+      <svg class="chart" id="xcSig" viewBox="0 0 460 150" role="img" aria-label="Two sensor signals"></svg>
+      <svg class="chart" id="xcCorr" viewBox="0 0 460 130" role="img" aria-label="Cross-correlation versus lag"></svg>
+      <div class="row"><span class="pill brand" id="xcRead"></span><button class="btn sm" id="xcNew"><i data-lucide="shuffle" class="icon"></i> New hidden delay</button></div>
+    </div>
+    <div class="card">
+      <h4><i data-lucide="repeat" class="icon"></i> Auto-correlation: detect periodicity</h4>
+      <div class="k-formula" data-tex="R_{xx}(\tau)=\sum_t x(t)\,x(t+\tau)">Rxx(τ) = Σ x(t) x(t+τ)</div>
+      <p style="font-size:.9rem">A vibration signal from a rotating machine. Peaks in the ACF reveal the cycle length, even when noise hides it in the raw signal.</p>
+      <div class="row">
+        <label class="ctl">Cycle length <span class="mono" id="perV"></span><input type="range" id="per" min="6" max="40" step="1" value="18"></label>
+        <label class="ctl">Noise <span class="mono" id="acnV"></span><input type="range" id="acn" min="0" max="2" step="0.1" value="0.6"></label>
+      </div>
+      <svg class="chart" id="acSig" viewBox="0 0 460 120" role="img" aria-label="Vibration signal"></svg>
+      <svg class="chart" id="acCorr" viewBox="0 0 460 140" role="img" aria-label="Autocorrelation function"></svg>
+      <span class="pill brand" id="acRead"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. NOT CAUSATION ================= -->
+<section class="sec" id="s-notcause" data-title="Correlation ≠ Causation" data-icon="shield-alert">
+  <div class="kicker"><i data-lucide="shield-alert" class="icon"></i> Part 3</div>
+  <h2>Correlation is not Causation</h2>
+  <p class="lead">Two variables can move together because a hidden <b>confounder</b> drives both. Click each card to reveal the false conclusion and the hidden factor.</p>
+  <div class="grid g3" id="flips"></div>
+
+  <h3 style="margin-top:28px"><i data-lucide="flask-conical" class="icon"></i> Confounding simulator: maintenance and failures</h3>
+  <p>We simulate 300 machines. Older machines get <b>more maintenance</b> and also have <b>more failures</b>. Maintenance itself has a true effect you control with the slider (negative means it prevents failures). Toggle <i>Control for machine age</i> to compare machines of similar age.</p>
+  <div class="card">
+    <div class="row" style="margin-bottom:10px">
+      <label class="ctl">True effect of maintenance on failures <span class="mono" id="teV"></span><input type="range" id="trueEff" min="-0.6" max="0.3" step="0.05" value="-0.2"></label>
+      <label class="ctl">Strength of age confounding <span class="mono" id="cfV"></span><input type="range" id="conf" min="0" max="1" step="0.05" value="0.8"></label>
+      <div class="seg" id="ctrlSeg"><button data-c="0" aria-pressed="true">Pooled data</button><button data-c="1">Control for machine age</button></div>
+    </div>
+    <div class="grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:start" id="confGrid">
+      <svg class="chart" id="confPlot" viewBox="0 0 520 340" role="img" aria-label="Maintenance versus failures scatter"></svg>
+      <div class="grid" style="gap:10px">
+        <div class="stat"><span class="l">Naive slope (pooled)</span><span class="v" id="naiveB">0</span></div>
+        <div class="stat"><span class="l">Age-adjusted slope</span><span class="v" id="adjB">0</span></div>
+        <div class="stat"><span class="l">True causal effect</span><span class="v" id="trueB">0</span></div>
+        <div class="legend"><span><i style="background:var(--c3)"></i>Young</span><span><i style="background:var(--c1)"></i>Middle-aged</span><span><i style="background:var(--c2)"></i>Old</span></div>
+      </div>
+    </div>
+    <div class="callout warn" id="confMsg"><i data-lucide="alert-triangle" class="icon"></i><p></p></div>
+  </div>
+</section>
+
+<!-- ================= 4. CAUSALITY ================= -->
+<section class="sec" id="s-causality" data-title="What is Causality?" data-icon="git-branch">
+  <div class="kicker"><i data-lucide="git-branch" class="icon"></i> Part 4</div>
+  <h2>What is Causality?</h2>
+  <p class="lead">Causality is the study of cause and effect: whether and how one thing (the <b>treatment</b>) produces a change in another (the <b>outcome</b>). A variable X is a cause of Y if Y <b>“listens”</b> to X, meaning Y changes its value in response to X.</p>
+  <div class="grid g3">
+    <div class="card"><span class="pill brand"><i data-lucide="factory" class="icon"></i> Industry</span><p style="margin-top:10px"><b>Regular maintenance</b> → fewer machine breakdowns</p></div>
+    <div class="card"><span class="pill brand"><i data-lucide="syringe" class="icon"></i> Healthcare</span><p style="margin-top:10px"><b>Vaccination</b> → lower infection rates</p></div>
+    <div class="card"><span class="pill brand"><i data-lucide="thermometer-sun" class="icon"></i> Environment</span><p style="margin-top:10px"><b>More CO₂ emissions</b> → higher global temperatures</p></div>
+  </div>
+
+  <h3 style="margin-top:28px"><i data-lucide="network" class="icon"></i> Three building blocks of causal graphs</h3>
+  <p>Every causal graph is made of three kinds of three-node patterns. They decide which variables you <b>should</b> and <b>should not</b> adjust for.</p>
+  <div class="seg" id="junSeg" style="margin-bottom:12px"><button data-j="conf" aria-pressed="true">Confounder (fork)</button><button data-j="med">Mediator (chain)</button><button data-j="col">Collider</button></div>
+  <div class="card grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:center" id="junCard">
+    <svg class="chart" id="junSvg" viewBox="0 0 360 230" role="img" aria-label="Causal junction diagram"></svg>
+    <div id="junText"></div>
+  </div>
+
+  <h3 style="margin-top:28px"><i data-lucide="layers" class="icon"></i> The Ladder of Causation</h3>
+  <p>Judea Pearl’s ladder has three rungs. Higher rungs need more causal knowledge, not just more data. Click a rung for the pump-failure example.</p>
+  <div class="grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start" id="ladderGrid">
+    <div id="ladder"></div>
+    <div class="card" id="ladderDetail"></div>
+  </div>
+
+  <h3 style="margin-top:20px"><i data-lucide="target" class="icon"></i> Which rung is this question on?</h3>
+  <div class="card" id="rungQuiz"></div>
+</section>
+
+<!-- ================= 5. RCA ================= -->
+<section class="sec" id="s-rca" data-title="Root Cause Analysis" data-icon="radar">
+  <div class="kicker"><i data-lucide="radar" class="icon"></i> Part 5</div>
+  <h2>Root Cause Analysis (RCA)</h2>
+  <p class="lead">RCA identifies the <b>origin</b> of a problem rather than its <b>symptoms</b>. In connected systems, one faulty component makes everything downstream look faulty too.</p>
+  <div class="grid g3">
+    <div class="card"><div class="pill"><i data-lucide="help-circle" class="icon"></i> Classical</div><h4 style="margin-top:10px">5 Whys and fishbone</h4><p style="font-size:.92rem">Expert-led questioning and cause categories (machine, method, material, people, environment). Fast and intuitive, but depends on who is in the room.</p></div>
+    <div class="card"><div class="pill"><i data-lucide="bar-chart-3" class="icon"></i> Associational</div><h4 style="margin-top:10px">Rank the biggest deviations</h4><p style="font-size:.92rem">Flag the metrics that moved the most. Finds symptoms quickly, but a component may look abnormal only because it <i>inherited</i> a delay.</p></div>
+    <div class="card"><div class="pill brand"><i data-lucide="git-fork" class="icon"></i> Causal</div><h4 style="margin-top:10px">Graph + fitted mechanisms</h4><p style="font-size:.92rem">Model how each component depends on its parents. A root cause is a node whose <b>own</b> behavior is abnormal given its inputs.</p></div>
+  </div>
+
+  <h3 style="margin-top:28px"><i data-lucide="zap" class="icon"></i> Fault propagation lab</h3>
+  <p>This is the online shop from the case study. Arrows point from a service to the service that waits for it, so delays flow upward. The mechanisms below are linear fits to the 10,000 normal requests.</p>
+  <ol style="font-size:.95rem;margin-top:0">
+    <li><b>Inject</b> a delay into any service (click it, or use the menu), or start a <b>mystery fault</b>.</li>
+    <li>Compare the <b>symptom view</b> (increase over normal) with the <b>causal view</b> (how surprising each service is <i>given its parents</i>).</li>
+  </ol>
+  <div class="card">
+    <div class="row" style="margin-bottom:10px">
+      <label class="ctl" style="max-width:240px">Faulty service<select id="faultNode"></select></label>
+      <label class="ctl">Injected delay <span class="mono" id="delayV"></span><input type="range" id="delay" min="0" max="3" step="0.1" value="1.8"></label>
+      <div class="seg" id="viewSeg"><button data-v="sym" aria-pressed="true">Symptom view</button><button data-v="cau">Causal view</button></div>
+      <button class="btn sm" id="resample"><i data-lucide="refresh-cw" class="icon"></i> New request</button>
+      <button class="btn sm primary" id="mystery"><i data-lucide="help-circle" class="icon"></i> Mystery fault</button>
+    </div>
+    <div class="grid" style="grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start" id="labGrid">
+      <svg class="chart" id="sysSvg" viewBox="0 0 560 420" role="img" aria-label="Microservice dependency graph"></svg>
+      <div>
+        <div class="callout key" id="labMsg" style="margin-top:0"><i data-lucide="info" class="icon"></i><p></p></div>
+        <div class="tablewrap"><table class="t" id="labTable"></table></div>
+      </div>
+    </div>
+    <div class="legend" style="margin-top:8px" id="labLegend"></div>
+  </div>
+</section>
+
+<!-- ================= 6. CAUSAL INFERENCE ================= -->
+<section class="sec" id="s-ci" data-title="Causal Inference with DoWhy" data-icon="workflow">
+  <div class="kicker"><i data-lucide="workflow" class="icon"></i> Part 6</div>
+  <h2>Causal Inference with DoWhy</h2>
+  <p class="lead">When experiments are expensive, impractical, or unsafe, we combine <b>observational data</b> with an explicit <b>causal graph</b>. DoWhy organizes the work into four stages.</p>
+  <div class="callout key"><i data-lucide="crosshair" class="icon"></i><p><b>Causal question:</b> What is the effect of <b>Caching Service</b> latency (treatment X) on <b>Website</b> latency (outcome Y), using 10,000 requests from normal operation?</p></div>
+  <div class="stepper" id="stepper"></div>
+  <div class="card" id="stepBody"></div>
+</section>
+
+<!-- ================= 7. CASE STUDY ================= -->
+<section class="sec" id="s-case" data-title="Case Study: RCA Results" data-icon="server-crash">
+  <div class="kicker"><i data-lucide="server-crash" class="icon"></i> Part 7</div>
+  <h2>Case Study: Diagnosing a Slow Website</h2>
+  <p class="lead">We reuse the graph, fit a structural causal model on normal data, and diagnose two incidents. These are the actual outputs of the notebook.</p>
+  <div class="seg" id="scenSeg" style="margin-bottom:12px"><button data-s="1" aria-pressed="true"><i data-lucide="mouse-pointer-click" class="icon"></i> Scenario 1: one abnormal request</button><button data-s="2"><i data-lucide="trending-up" class="icon"></i> Scenario 2: persistent slowdown (1,000 requests)</button></div>
+  <div class="card">
+    <div class="row" style="justify-content:space-between;margin-bottom:6px">
+      <h3 id="caseTitle" style="margin:0"></h3>
+      <div class="seg" id="caseView"><button data-v="naive" aria-pressed="true">Naive: latency increase</button><button data-v="causal">Causal attribution</button></div>
+    </div>
+    <p id="caseSub" style="color:var(--ink-2);font-size:.92rem"></p>
+    <svg class="chart" id="caseChart" viewBox="0 0 640 380" role="img" aria-label="Bar chart of service contributions"></svg>
+    <div class="callout key" id="caseMsg"><i data-lucide="stethoscope" class="icon"></i><p></p></div>
+    <details class="more"><summary>Show as table</summary><div class="tablewrap"><table class="t" id="caseTable"></table></div></details>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="stat"><span class="l">Estimated effect (LR / DML)</span><span class="v">0.68 / 0.72</span><span style="font-size:.85rem;color:var(--ink-2)">seconds of Website latency per extra second of caching latency</span></div>
+    <div class="stat"><span class="l">Scenario 1 top attribution</span><span class="v">Caching · 3.71</span><span style="font-size:.85rem;color:var(--ink-2)">anomaly-score units, not seconds</span></div>
+    <div class="stat"><span class="l">Scenario 2 explained</span><span class="v">1.866 of 1.932 s</span><span style="font-size:.85rem;color:var(--ink-2)">about 97% traced to the Caching Service mechanism</span></div>
+  </div>
+</section>
+
+<!-- ================= 8. QUIZ ================= -->
+<section class="sec" id="s-quiz" data-title="Knowledge Check" data-icon="clipboard-check">
+  <div class="kicker"><i data-lucide="clipboard-check" class="icon"></i> Part 8</div>
+  <h2>Knowledge Check</h2>
+  <p class="lead">Eight questions. You get instant feedback and an explanation for each answer.</p>
+  <div class="card"><div id="quiz"></div><div class="row"><span class="pill brand" id="quizScore">Score: 0 / 8</span><button class="btn sm" id="quizReset"><i data-lucide="rotate-ccw" class="icon"></i> Retry</button></div></div>
+</section>
+
+<!-- ================= 9. RUN ================= -->
+<section class="sec" id="run" data-title="Run the Code" data-icon="terminal">
+  <div class="kicker"><i data-lucide="terminal" class="icon"></i> Part 9</div>
+  <h2>Run the Code</h2>
+  <p class="lead">The companion notebook <code>Causal_Inference_and_Root_Cause_Analysis.ipynb</code> runs end to end in Google Colab or on your own machine. Its setup cell installs DoWhy and EconML if needed and reads the data directly from the <a href="https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_Diagnostic_analytics" target="_blank" rel="noopener">ISE 518 GitHub repository</a>, so no Google Drive access or local data files are needed.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3><i data-lucide="cloud" class="icon"></i> Option A: Google Colab</h3>
+      <p>Nothing to install. Open the notebook, then choose <b>Runtime → Run all</b>. A full run takes about two minutes.</p>
+      <div class="row"><a class="btn primary" id="colabRun" target="_blank" rel="noopener"><i data-lucide="play" class="icon"></i> Open in Colab</a><a class="btn" id="colabCorr" target="_blank" rel="noopener"><i data-lucide="scatter-chart" class="icon"></i> Correlation notebook (lecture)</a></div>
+    </div>
+    <div class="card">
+      <h3><i data-lucide="laptop" class="icon"></i> Option B: Local (Python 3.10+)</h3>
+      <p>Download the notebook, then (internet connection required for the data):</p>
+      <pre class="code"><span class="k">python</span> -m venv .venv
+<span class="c"># Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate</span>
+<span class="k">pip</span> install -r requirements.txt
+<span class="k">jupyter</span> lab Causal_Inference_and_Root_Cause_Analysis.ipynb</pre>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3><i data-lucide="folder-tree" class="icon"></i> What is in the folder</h3>
+    <div class="tablewrap"><table class="t">
+      <tr><td><i data-lucide="globe" class="icon"></i> <code>index.html</code></td><td>This interactive tutorial (open in any browser)</td></tr>
+      <tr><td><i data-lucide="notebook-pen" class="icon"></i> <code>Causal_Inference_and_Root_Cause_Analysis.ipynb</code></td><td>Polished, runnable DoWhy notebook</td></tr>
+      <tr><td><i data-lucide="database" class="icon"></i> <code>data/*.csv</code></td><td>Normal, single-anomaly, and 1,000-request degraded latency data (read by the notebook from GitHub)</td></tr>
+      <tr><td><i data-lucide="package" class="icon"></i> <code>requirements.txt</code></td><td>Python packages for local runs</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer>
+  <div class="card" style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+    <div class="badge" style="width:48px;height:48px;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none"><i data-lucide="award" class="icon" style="width:26px;height:26px"></i></div>
+    <div style="flex:1;min-width:240px">
+      <b style="font-size:1.05rem;color:var(--ink)">Credits</b>
+      <p style="margin:.3em 0">Tutorial prepared by <b>Ousman Khan</b>, <b>AI for Smart Mobility Lab (AI4SM)</b>, King Fahd University of Petroleum &amp; Minerals (KFUPM).</p>
+      <p style="margin:.3em 0">For <b>ISE 518: Data Analytics for Reliability and Maintenance</b>, taught by <b>Dr. Alaa Khamis</b>, Industrial and Systems Engineering Department, KFUPM. Lecture slides: <a href="https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_Diagnostic_analytics" target="_blank" rel="noopener">github.com/Dr-AlaaKhamis/ISE518</a>.</p>
+      <p style="margin:.3em 0;font-size:.85rem">Case study adapted from the DoWhy example <a href="https://www.pywhy.org/dowhy/v0.13/example_notebooks/gcm_rca_microservice_architecture.html" target="_blank" rel="noopener">“Finding the Root Cause of Elevated Latencies in a Microservice Architecture”</a> (PyWhy, MIT License).</p>
+    </div>
+  </div>
+</footer>
+</main>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+/* ===================== configuration ===================== */
+const COLAB_URL = "https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/11_Diagnostic_analytics/Causal_Inference_and_Root_Cause_Analysis.ipynb";
+const COLAB_CORR = "https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/11_Diagnostic_analytics/Correlation_Analysis.ipynb";
+["colabTop","colabHero","colabRun"].forEach(id=>document.getElementById(id).href=COLAB_URL);
+document.getElementById("colabCorr").href=COLAB_CORR;
+
+/* ===================== helpers ===================== */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const NS="http://www.w3.org/2000/svg";
+function el(tag,attrs={},parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+function txt(parent,x,y,s,attrs={}){const t=el("text",Object.assign({x,y,fill:"var(--ink-2)","font-size":11},attrs),parent);t.textContent=s;return t}
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let seed=7;function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}
+function randn(){let u=0,v=0;while(!u)u=rnd();while(!v)v=rnd();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+const mean=a=>a.reduce((s,x)=>s+x,0)/a.length;
+function pearson(x,y){const mx=mean(x),my=mean(y);let sxy=0,sxx=0,syy=0;for(let i=0;i<x.length;i++){const a=x[i]-mx,b=y[i]-my;sxy+=a*b;sxx+=a*a;syy+=b*b}return sxx&&syy?sxy/Math.sqrt(sxx*syy):0}
+function ranks(a){const idx=a.map((v,i)=>[v,i]).sort((p,q)=>p[0]-q[0]);const r=new Array(a.length);let i=0;while(i<idx.length){let j=i;while(j+1<idx.length&&idx[j+1][0]===idx[i][0])j++;const avg=(i+j)/2+1;for(let k=i;k<=j;k++)r[idx[k][1]]=avg;i=j+1}return r}
+const spearman=(x,y)=>pearson(ranks(x),ranks(y));
+function strength(r){const a=Math.abs(r);if(a>=0.995)return["Perfect","good"];if(a>=0.65)return["Strong","good"];if(a>=0.35)return["Moderate","brand"];if(a>=0.1)return["Weak","accent"];return["None","bad"]}
+function fmt(x,d=3){return (x<0?"−":"")+Math.abs(x).toFixed(d)}
+const tip=$("#tip");function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;tip.style.left=Math.min(e.clientX+14,innerWidth-250)+"px";tip.style.top=(e.clientY+14)+"px"}function hideTip(){tip.style.opacity=0}
+function icons(){if(window.lucide)lucide.createIcons()}
+function renderTex(){if(!window.katex)return;$$("[data-tex]").forEach(n=>{if(n.dataset.done)return;try{katex.render(n.dataset.tex,n,{displayMode:true,throwOnError:false});n.dataset.done=1}catch(e){}})}
+window.addEventListener("load",()=>{renderTex();icons()});
+function segment(id,cb){const seg=$(id);seg.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;seg.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));cb(b.dataset)})}
+
+/* generic axis frame for svg charts */
+function frame(svg,W,H,m,xd,yd,opt={}){
+  svg.innerHTML="";
+  const X=v=>m.l+(v-xd[0])/(xd[1]-xd[0])*(W-m.l-m.r), Y=v=>H-m.b-(v-yd[0])/(yd[1]-yd[0])*(H-m.t-m.b);
+  const g=el("g",{},svg);
+  (opt.yt||[]).forEach(v=>{el("line",{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:"var(--grid)"},g);txt(g,m.l-6,Y(v)+4,opt.yf?opt.yf(v):v,{"text-anchor":"end","fill":"var(--muted)","font-size":10})});
+  (opt.xt||[]).forEach(v=>txt(g,X(v),H-m.b+15,opt.xf?opt.xf(v):v,{"text-anchor":"middle","fill":"var(--muted)","font-size":10}));
+  if(opt.xl)txt(g,(m.l+W-m.r)/2,H-4,opt.xl,{"text-anchor":"middle","font-size":11,"font-weight":600});
+  if(opt.yl){const t=txt(g,12,(m.t+H-m.b)/2,opt.yl,{"text-anchor":"middle","font-size":11,"font-weight":600});t.setAttribute("transform",`rotate(-90 12 ${(m.t+H-m.b)/2})`)}
+  return {X,Y,g};
+}
+
+/* ===================== theme + toc + progress ===================== */
+(function(){
+  const saved=store.get("da-theme");if(saved)document.documentElement.dataset.theme=saved;
+  $("#themeBtn").onclick=()=>{const dark=document.documentElement.dataset.theme?document.documentElement.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;const t=dark?"light":"dark";document.documentElement.dataset.theme=t;store.set("da-theme",t);redrawAll()};
+  const secs=$$("section.sec"),toc=$("#toc");const done=new Set(store.get("da-done")||[]);
+  secs.forEach((s,i)=>{const a=document.createElement("a");a.href="#"+s.id;a.dataset.id=s.id;a.innerHTML=`<span class="num">${i+1}</span>${s.dataset.title}`;if(done.has(s.id))a.classList.add("done");toc.appendChild(a)});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$("#toc a").forEach(a=>a.classList.toggle("active",a.dataset.id===e.target.id))}}),{rootMargin:"-40% 0px -55% 0px"});
+  secs.forEach(s=>io.observe(s));
+  addEventListener("scroll",()=>{const h=document.documentElement;$("#progress").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";
+    secs.forEach(s=>{const r=s.getBoundingClientRect();if(r.bottom<innerHeight*0.9&&!done.has(s.id)){done.add(s.id);store.set("da-done",[...done]);const a=$(`#toc a[data-id="${s.id}"]`);a&&a.classList.add("done")}})},{passive:true});
+})();
+
+/* ===================== 1. stages + matching ===================== */
+const STAGES=[
+ {k:"Descriptive",ic:"bar-chart-big",q:"What happened, or what is happening?",in:"Equipment data: temperature, vibration, pressure, age; failure indicators and observed time to failure.",out:"Summary statistics and failure rates, EDA, distributions such as time-to-failure histograms, baseline asset performance."},
+ {k:"Diagnostic",ic:"search-check",q:"Why did it happen?",in:"Cleaned dataset: sensors, failure labels, time to failure.",out:"Correlation between variables and failures, the specific cause(s) of a particular event, and the causal effect of a variable on an outcome.",diag:1},
+ {k:"Predictive",ic:"line-chart",q:"What will happen?",in:"Historical labeled data: sensor values, asset age, failure outcomes, time to failure.",out:"Failure-risk classifiers, remaining useful life (RUL) regressors, accuracy / AUC / RMSE, forward-looking predictions."},
+ {k:"Prescriptive",ic:"wrench",q:"What should we do to get the best result?",in:"Predictions plus business cost parameters: planned vs. unplanned maintenance costs, risk thresholds.",out:"Maintenance decision rules (maintain now or continue), a prioritized maintenance list, actions that minimize downtime and cost."}];
+(function(){
+  const box=$("#stages");
+  STAGES.forEach((s,i)=>{const c=document.createElement("div");c.className="card stage"+(s.diag?" diag sel":"");c.tabIndex=0;c.innerHTML=`<div class="ic"><i data-lucide="${s.ic}" class="icon"></i></div><b>${i+1}. ${s.k}</b><div class="q">${s.q}</div>`;c.onclick=()=>pick(i);c.onkeydown=e=>{if(e.key==="Enter")pick(i)};box.appendChild(c)});
+  function pick(i){$$("#stages .stage").forEach((c,j)=>c.classList.toggle("sel",i===j));const s=STAGES[i];
+    $("#stageDetail").innerHTML=`<div class="row" style="margin-bottom:6px"><span class="pill ${s.diag?"brand":""}"><i data-lucide="${s.ic}" class="icon"></i> ${s.k} analytics</span>${s.diag?'<span class="pill accent">Today’s focus</span>':""}</div>
+    <div class="grid g2"><div><b><i data-lucide="log-in" class="icon"></i> Input</b><p>${s.in}</p></div><div><b><i data-lucide="log-out" class="icon"></i> Output</b><p>${s.out}</p></div></div>`;icons()}
+  pick(1);
+  const M=[["Elevated vibration","Bearing misalignment"],["Frequent motor failures","Inadequate cooling or ventilation"],["Seal wear","High operating pressure"],["Increased downtime in older equipment","Lack of preventive maintenance"],["More false alarms on Line C","Sensor calibration drift"]];
+  const opts=[...M.map(m=>m[1])].sort();
+  $("#matchList").innerHTML=M.map((m,i)=>`<div class="match"><div><i data-lucide="alert-octagon" class="icon" style="color:var(--accent)"></i> <b>Effect:</b> ${m[0]}</div><div class="row"><select data-i="${i}" aria-label="Cause for ${m[0]}"><option value="">Choose a cause…</option>${opts.map(o=>`<option>${o}</option>`).join("")}</select><span class="res"></span></div></div>`).join("");
+  $("#matchCheck").onclick=()=>{let ok=0;$$("#matchList select").forEach(s=>{const r=s.value===M[s.dataset.i][1];ok+=r;s.nextElementSibling.innerHTML=s.value?(r?'<span class="pill good"><i data-lucide="check" class="icon"></i></span>':'<span class="pill bad"><i data-lucide="x" class="icon"></i></span>'):""});$("#matchScore").textContent=`${ok} / ${M.length} correct`;$("#matchScore").className="pill "+(ok===M.length?"good":"accent");icons()};
+})();
+
+/* ===================== 2. correlation playground ===================== */
+const play={p:"linear",seed:11};
+segment("#patSeg",d=>{play.p=d.p;drawPlay()});
+["slope","noise","nPts"].forEach(id=>$("#"+id).addEventListener("input",drawPlay));
+$("#reseed").onclick=()=>{play.seed=Math.floor(Math.random()*1e6)+1;drawPlay()};
+function drawPlay(){
+  const b=+$("#slope").value,s=+$("#noise").value,n=+$("#nPts").value;
+  $("#slopeV").textContent=b.toFixed(2);$("#noiseV").textContent=s.toFixed(2);$("#nV").textContent=n;
+  seed=play.seed;const x=[],y=[];
+  for(let i=0;i<n;i++){const xi=rnd()*4-2;let yi;
+    if(play.p==="linear"||play.p==="outlier")yi=b*xi+s*randn();
+    else if(play.p==="mono")yi=Math.sign(b)*Math.exp(1.4*xi)*Math.abs(b)/3+s*0.5*randn();
+    else yi=(Math.abs(b)+0.2)*(xi*xi-1.3)+s*0.6*randn();
+    x.push(xi);y.push(yi)}
+  if(play.p==="outlier"){x.push(1.9);y.push(b>=0?-14:14);x.push(-1.9);y.push(b>=0?12:-12)}
+  const rp=pearson(x,y),rs=spearman(x,y);
+  const ymin=Math.min(...y),ymax=Math.max(...y),pad=(ymax-ymin)*0.08||1;
+  const svg=$("#scatter"),F=frame(svg,520,340,{l:44,r:12,t:12,b:34},[-2.1,2.1],[ymin-pad,ymax+pad],{xt:[-2,-1,0,1,2],yt:niceTicks(ymin-pad,ymax+pad,5),yf:v=>+v.toFixed(1),xl:"X",yl:"Y"});
+  x.forEach((xi,i)=>{const out=play.p==="outlier"&&i>=n;el("circle",{cx:F.X(xi),cy:F.Y(y[i]),r:out?6:4,fill:out?css("--c2"):css("--c1"),"fill-opacity":out?1:.7,stroke:css("--surface"),"stroke-width":1.5},F.g)});
+  $("#rP").textContent=fmt(rp,3);$("#rS").textContent=fmt(rs,3);
+  const [lp,cp]=strength(rp),[ls,cs]=strength(rs);
+  $("#rPl").textContent=`${lp}${Math.abs(rp)>=0.1?(rp>0?", positive":", negative"):""}`;$("#rPl").className="pill "+cp;
+  $("#rSl").textContent=`${ls}${Math.abs(rs)>=0.1?(rs>0?", positive":", negative"):""}`;$("#rSl").className="pill "+cs;
+  const msg={linear:"For a straight-line pattern, Pearson and Spearman tell the same story. Increase the noise and both shrink toward zero.",
+    mono:"The curve always rises (or falls), so its ranks are almost perfectly ordered: Spearman stays high while Pearson underestimates the relationship.",
+    outlier:"Two extreme points (orange) pull Pearson’s r down sharply. Spearman works on ranks, so it is far more robust.",
+    u:"Y strongly depends on X, yet both coefficients are near zero. Correlation only detects linear or monotonic association: zero correlation does not mean no relationship."}[play.p];
+  $("#playMsg p").textContent=msg;
+}
+function niceTicks(a,b,n){const step=Math.pow(10,Math.floor(Math.log10((b-a)/n)));const err=(b-a)/n/step;const st=step*(err>=7.5?10:err>=3.5?5:err>=1.5?2:1);const out=[];for(let v=Math.ceil(a/st)*st;v<=b+1e-9;v+=st)out.push(+v.toFixed(10));return out}
+
+/* calculator */
+function calc(){
+  const X=$("#calcX").value.split(/[,\s]+/).filter(Boolean).map(Number),Y=$("#calcY").value.split(/[,\s]+/).filter(Boolean).map(Number);
+  const T=$("#calcTable");
+  if(X.length!==Y.length||X.length<3||X.some(isNaN)||Y.some(isNaN)){T.innerHTML='<tr><td><span class="pill bad">Enter at least 3 numeric pairs with equal counts.</span></td></tr>';$("#calcP").innerHTML=$("#calcS").innerHTML="";return}
+  const mx=mean(X),my=mean(Y),rx=ranks(X),ry=ranks(Y);let sxy=0,sxx=0,syy=0,sd=0;
+  let rows=X.map((x,i)=>{const a=x-mx,b=Y[i]-my,d=rx[i]-ry[i];sxy+=a*b;sxx+=a*a;syy+=b*b;sd+=d*d;return `<tr><td class="n">${i+1}</td><td class="n">${x}</td><td class="n">${Y[i]}</td><td class="n">${a.toFixed(2)}</td><td class="n">${b.toFixed(2)}</td><td class="n">${(a*b).toFixed(2)}</td><td class="n">${rx[i]}</td><td class="n">${ry[i]}</td><td class="n">${(d*d).toFixed(2)}</td></tr>`}).join("");
+  T.innerHTML=`<thead><tr><th>i</th><th>x</th><th>y</th><th>x−x̄</th><th>y−ȳ</th><th>(x−x̄)(y−ȳ)</th><th>Rank x</th><th>Rank y</th><th>d²</th></tr></thead><tbody>${rows}<tr style="font-weight:700"><td>Σ</td><td colspan="2">x̄=${mx.toFixed(2)}, ȳ=${my.toFixed(2)}</td><td class="n">Σ²=${sxx.toFixed(1)}</td><td class="n">Σ²=${syy.toFixed(1)}</td><td class="n">${sxy.toFixed(1)}</td><td></td><td></td><td class="n">${sd.toFixed(2)}</td></tr></tbody>`;
+  const n=X.length,r=sxy/Math.sqrt(sxx*syy),rho=1-6*sd/(n*(n*n-1));
+  $("#calcP").innerHTML=`<div class="stat"><span class="l">Pearson r</span><div data-tex="r=\\frac{${sxy.toFixed(1)}}{\\sqrt{${sxx.toFixed(1)}}\\sqrt{${syy.toFixed(1)}}}=${r.toFixed(4)}">r = ${r.toFixed(4)}</div><span class="pill ${strength(r)[1]}">${strength(r)[0]}</span></div>`;
+  $("#calcS").innerHTML=`<div class="stat"><span class="l">Spearman <span class="nt">ρ</span> (no-ties formula)</span><div data-tex="\\rho=1-\\frac{6(${sd.toFixed(2)})}{${n}(${n}^2-1)}=${rho.toFixed(4)}">ρ = ${rho.toFixed(4)}</div><span class="pill ${strength(rho)[1]}">${strength(rho)[0]}</span></div>`;
+  renderTex();
+}
+["calcX","calcY"].forEach(id=>$("#"+id).addEventListener("input",calc));
+
+/* cross-correlation */
+const xc={D:12,seed:3};
+$("#tau").addEventListener("input",drawXC);$("#xcNew").onclick=()=>{xc.D=Math.round(Math.random()*40-20);xc.seed=Math.floor(Math.random()*1e5)+1;$("#tau").value=0;drawXC()};
+function drawXC(){
+  const N=160,tau=+$("#tau").value;$("#tauV").textContent=tau;seed=xc.seed;
+  const base=[];for(let i=0;i<N+60;i++)base.push(0);
+  for(let k=0;k<6;k++){const c=20+rnd()*(N+20),w=2+rnd()*4,a=0.6+rnd();for(let i=0;i<base.length;i++)base[i]+=a*Math.exp(-((i-c)**2)/(2*w*w))}
+  const x=[],y=[];for(let t=0;t<N;t++){x.push(base[t+30]+0.08*randn());y.push(0.9*base[t+30-xc.D]+0.08*randn())}
+  const R=[];for(let L=-30;L<=30;L++){const a=[],b=[];for(let t=0;t<N;t++){const u=t+L;if(u>=0&&u<N){a.push(x[t]);b.push(y[u])}}R.push([L,pearson(a,b)])}
+  const best=R.reduce((p,q)=>q[1]>p[1]?q:p);
+  let F=frame($("#xcSig"),460,150,{l:10,r:10,t:10,b:20},[0,N],[-0.4,2.2],{});
+  const path=(arr,sh)=>arr.map((v,t)=>`${t?"L":"M"}${F.X(t+sh).toFixed(1)},${F.Y(v).toFixed(1)}`).join("");
+  el("path",{d:path(y,0),fill:"none",stroke:css("--c2"),"stroke-width":2},F.g);
+  el("path",{d:path(x,tau),fill:"none",stroke:css("--c1"),"stroke-width":2,"stroke-opacity":.85},F.g);
+  txt(F.g,14,22,"Vibration, shifted by τ",{fill:css("--c1"),"font-weight":600});txt(F.g,14,36,"Temperature",{fill:css("--c2"),"font-weight":600});
+  F=frame($("#xcCorr"),460,130,{l:34,r:10,t:10,b:30},[-31,31],[-0.6,1],{xt:[-30,-15,0,15,30],yt:[-0.5,0,0.5,1],xl:"Lag τ"});
+  R.forEach(([L,v])=>{const sel=L===tau;el("rect",{x:F.X(L)-3,width:6,y:Math.min(F.Y(v),F.Y(0)),height:Math.abs(F.Y(v)-F.Y(0)),rx:2,fill:sel?css("--c2"):css("--c1"),"fill-opacity":sel?1:.55},F.g)});
+  const cur=R.find(r=>r[0]===tau)[1];
+  $("#xcRead").innerHTML=`R(τ=${tau}) = ${cur.toFixed(2)} ${tau===best[0]?' · <b>Peak found! Delay = '+best[0]+' samples</b>':' · peak not reached yet'}`;
+  $("#xcRead").className="pill "+(tau===best[0]?"good":"brand");
+}
+/* auto-correlation */
+["per","acn"].forEach(id=>$("#"+id).addEventListener("input",drawAC));
+function drawAC(){
+  const P=+$("#per").value,s=+$("#acn").value;$("#perV").textContent=P+" samples";$("#acnV").textContent=s.toFixed(1);seed=21;
+  const N=200,x=[];for(let t=0;t<N;t++)x.push(Math.sin(2*Math.PI*t/P)+0.4*Math.sin(4*Math.PI*t/P+1)+s*randn());
+  const mx=mean(x),v=x.reduce((a,b)=>a+(b-mx)**2,0),acf=[];for(let L=0;L<=60;L++){let c=0;for(let t=0;t+L<N;t++)c+=(x[t]-mx)*(x[t+L]-mx);acf.push(c/v)}
+  let F=frame($("#acSig"),460,120,{l:10,r:10,t:8,b:14},[0,N],[Math.min(...x),Math.max(...x)],{});
+  el("path",{d:x.map((v,t)=>`${t?"L":"M"}${F.X(t).toFixed(1)},${F.Y(v).toFixed(1)}`).join(""),fill:"none",stroke:css("--c1"),"stroke-width":1.5},F.g);
+  F=frame($("#acCorr"),460,140,{l:34,r:10,t:10,b:30},[-1,61],[-1,1],{xt:[0,10,20,30,40,50,60],yt:[-1,-0.5,0,0.5,1],xl:"Lag τ"});
+  let pk=0;for(let L=3;L<60;L++)if(acf[L]>acf[L-1]&&acf[L]>=acf[L+1]&&acf[L]>0.15){pk=L;break}
+  acf.forEach((a,L)=>el("rect",{x:F.X(L)-2.5,width:5,y:Math.min(F.Y(a),F.Y(0)),height:Math.abs(F.Y(a)-F.Y(0)),rx:2,fill:L===pk?css("--c2"):css("--c1"),"fill-opacity":L===pk?1:.6},F.g));
+  $("#acRead").textContent=pk?`First ACF peak at τ = ${pk} ≈ cycle length ${P}`:"Noise hides the cycle: no clear peak";
+}
+
+/* ===================== 3. flip cards + confounding sim ===================== */
+const FLIPS=[
+ {ic:"ice-cream-cone",t:"Ice cream and drownings",o:"In summer, ice cream sales and drownings rise together.",f:"“Eating ice cream causes drownings.”",c:"Hot weather",r:"Heat drives people to buy ice cream and to go swimming."},
+ {ic:"award",t:"Chocolate and Nobel Prizes",o:"Countries that eat more chocolate have more Nobel laureates per 10 million people.",f:"“Chocolate wins Nobel Prizes.”",c:"Wealth and education",r:"National wealth and education raise both chocolate consumption and scientific output."},
+ {ic:"car-taxi-front",t:"London taxi drivers and coats",o:"Drivers wearing coats had more accidents. A law banning coats while driving was proposed.",f:"“Coats cause accidents.”",c:"Cold weather",r:"Cold, wet weather makes people wear coats and makes roads more dangerous."},
+ {ic:"car",t:"Car color and accidents",o:"Black cars appear in more accidents than white cars.",f:"“The color black causes accidents.”",c:"Visibility / lighting",r:"Dark cars are harder to see in low light. Controlling for lighting weakens the link."},
+ {ic:"hospital",t:"Large hospitals and mortality",o:"Patients in large hospitals have higher mortality than in small ones.",f:"“Large hospitals cause more deaths.”",c:"Patient severity",r:"Large hospitals treat sicker patients. Adjusting for severity removes the correlation."},
+ {ic:"wrench",t:"Maintenance and failures",o:"Machines that receive more maintenance record more breakdowns.",f:"“Maintenance causes failures.”",c:"Machine age / usage",r:"Older, heavily used, critical machines need more maintenance and also fail more."}];
+(function(){
+  const box=$("#flips");
+  FLIPS.forEach(f=>{const d=document.createElement("div");d.className="flip";d.tabIndex=0;d.setAttribute("role","button");d.setAttribute("aria-label","Reveal: "+f.t);
+    d.innerHTML=`<div class="flip-in"><div class="face"><div class="row"><span class="pill accent"><i data-lucide="${f.ic}" class="icon"></i></span><b>${f.t}</b></div><p style="margin-top:10px"><b>Observation:</b> ${f.o}</p><p style="color:var(--bad)"><i data-lucide="x-circle" class="icon"></i> ${f.f}</p><div class="hint"><i data-lucide="rotate-3d" class="icon"></i> Click to reveal the confounder</div></div>
+    <div class="face back"><span class="pill brand"><i data-lucide="eye" class="icon"></i> Hidden confounder</span><svg viewBox="0 0 260 90" style="width:100%;max-height:96px;margin:6px 0">${miniDag(f.c)}</svg><p style="font-size:.9rem;margin:0">${f.r}</p></div></div>`;
+    const tg=()=>d.classList.toggle("on");d.onclick=tg;d.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tg()}};box.appendChild(d)});
+  function miniDag(c){return `<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--ink-2)"/></marker></defs>
+    <rect x="70" y="2" width="120" height="26" rx="13" fill="var(--accent)"/><text x="130" y="19" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">${c}</text>
+    <rect x="4" y="60" width="86" height="26" rx="13" fill="var(--surface)" stroke="var(--ink-2)"/><text x="47" y="77" text-anchor="middle" fill="var(--ink)" font-size="10">Cause?</text>
+    <rect x="170" y="60" width="86" height="26" rx="13" fill="var(--surface)" stroke="var(--ink-2)"/><text x="213" y="77" text-anchor="middle" fill="var(--ink)" font-size="10">Effect?</text>
+    <line x1="105" y1="28" x2="62" y2="58" stroke="var(--ink-2)" stroke-width="1.6" marker-end="url(#ah)"/><line x1="155" y1="28" x2="198" y2="58" stroke="var(--ink-2)" stroke-width="1.6" marker-end="url(#ah)"/>
+    <line x1="92" y1="73" x2="166" y2="73" stroke="var(--bad)" stroke-width="1.6" stroke-dasharray="4 3"/><text x="130" y="68" text-anchor="middle" fill="var(--bad)" font-size="9">correlation only</text>`}
+})();
+const conf={ctrl:0};
+segment("#ctrlSeg",d=>{conf.ctrl=+d.c;drawConf()});
+["trueEff","conf"].forEach(id=>$("#"+id).addEventListener("input",drawConf));
+function ols(x,y){const mx=mean(x),my=mean(y);let a=0,b=0;x.forEach((v,i)=>{a+=(v-mx)*(y[i]-my);b+=(v-mx)**2});return {b:a/b,a:my-a/b*mx}}
+function drawConf(){
+  const te=+$("#trueEff").value,cs=+$("#conf").value;$("#teV").textContent=te.toFixed(2);$("#cfV").textContent=cs.toFixed(2);seed=99;
+  const pts=[];for(let i=0;i<300;i++){const age=rnd()*20;const m=2+cs*0.35*age+1.0*randn();const f=1+cs*0.45*age+te*m+0.9*randn();pts.push({age,m,f,g:age<7?0:age<14?1:2})}
+  const nb=ols(pts.map(p=>p.m),pts.map(p=>p.f));
+  // age-adjusted: regress f on m and age
+  const X=pts.map(p=>[1,p.m,p.age]),Y=pts.map(p=>p.f);const adj=lstsq(X,Y)[1];
+  const xs=pts.map(p=>p.m),ys=pts.map(p=>p.f);const xr=[Math.min(...xs)-.5,Math.max(...xs)+.5],yr=[Math.min(...ys)-.5,Math.max(...ys)+.5];
+  const F=frame($("#confPlot"),520,340,{l:44,r:12,t:12,b:34},xr,yr,{xt:niceTicks(xr[0],xr[1],6),yt:niceTicks(yr[0],yr[1],5),xl:"Maintenance actions per year",yl:"Failures per year"});
+  const cols=[css("--c3"),css("--c1"),css("--c2")];
+  pts.forEach(p=>el("circle",{cx:F.X(p.m),cy:F.Y(p.f),r:4,fill:conf.ctrl?cols[p.g]:css("--muted"),"fill-opacity":.7,stroke:css("--surface"),"stroke-width":1.2},F.g));
+  const line=(a,b,x0,x1,c,w,dash)=>el("line",{x1:F.X(x0),y1:F.Y(a+b*x0),x2:F.X(x1),y2:F.Y(a+b*x1),stroke:c,"stroke-width":w,"stroke-dasharray":dash||"","stroke-linecap":"round"},F.g);
+  if(!conf.ctrl){line(nb.a,nb.b,xr[0],xr[1],css("--ink"),2.5)}
+  else{[0,1,2].forEach(g=>{const s=pts.filter(p=>p.g===g);if(s.length<5)return;const o=ols(s.map(p=>p.m),s.map(p=>p.f));const mx=s.map(p=>p.m);line(o.a,o.b,Math.min(...mx),Math.max(...mx),cols[g],2.5)})}
+  $("#naiveB").textContent=fmt(nb.b,2);$("#adjB").textContent=fmt(adj,2);$("#trueB").textContent=fmt(te,2);
+  $("#naiveB").style.color=Math.sign(nb.b)!==Math.sign(te)&&Math.abs(nb.b)>0.05?"var(--bad)":"";$("#adjB").style.color="var(--good)";
+  $("#confMsg p").innerHTML=conf.ctrl?`Within each age group the slopes are close to the true effect (${fmt(te,2)}). Adjusting for the confounder recovers the causal effect: <b>${fmt(adj,2)}</b>.`
+   :(nb.b>0&&te<0?`The pooled data say maintenance <b>increases</b> failures (slope ${fmt(nb.b,2)}), yet the true effect is protective (${fmt(te,2)}). Machine age reverses the sign. Now toggle <i>Control for machine age</i>.`:`Pooled slope ${fmt(nb.b,2)} vs. true effect ${fmt(te,2)}: the difference is confounding bias of ${fmt(nb.b-te,2)}.`);
+}
+function lstsq(X,Y){const k=X[0].length,A=[...Array(k)].map(()=>Array(k+1).fill(0));X.forEach((r,i)=>{for(let a=0;a<k;a++){for(let b=0;b<k;b++)A[a][b]+=r[a]*r[b];A[a][k]+=r[a]*Y[i]}});
+  for(let c=0;c<k;c++){let p=c;for(let r=c+1;r<k;r++)if(Math.abs(A[r][c])>Math.abs(A[p][c]))p=r;[A[c],A[p]]=[A[p],A[c]];for(let r=0;r<k;r++){if(r===c)continue;const f=A[r][c]/A[c][c];for(let j=c;j<=k;j++)A[r][j]-=f*A[c][j]}}return A.map((r,i)=>r[k]/r[i])}
+
+/* ===================== 4. junctions + ladder ===================== */
+const JUN={
+ conf:{name:"Confounder",ex:["Machine age","Maintenance frequency","Failures"],edges:[[1,0],[1,2]],adj:true,
+   def:"A variable that influences <b>both</b> the treatment and the outcome, creating a spurious association between them.",
+   ex2:"Machine age affects both how often a machine is maintained and how often it fails.",
+   rule:"<b>Adjust for it.</b> Conditioning on the confounder blocks the backdoor path A ← B → C."},
+ med:{name:"Mediator",ex:["Better component condition","Predictive maintenance","Fewer failures"],edges:[[0,1],[1,2]],chain:true,adj:false,
+   def:"A variable on the causal path from treatment to outcome. It explains <b>how</b> or <b>why</b> the treatment works.",
+   ex2:"Predictive maintenance improves component condition, which in turn reduces failures.",
+   rule:"<b>Do not adjust</b> if you want the total effect. Conditioning on the mediator removes the very mechanism you are measuring."},
+ col:{name:"Collider",ex:["Maintenance alerts","Predictive maintenance","Machine failures"],edges:[[0,1],[2,1]],adj:false,
+   def:"A variable that is <b>caused by both</b> the treatment and the outcome (two arrows collide into it).",
+   ex2:"Maintenance alerts are triggered by the predictive-maintenance system and by actual machine failures.",
+   rule:"<b>Do not adjust.</b> The path is already blocked. Filtering on alerts (for example, only studying machines that raised an alert) opens a spurious link between A and C: selection bias."}};
+segment("#junSeg",d=>drawJun(d.j));
+function drawJun(k){
+  const J=JUN[k],svg=$("#junSvg");svg.innerHTML=`<defs><marker id="ja" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--ink-2)"/></marker></defs>`;
+  const P=J.chain?[[180,50],[60,180],[300,180]]:[[180,180],[60,50],[300,50]];
+  // roles: index 0 = B (special), 1 = A (treatment), 2 = C (outcome)
+  let pos; if(k==="conf")pos={B:[180,45],A:[70,185],C:[290,185]}; else if(k==="med")pos={B:[180,115],A:[50,115],C:[310,115]}; else pos={B:[180,185],A:[70,45],C:[290,45]};
+  const roles=["B","A","C"],labels={B:J.name,A:"Treatment (A)",C:"Outcome (C)"};
+  const edge=(f,t)=>{const [x1,y1]=pos[f],[x2,y2]=pos[t],dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),r=34;el("line",{x1:x1+dx/L*r,y1:y1+dy/L*r*0.75,x2:x2-dx/L*r,y2:y2-dy/L*r*0.75,stroke:"var(--ink-2)","stroke-width":2,"marker-end":"url(#ja)"},svg)};
+  if(k==="conf"){edge("B","A");edge("B","C");edge("A","C")}else if(k==="med"){edge("A","B");edge("B","C")}else{edge("A","B");edge("C","B")}
+  roles.forEach((r,i)=>{const [x,y]=pos[r],sp=r==="B";el("ellipse",{cx:x,cy:y,rx:62,ry:24,fill:sp?"var(--accent)":r==="A"?"var(--brand-soft)":"var(--surface-2)",stroke:sp?"var(--accent)":"var(--brand)","stroke-width":1.5},svg);
+    const words=J.ex[i].split(" ");const lines=words.length>2?[words.slice(0,Math.ceil(words.length/2)).join(" "),words.slice(Math.ceil(words.length/2)).join(" ")]:[J.ex[i]];
+    lines.forEach((ln,j)=>txt(svg,x,y+4+(j-(lines.length-1)/2)*13,ln,{"text-anchor":"middle","fill":sp?"#fff":"var(--ink)","font-size":11,"font-weight":600}));
+    txt(svg,x,y+(r==="B"&&k==="conf"?-30:38),labels[r],{"text-anchor":"middle","font-size":10,"fill":"var(--muted)"})});
+  $("#junText").innerHTML=`<span class="pill accent">${J.name}</span><p style="margin-top:10px"><b>Definition.</b> ${J.def}</p><p><b>Example.</b> ${J.ex2}</p><div class="callout ${J.adj?"key":"warn"}" style="margin-bottom:0"><i data-lucide="${J.adj?"check-circle-2":"ban"}" class="icon"></i><p>${J.rule}</p></div>`;icons();
+}
+const RUNGS=[
+ {n:1,t:"Association",v:"Seeing",ic:"eye",q:"What is correlated with what?",ex:"Are high vibration levels associated with pump failure?",need:"Observational data and statistics: correlation, regression, classifiers.",tool:"P(failure | vibration)"},
+ {n:2,t:"Intervention",v:"Doing",ic:"hand",q:"What happens if I do X?",ex:"If we implement predictive maintenance, will failures decrease?",need:"Experiments, or observational data plus a causal graph (backdoor, frontdoor, IV).",tool:"P(failure | do(maintenance))"},
+ {n:3,t:"Counterfactual",v:"Imagining",ic:"brain",q:"What if I had done X instead?",ex:"Would this failure still have occurred if we had changed the bearing?",need:"A fully specified structural causal model of the system and the specific unit.",tool:"P(failure had we changed the bearing | it failed)"}];
+(function(){
+  const L=$("#ladder");[...RUNGS].reverse().forEach(r=>{const d=document.createElement("div");d.className="rung";d.tabIndex=0;d.dataset.n=r.n;d.innerHTML=`<div class="lvl">${r.n}</div><div><b>${r.t}: ${r.v}</b><div style="color:var(--ink-2);font-size:.92rem">“${r.q}”</div></div>`;d.onclick=()=>pickR(r.n);d.onkeydown=e=>{if(e.key==="Enter")pickR(r.n)};L.appendChild(d)});
+  function pickR(n){$$(".rung").forEach(d=>d.classList.toggle("sel",+d.dataset.n===n));const r=RUNGS[n-1];
+    $("#ladderDetail").innerHTML=`<span class="pill brand"><i data-lucide="${r.ic}" class="icon"></i> Rung ${r.n}: ${r.v}</span><h4 style="margin-top:12px"><i data-lucide="droplets" class="icon"></i> Pump example</h4><p>${r.ex}</p><h4><i data-lucide="package" class="icon"></i> What you need</h4><p>${r.need}</p><p class="mono" style="font-size:.85rem;background:var(--surface-2);padding:8px 10px;border-radius:8px">${r.tool}</p>`;icons()}
+  pickR(1);
+  const Q=[["Do bearings with higher temperature tend to fail sooner?",1],["If we reduce line speed by 10%, how will scrap rate change?",2],["Pump P-7 failed last week. Would it have failed if it had been serviced in March?",3],["Which sensor readings co-occur with alarms on Line C?",1],["What happens to downtime if we switch to condition-based maintenance?",2]];
+  const box=$("#rungQuiz");box.innerHTML=Q.map((q,i)=>`<div class="match"><div>${q[0]}</div><div class="row" data-i="${i}">${[1,2,3].map(n=>`<button class="btn sm" data-n="${n}">${["Seeing","Doing","Imagining"][n-1]}</button>`).join("")}<span class="res"></span></div></div>`).join("");
+  box.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const row=b.parentElement,q=Q[row.dataset.i];const ok=+b.dataset.n===q[1];row.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));row.querySelector(".res").innerHTML=ok?'<span class="pill good"><i data-lucide="check" class="icon"></i> Correct</span>':`<span class="pill bad"><i data-lucide="x" class="icon"></i> Rung ${q[1]}</span>`;icons()});
+})();
+
+/* ===================== 5. fault propagation lab ===================== */
+const SCM={"Product DB":{p:[],mean:0.1981},"Customer DB":{p:[],mean:0.1927},"Order DB":{p:[],mean:0.1933},"Shipping Cost Service":{p:[],mean:0.2613},
+ "Caching Service":{p:["Product DB"],b0:0.1794,w:[0.499],sd:0.1521,mean:0.2783},
+ "Product Service":{p:["Shipping Cost Service","Caching Service","Customer DB"],b0:0.2199,w:[0.546,0.6939,0.475],sd:0.1429,mean:0.6472},
+ "Auth Service":{p:["Customer DB"],b0:0.2587,w:[0.9996],sd:0.12,mean:0.4513},"Order Service":{p:["Order DB"],b0:0.6598,w:[0.9985],sd:0.12,mean:0.8528},
+ "API":{p:["Customer DB","Product Service","Auth Service","Order Service"],b0:0.6587,w:[0.9898,1.0088,1.0,0.9968],sd:0.1203,mean:2.8036},
+ "www":{p:["Auth Service","API"],b0:0.1426,w:[0.9922,0.9996],sd:0.1051,mean:3.3928},"Website":{p:["www"],b0:0.1638,w:[1.0021],sd:0.1441,mean:3.5636}};
+const ORDER=["Product DB","Customer DB","Order DB","Shipping Cost Service","Caching Service","Auth Service","Order Service","Product Service","API","www","Website"];
+const POS={"Website":[280,30],"www":[280,105],"API":[200,180],"Auth Service":[400,180],"Product Service":[110,255],"Order Service":[290,255],"Caching Service":[60,330],"Shipping Cost Service":[190,330],"Product DB":[60,395],"Customer DB":[330,395],"Order DB":[470,330]};
+const lab={fault:"Caching Service",view:"sym",seed:5,mystery:false,guess:null};
+(function(){
+  const s=$("#faultNode");s.innerHTML=`<option value="">None (healthy request)</option>`+ORDER.map(n=>`<option ${n===lab.fault?"selected":""}>${n}</option>`).join("");
+  s.onchange=()=>{lab.fault=s.value||null;lab.mystery=false;drawLab()};
+  $("#delay").addEventListener("input",drawLab);
+  segment("#viewSeg",d=>{lab.view=d.v;drawLab()});
+  $("#resample").onclick=()=>{lab.seed=Math.floor(Math.random()*1e6)+1;drawLab()};
+  $("#mystery").onclick=()=>{lab.mystery=true;lab.guess=null;lab.fault=ORDER[Math.floor(Math.random()*ORDER.length)];lab.seed=Math.floor(Math.random()*1e6)+1;$("#delay").value=(1.2+Math.random()*1.5).toFixed(1);s.value="";lab.view="sym";$$("#viewSeg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v==="sym"));drawLab()};
+})();
+function simulate(){
+  seed=lab.seed;const v={},d=+$("#delay").value;
+  ORDER.forEach(n=>{const m=SCM[n];let x;
+    if(!m.p.length){x=m.mean*(0.6+0.8*rnd())}
+    else{x=m.b0+m.p.reduce((s,p,i)=>s+m.w[i]*v[p],0)+m.sd*0.5*randn()}
+    if(n===lab.fault)x+=d;v[n]=x});
+  const res={};ORDER.forEach(n=>{const m=SCM[n];if(!m.p.length){res[n]=(v[n]-m.mean)/0.19}else{const pred=m.b0+m.p.reduce((s,p,i)=>s+m.w[i]*v[p],0);res[n]=(v[n]-pred)/m.sd}});
+  return {v,res};
+}
+function drawLab(){
+  $("#delayV").textContent=(+$("#delay").value).toFixed(1)+" s";
+  const {v,res}=simulate(),svg=$("#sysSvg");svg.innerHTML=`<defs><marker id="sa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--muted)"/></marker></defs>`;
+  const W=92,H=40;
+  ORDER.forEach(n=>SCM[n].p.forEach(p=>{const [x1,y1]=POS[p],[x2,y2]=POS[n];const dx=x2-x1,dy=y2-y1;const t1=Math.min(Math.abs((W/2)/dx||1e9),Math.abs((H/2)/dy||1e9)),t2=t1;
+    el("line",{x1:x1+dx*t1,y1:y1+dy*t1,x2:x2-dx*(t2+0.02),y2:y2-dy*(t2+0.02),stroke:"var(--muted)","stroke-width":1.4,"marker-end":"url(#sa)","stroke-opacity":.8},svg)}));
+  const inc=n=>v[n]-SCM[n].mean;
+  const score=n=>lab.view==="sym"?inc(n):res[n];
+  const maxS=Math.max(...ORDER.map(n=>Math.abs(score(n))),lab.view==="sym"?0.5:3);
+  const heat=(s)=>{const t=Math.max(0,Math.min(1,s/maxS));return `color-mix(in srgb, var(--accent) ${Math.round(t*100)}%, var(--surface))`};
+  ORDER.forEach(n=>{const [x,y]=POS[n];const g=el("g",{class:"node",tabindex:0,role:"button","aria-label":n},svg);
+    const isGuess=lab.guess===n;
+    el("rect",{x:x-W/2,y:y-H/2,width:W,height:H,rx:10,fill:heat(score(n)),stroke:isGuess?"var(--brand)":"var(--ink-2)","stroke-width":isGuess?3:1.2},g);
+    const words=n.split(" ");const lines=words.length>2?[words.slice(0,2).join(" "),words.slice(2).join(" ")]:words.length===2&&n.length>12?words:[n];
+    lines.forEach((ln,j)=>txt(g,x,y-3+(j-(lines.length-1)/2)*11,ln,{"text-anchor":"middle","fill":"var(--ink)","font-size":10,"font-weight":700}));
+    txt(g,x,y+14,lab.view==="sym"?`+${inc(n).toFixed(2)} s`.replace("+-","−"):`z = ${res[n].toFixed(1)}`,{"text-anchor":"middle","fill":"var(--ink)","font-size":9.5,"class":"mono"});
+    g.addEventListener("mousemove",e=>showTip(e,`<b>${n}</b><br>Latency ${v[n].toFixed(3)} s (normal mean ${SCM[n].mean.toFixed(3)} s)<br>Increase ${fmt(inc(n),3)} s<br>Surprise given parents: z = ${res[n].toFixed(2)}`));
+    g.addEventListener("mouseleave",hideTip);
+    const act=()=>{if(lab.mystery){lab.guess=n;drawLab();return}lab.fault=n;$("#faultNode").value=n;drawLab()};
+    g.addEventListener("click",act);g.addEventListener("keydown",e=>{if(e.key==="Enter")act()})});
+  const symRank=[...ORDER].sort((a,b)=>inc(b)-inc(a)),cauRank=[...ORDER].sort((a,b)=>res[b]-res[a]);
+  $("#labTable").innerHTML=`<thead><tr><th>#</th><th>Symptom ranking</th><th class="n">+s</th><th>Causal ranking</th><th class="n">z</th></tr></thead><tbody>`+
+    [0,1,2,3,4].map(i=>`<tr><td>${i+1}</td><td>${symRank[i]}</td><td class="n">${fmt(inc(symRank[i]),2)}</td><td><b>${cauRank[i]}</b></td><td class="n">${res[cauRank[i]].toFixed(1)}</td></tr>`).join("")+"</tbody>";
+  let msg;
+  if(lab.mystery&&!lab.guess)msg=`<b>Mystery fault!</b> One service received an extra delay. Study the symptom view, switch to the causal view if you like, then <b>click the service you think is the root cause</b>.`;
+  else if(lab.mystery&&lab.guess)msg=lab.guess===lab.fault?`<b>Correct!</b> The fault was in <b>${lab.fault}</b>. The causal view shows it as the only service that is far slower than its inputs predict.`:`Not quite. You picked ${lab.guess}, but the fault was in <b>${lab.fault}</b>. Switch to the causal view: ${lab.fault} is the node that is surprising given its parents.`;
+  else if(!lab.fault)msg="A healthy request: no service is unusually slow given its inputs. Pick a faulty service to inject a delay.";
+  else{const flagged=ORDER.filter(n=>inc(n)>0.4*(+$("#delay").value));msg=lab.view==="sym"?`Delay injected into <b>${lab.fault}</b>. In the symptom view <b>${flagged.length} service${flagged.length>1?"s look":" looks"} abnormal</b> (${flagged.join(", ")}), because every downstream service inherits the delay. From symptoms alone you cannot tell which one started it. Switch to the causal view.`
+    :`The causal view asks whether each service is slow <i>given its parents</i>. Only <b>${cauRank[0]}</b> stands out (z = ${res[cauRank[0]].toFixed(1)}); downstream services look normal once inherited delay is accounted for.`}
+  $("#labMsg p").innerHTML=msg;
+  $("#labLegend").innerHTML=`<span><i style="background:var(--surface);border:1px solid var(--ink-2)"></i>Normal</span><span><i style="background:var(--accent)"></i>${lab.view==="sym"?"Large latency increase (symptom)":"Large surprise given parents (root-cause signal)"}</span><span>Hover a service for its numbers</span>`;
+}
+
+/* ===================== 6. DoWhy stepper ===================== */
+const hl=s=>s.replace(/(#.*)$/gm,'<span class="c">$1</span>').replace(/("[^"]*")/g,'<span class="s">$1</span>').replace(/\b(import|from|for|in|if|else|print|def|return|lambda)\b/g,'<span class="k">$1</span>').replace(/\b(\d+\.?\d*)\b/g,'<span class="n">$1</span>');
+const STEPS=[
+ {t:"Model",ic:"share-2",body:`<p>Encode domain knowledge as a <b>directed acyclic graph</b>. An arrow <code>A → B</code> means “B waits for A”, so A’s latency feeds into B’s. Every missing arrow is an assumption too.</p>
+   <pre class="code"><button class="copy">Copy</button>${hl(`causal_graph = nx.DiGraph([
+    ("www", "Website"), ("Auth Service", "www"), ("API", "www"),
+    ("Customer DB", "Auth Service"), ("Customer DB", "API"),
+    ("Product Service", "API"), ("Auth Service", "API"), ("Order Service", "API"),
+    ("Shipping Cost Service", "Product Service"), ("Caching Service", "Product Service"),
+    ("Product DB", "Caching Service"), ("Customer DB", "Product Service"),
+    ("Order DB", "Order Service"),
+])`)}</pre>
+   <div class="callout key"><i data-lucide="info" class="icon"></i><p>Graphs come from <b>domain knowledge</b>, <b>causal discovery</b> algorithms, or both. Here we use the known architecture.</p></div>`},
+ {t:"Identify",ic:"route",body:`<p>Can the effect be written in terms of observable data? DoWhy returns an <b>estimand</b>, a formula, not yet a number. Click a strategy to see which variables it uses.</p>
+   <div class="seg" id="idSeg" style="margin:6px 0 10px"><button data-k="bd" aria-pressed="true">Backdoor</button><button data-k="iv">Instrumental variable</button><button data-k="fd">Frontdoor</button></div>
+   <div class="grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center" id="idGrid"><svg class="chart" id="idSvg" viewBox="0 0 560 420" role="img" aria-label="Identification strategy on the graph"></svg><div id="idText"></div></div>
+   <pre class="code"><button class="copy">Copy</button>${hl(`model = CausalModel(data=normal_data, treatment="Caching Service",
+                    outcome="Website", graph=graph_gml)
+estimand = model.identify_effect()`)}</pre>`},
+ {t:"Estimate",ic:"calculator",body:`<p>Now fit the estimand to data. Linear regression on the backdoor estimand and Double Machine Learning (DML) give similar answers.</p>
+   <div class="grid g2"><div class="stat"><span class="l">Linear regression</span><span class="v">0.6762</span></div><div class="stat"><span class="l">Double ML (gradient boosting)</span><span class="v">0.7159</span></div></div>
+   <h4 style="margin-top:16px"><i data-lucide="sliders" class="icon"></i> What-if: intervene on the caching layer</h4>
+   <label class="ctl">Change in Caching Service latency <span class="mono" id="wiV"></span><input type="range" id="wi" min="-0.25" max="2" step="0.05" value="1"></label>
+   <div class="callout key" id="wiOut"><i data-lucide="arrow-right-circle" class="icon"></i><p></p></div>
+   <pre class="code"><button class="copy">Copy</button>${hl(`estimate_lr = model.estimate_effect(estimand,
+    method_name="backdoor.linear_regression",
+    control_value=0, treatment_value=1)`)}</pre>
+   <div class="callout warn"><i data-lucide="alert-triangle" class="icon"></i><p>The <b>causal</b> interpretation comes from the graph and the identification step, not from regression alone. Recall that the raw correlation between Caching and Website latency was only 0.18.</p></div>`},
+ {t:"Refute",ic:"shield-check",body:`<p>Try to break the estimate. Passing these checks supports robustness; it does <b>not</b> prove the graph is right or rule out unmeasured confounding.</p>
+   <div class="grid g2" id="refCards"></div>`}];
+const REFS=[["dices","Random common cause","Add a random variable as a fake confounder.","≈ original",0.6762,0.6762,"0.39",true],
+ ["shuffle","Placebo treatment","Permute the treatment column.","≈ 0",0.6762,-0.0333,"0.21",true],
+ ["scissors","Data subset (80%)","Re-estimate on random subsets.","≈ original",0.6762,0.6754,"0.49",true],
+ ["repeat-2","Bootstrap","Resample rows with replacement.","≈ original",0.6762,null,"",true]];
+(function(){
+  const st=$("#stepper");STEPS.forEach((s,i)=>{const b=document.createElement("button");b.innerHTML=`<span class="n">${i+1}</span><i data-lucide="${s.ic}" class="icon"></i> ${s.t}`;b.onclick=()=>step(i);st.appendChild(b)});
+  step(0);
+})();
+function step(i){
+  $$("#stepper button").forEach((b,j)=>b.classList.toggle("sel",i===j));$("#stepBody").innerHTML=`<h3><i data-lucide="${STEPS[i].ic}" class="icon"></i> Stage ${i+1}: ${STEPS[i].t}</h3>`+STEPS[i].body;
+  $$("#stepBody .copy").forEach(b=>b.onclick=()=>{const t=b.parentElement.innerText.replace(/^Copy\n?/,"");navigator.clipboard&&navigator.clipboard.writeText(t);b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1200)});
+  if(i===1){segment("#idSeg",d=>drawId(d.k));drawId("bd")}
+  if(i===2){const f=()=>{const d=+$("#wi").value;$("#wiV").textContent=(d>=0?"+":"")+d.toFixed(2)+" s";$("#wiOut p").innerHTML=`Expected change in average Website latency: <b>${(d>=0?"+":"−")}${Math.abs(0.6762*d).toFixed(3)} s</b> (LR) to <b>${(d>=0?"+":"−")}${Math.abs(0.7159*d).toFixed(3)} s</b> (DML). ${d<0?"Speeding up the cache improves the site.":""}`};$("#wi").addEventListener("input",f);f()}
+  if(i===3){$("#refCards").innerHTML=REFS.map(r=>`<div class="card" style="box-shadow:none"><div class="row" style="justify-content:space-between"><b><i data-lucide="${r[0]}" class="icon"></i> ${r[1]}</b><span class="pill good"><i data-lucide="check" class="icon"></i> Passed</span></div><p style="font-size:.9rem;margin:.4em 0">${r[2]} Expected: <b>${r[3]}</b>.</p><div class="row"><span class="pill">Original ${r[4].toFixed(4)}</span><span class="pill brand">New ${r[5]===null?"see notebook":r[5].toFixed(4)}</span>${r[6]?`<span class="pill">p = ${r[6]}</span>`:""}</div></div>`).join("")}
+  icons();
+}
+function drawId(k){
+  const svg=$("#idSvg");svg.innerHTML=`<defs><marker id="ia" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--muted)"/></marker></defs>`;
+  const W=92,H=36,roleOf=n=>n==="Caching Service"?"T":n==="Website"?"Y":(k==="iv"&&n==="Product DB")?"Z":(k==="fd"&&["Product Service","API","www"].includes(n))?"M":"";
+  ORDER.forEach(n=>SCM[n].p.forEach(p=>{const [x1,y1]=POS[p],[x2,y2]=POS[n];const dx=x2-x1,dy=y2-y1;const t=Math.min(Math.abs((W/2)/dx||1e9),Math.abs((H/2)/dy||1e9));const on=(k==="fd"||k==="bd")&&["Caching Service","Product Service","API","www"].includes(p)&&["Product Service","API","www","Website"].includes(n)||(k==="iv"&&p==="Product DB");
+    el("line",{x1:x1+dx*t,y1:y1+dy*t,x2:x2-dx*(t+0.02),y2:y2-dy*(t+0.02),stroke:on?css("--c1"):"var(--muted)","stroke-width":on?2.6:1.2,"marker-end":"url(#ia)","stroke-opacity":on?1:.5},svg)}));
+  const fill={T:css("--c2"),Y:css("--c3"),Z:css("--c1"),M:css("--c1")};
+  ORDER.forEach(n=>{const [x,y]=POS[n],r=roleOf(n);el("rect",{x:x-W/2,y:y-H/2,width:W,height:H,rx:9,fill:r?fill[r]:"var(--surface)",stroke:"var(--ink-2)","stroke-width":1},svg);
+    const words=n.split(" ");const lines=n.length>12?[words.slice(0,Math.ceil(words.length/2)).join(" "),words.slice(Math.ceil(words.length/2)).join(" ")]:[n];
+    lines.forEach((ln,j)=>txt(svg,x,y+4+(j-(lines.length-1)/2)*11,ln,{"text-anchor":"middle","fill":r?"#fff":"var(--ink)","font-size":10,"font-weight":700}))});
+  const T={bd:["Backdoor adjustment","No arrow points <i>into</i> Caching Service except from Product DB, and Product DB reaches Website only <i>through</i> Caching Service. So there is no open backdoor path: the adjustment set is empty and a simple regression of Website on Caching Service is valid.","d/d[Caching Service] E[Website]"],
+   iv:["Instrumental variable","<b>Product DB</b> (blue) moves Caching Service but affects Website only through it, so it can act as an instrument. Requires as-if-random assignment and exclusion.","E[dY/dZ · (dT/dZ)⁻¹], Z = Product DB"],
+   fd:["Frontdoor adjustment","<b>Product Service → API → www</b> (blue) carry every directed path from Caching Service to Website. Under full mediation and no confounding of each step, the effect is identified even with an unmeasured confounder of X and Y.","Mediators M = {Product Service, API, www}"]}[k];
+  $("#idText").innerHTML=`<span class="pill brand">${T[0]}</span><p style="margin-top:10px">${T[1]}</p><p class="mono" style="font-size:.82rem;background:var(--surface-2);padding:8px 10px;border-radius:8px">${T[2]}</p><div class="legend"><span><i style="background:${css("--c2")}"></i>Treatment</span><span><i style="background:${css("--c3")}"></i>Outcome</span>${k!=="bd"?`<span><i style="background:${css("--c1")}"></i>${k==="iv"?"Instrument":"Mediators"}</span>`:""}</div>`;
+}
+
+/* ===================== 7. case study chart ===================== */
+const CASE={
+ 1:{title:"Scenario 1: one request at 5.57 s (normal mean 3.56 s)",
+    naive:{"www":2.129,"API":2.052,"Website":2.009,"Caching Service":1.853,"Product Service":1.839,"Product DB":0.295,"Order Service":0.279,"Auth Service":0.083,"Order DB":-0.001,"Customer DB":-0.012,"Shipping Cost Service":-0.064},
+    causal:{"Caching Service":3.707,"Product Service":1.790,"Order Service":0.666,"Product DB":0.379,"www":0.053,"Auth Service":0.042,"Shipping Cost Service":0.024,"Order DB":-0.098,"API":-0.187,"Website":-0.355,"Customer DB":-2.719},
+    unitN:"Latency increase over normal mean (s)",unitC:"Contribution to anomaly score (not seconds)",
+    msgN:"The naive view ranks <b>www</b> first, followed by API and Website. These are downstream services that inherited the delay. Switch to the causal view.",
+    msgC:"<b>Caching Service</b> has the largest positive attribution (3.707). Product Service and Order Service receive smaller positive shares, partly due to imperfect linear modeling. Customer DB (−2.719) offsets part of the anomaly because it was faster than usual."},
+ 2:{title:"Scenario 2: average Website latency rose from 3.564 s to 5.496 s",
+    naive:{"Caching Service":2.014,"Website":1.932,"www":1.927,"API":1.921,"Product Service":1.904,"Product DB":0.012,"Auth Service":0.011,"Customer DB":0.004,"Order Service":0.001,"Order DB":-0.002,"Shipping Cost Service":-0.010},
+    causal:{"Caching Service":1.866,"Auth Service":0.014,"Order DB":0.003,"Customer DB":0.002,"Website":0.002,"Shipping Cost Service":-0.000,"Product Service":-0.000,"www":-0.003,"Product DB":-0.006,"Order Service":-0.009,"API":-0.009},
+    unitN:"Increase in mean latency (s)",unitC:"Contribution to change in mean Website latency (s)",
+    msgN:"Five services each slowed by about 1.9 s. From symptoms alone, any of them could be the culprit.",
+    msgC:"Distribution-change attribution traces <b>1.866 s of the 1.932 s</b> increase (about <b>97%</b>) to a change in the <b>Caching Service</b> mechanism. Product Service contributes about zero: it got slower only because it waits for the cache."}};
+const cs={s:1,v:"naive"};
+segment("#scenSeg",d=>{cs.s=+d.s;drawCase()});segment("#caseView",d=>{cs.v=d.v;drawCase()});
+function drawCase(){
+  const C=CASE[cs.s],data=C[cs.v],ent=Object.entries(data).sort((a,b)=>b[1]-a[1]);
+  $("#caseTitle").textContent=C.title;$("#caseSub").textContent=cs.v==="naive"?"Which services moved the most? (symptoms)":"Which services’ own behavior explains the change? (causes)";
+  const vals=ent.map(e=>e[1]),lo=Math.min(0,...vals),hi=Math.max(...vals);const pad=(hi-lo)*0.12;
+  const svg=$("#caseChart"),m={l:150,r:60,t:10,b:40},W=640,H=380;
+  const F=frame(svg,W,H,m,[lo-(lo<0?pad:0),hi+pad],[0,1],{xl:cs.v==="naive"?C.unitN:C.unitC});
+  const ticks=niceTicks(lo-(lo<0?pad:0),hi+pad,6);ticks.forEach(t=>{el("line",{x1:F.X(t),x2:F.X(t),y1:m.t,y2:H-m.b,stroke:"var(--grid)"},F.g);txt(F.g,F.X(t),H-m.b+15,t,{"text-anchor":"middle","fill":"var(--muted)","font-size":10})});
+  el("line",{x1:F.X(0),x2:F.X(0),y1:m.t,y2:H-m.b,stroke:"var(--ink-2)","stroke-width":1.2},F.g);
+  const bh=(H-m.t-m.b)/ent.length;
+  ent.forEach(([k,v],i)=>{const y=m.t+i*bh+3,top=i===0;
+    const x0=F.X(Math.min(0,v)),w=Math.max(2,Math.abs(F.X(v)-F.X(0)));
+    const r=el("rect",{x:x0,y,width:w,height:bh-6,rx:4,fill:top?css("--c2"):(v<0?css("--muted"):css("--c1")),"fill-opacity":top?1:.85},F.g);
+    txt(F.g,m.l-8,y+bh/2+1,k,{"text-anchor":"end","fill":"var(--ink)","font-size":11,"font-weight":top?700:500});
+    if(top||Math.abs(v)>=(hi-lo)*0.25)txt(F.g,v>=0?F.X(v)+6:F.X(v)-6,y+bh/2+1,v.toFixed(3),{"text-anchor":v>=0?"start":"end","fill":"var(--ink-2)","font-size":10,"font-weight":600});
+    const hit=el("rect",{x:m.l,y:y-3,width:W-m.l-m.r,height:bh,fill:"transparent"},F.g);
+    hit.addEventListener("mousemove",e=>showTip(e,`<b>${k}</b><br>${fmt(v,3)}${cs.v==="naive"||cs.s===2?" s":" (score)"}`));hit.addEventListener("mouseleave",hideTip)});
+  $("#caseMsg p").innerHTML=cs.v==="naive"?C.msgN:C.msgC;
+  $("#caseTable").innerHTML=`<thead><tr><th>Service</th><th class="n">Naive increase</th><th class="n">Causal attribution</th></tr></thead><tbody>`+Object.keys(C.naive).map(k=>`<tr><td>${k}</td><td class="n">${C.naive[k].toFixed(3)}</td><td class="n">${C.causal[k].toFixed(3)}</td></tr>`).join("")+"</tbody>";
+}
+
+/* ===================== 8. quiz ===================== */
+const QUIZ=[
+ {q:"Diagnostic analytics primarily answers which question?",o:["What will happen next?","Why did it happen?","What should we do?","What is happening right now?"],a:1,e:"Descriptive asks what happened, predictive what will happen, prescriptive what to do. Diagnostic asks why."},
+ {q:"A dataset shows r ≈ 0 between X and Y. What can you conclude?",o:["X and Y are independent","There is no linear association, but a nonlinear relationship (such as a U-shape) may exist","X causes Y with a delay","Spearman’s ρ must also be zero"],a:1,e:"Correlation only detects linear (Pearson) or monotonic (Spearman) association. A U-shape can give r ≈ 0."},
+ {q:"Which coefficient is more robust to a few extreme outliers?",o:["Pearson’s r","Spearman’s ρ","Both equally","Neither"],a:1,e:"Spearman uses ranks, so an extreme value can move at most one rank position."},
+ {q:"Machines with more maintenance record more failures. Machine age drives both. Age is a…",o:["Mediator","Collider","Confounder","Instrument"],a:2,e:"A confounder causes both the treatment (maintenance) and the outcome (failures). Adjust for it."},
+ {q:"You study only machines that raised a maintenance alert, where alerts are caused by both the PdM system and by failures. What risk do you introduce?",o:["None, this removes noise","Collider (selection) bias","Reverse causation","Measurement error"],a:1,e:"Conditioning on a collider opens a spurious path between its causes."},
+ {q:"“Would pump P-7 have failed if we had replaced its bearing in March?” sits on which rung?",o:["Association","Intervention","Counterfactual","None"],a:2,e:"It asks about an alternative past for a specific unit: a counterfactual."},
+ {q:"In the case study, why is Product Service NOT blamed in Scenario 2 even though its latency rose by 1.9 s?",o:["Its data were missing","Its own mechanism did not change; the increase was inherited from Caching Service","It has no parents in the graph","Its correlation with Website is negative"],a:1,e:"Given its parents’ (slower) latencies, Product Service behaved normally. The change came from upstream."},
+ {q:"All four DoWhy refutation tests pass. This means…",o:["The causal graph is proven correct","Unmeasured confounding is ruled out","The estimate is robust to these checks, but the causal assumptions are still assumptions","The effect is statistically significant"],a:2,e:"Refuters can reveal weaknesses; passing them does not prove the assumptions."}];
+function drawQuiz(){
+  let score=0;const box=$("#quiz");box.innerHTML=QUIZ.map((q,i)=>`<div class="quiz-q" data-i="${i}"><b>${i+1}. ${q.q}</b><div class="opts">${q.o.map((o,j)=>`<button class="opt" data-j="${j}"><i data-lucide="circle" class="icon"></i>${o}</button>`).join("")}</div><div class="fb"></div></div>`).join("");
+  box.onclick=e=>{const b=e.target.closest(".opt");if(!b)return;const qd=b.closest(".quiz-q");if(qd.dataset.done)return;qd.dataset.done=1;const q=QUIZ[qd.dataset.i],j=+b.dataset.j,ok=j===q.a;if(ok)score++;
+    qd.querySelectorAll(".opt").forEach((o,k)=>{if(k===q.a)o.classList.add("right");else if(k===j)o.classList.add("wrong")});
+    qd.querySelector(".fb").innerHTML=`${ok?'<span class="pill good"><i data-lucide="check" class="icon"></i> Correct</span>':'<span class="pill bad"><i data-lucide="x" class="icon"></i> Not quite</span>'} ${q.e}`;
+    $("#quizScore").textContent=`Score: ${score} / ${QUIZ.length}`;icons()};
+  $("#quizScore").textContent=`Score: 0 / ${QUIZ.length}`;icons();
+}
+$("#quizReset").onclick=drawQuiz;
+
+/* ===================== init ===================== */
+function redrawAll(){drawPlay();drawXC();drawAC();drawConf();drawJun($("#junSeg [aria-pressed=true]").dataset.j);drawLab();drawCase();const s=$$("#stepper button").findIndex(b=>b.classList.contains("sel"));if(s===1)drawId($("#idSeg [aria-pressed=true]").dataset.k)}
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",redrawAll);
+redrawAll();calc();drawQuiz();icons();
+</script>
+</body>
+</html>
