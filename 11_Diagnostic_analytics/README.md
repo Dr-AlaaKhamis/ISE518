@@ -3,7 +3,7 @@
 
 | Example  | Notebook  |
 |---|---|
-| Diagnostic Analytics | [Interactive Lab](https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_Diagnostic_analytics/RCA.html) |
+| Diagnostic Analytics | [Interactive Lab](https://dr-alaakhamis.github.io/ISE518/11_Diagnostic_analytics/RCA.html) |
 | Correlation Analysis | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/11_Diagnostic_analytics/Correlation_Analysis.ipynb) |
 | Fishbone (Ishikawa) Diagram-based RCA  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/11_Diagnostic_analytics/Fishbone_Ishikawa_RCA.ipynb) |
 | Causal Inference | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Dr-AlaaKhamis/ISE518/blob/main/11_Diagnostic_analytics/Causal_inference.ipynb) |
