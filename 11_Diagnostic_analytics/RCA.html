@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diagnostic Analytics Tutorial</title>
-<meta name="description" content="ISE 518 interactive tutorial on diagnostic analytics: correlation, causality, causal inference, and root cause analysis. Case study prepared by Ousman Khan, AI for Smart Mobility Lab, KFUPM.">
+<meta name="description" content="ISE 518 interactive tutorial on diagnostic analytics: correlation, causality, causal inference, and root cause analysis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
@@ -215,7 +215,7 @@ footer{margin-top:40px;padding:28px 0;color:var(--ink-2);font-size:.9rem}
     <a class="btn" href="Causal_Inference_and_Root_Cause_Analysis.ipynb" download><i data-lucide="download" class="icon"></i> Download notebook</a>
     <a class="btn" href="#run"><i data-lucide="terminal" class="icon"></i> Run locally</a>
   </div>
-  <div class="credit"><i data-lucide="award" class="icon"></i><div>Case study and notebook (Parts 6 and 7) prepared by <b>Ousman Khan</b>, AI for Smart Mobility Lab (AI4SM), KFUPM.</div></div>
+
 </header>
 
 <!-- ================= 1. WHAT IS ================= -->
@@ -432,7 +432,7 @@ footer{margin-top:40px;padding:28px 0;color:var(--ink-2);font-size:.9rem}
 <section class="sec" id="s-case" data-title="Case Study: RCA Results" data-icon="server-crash">
   <div class="kicker"><i data-lucide="server-crash" class="icon"></i> Part 7</div>
   <h2>Case Study: Diagnosing a Slow Website</h2>
-  <p><span class="pill brand"><i data-lucide="user-round-pen" class="icon"></i> Case study prepared by Ousman Khan, AI4SM Lab, KFUPM</span></p>
+  <p><span class="pill brand"><i data-lucide="user-round-pen" class="icon"></i> Case study prepared by Ousman Khan, AI for Smart Mobility Lab, KFUPM</span></p>
   <p class="lead">We reuse the graph, fit a structural causal model on normal data, and diagnose two incidents. These are the actual outputs of the notebook.</p>
   <div class="seg" id="scenSeg" style="margin-bottom:12px"><button data-s="1" aria-pressed="true"><i data-lucide="mouse-pointer-click" class="icon"></i> Scenario 1: one abnormal request</button><button data-s="2"><i data-lucide="trending-up" class="icon"></i> Scenario 2: persistent slowdown (1,000 requests)</button></div>
   <div class="card">
@@ -491,18 +491,7 @@ footer{margin-top:40px;padding:28px 0;color:var(--ink-2);font-size:.9rem}
   </div>
 </section>
 
-<footer>
-  <div class="card" style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-    <div class="badge" style="width:48px;height:48px;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none"><i data-lucide="award" class="icon" style="width:26px;height:26px"></i></div>
-    <div style="flex:1;min-width:240px">
-      <b style="font-size:1.05rem;color:var(--ink)">Credits</b>
-      <p style="margin:.3em 0">Tutorial for <b>ISE 518: Data Analytics for Reliability and Maintenance</b>, taught by <b>Dr. Alaa Khamis</b>, Industrial and Systems Engineering Department, King Fahd University of Petroleum &amp; Minerals (KFUPM), based on the Diagnostic Analytics lecture.</p>
-      <p style="margin:.3em 0">Causal inference and root cause analysis case study and companion notebook prepared by <b>Ousman Khan</b>, <b>AI for Smart Mobility Lab (AI4SM)</b>, KFUPM.</p>
-      <p style="margin:.3em 0">Course GitHub Repo: <a href="https://github.com/Dr-AlaaKhamis/ISE518/tree/main/11_Diagnostic_analytics" target="_blank" rel="noopener">github.com/Dr-AlaaKhamis/ISE518</a>.</p>
-      <p style="margin:.3em 0;font-size:.85rem">Case study adapted from the DoWhy example <a href="https://www.pywhy.org/dowhy/v0.13/example_notebooks/gcm_rca_microservice_architecture.html" target="_blank" rel="noopener">“Finding the Root Cause of Elevated Latencies in a Microservice Architecture”</a> (PyWhy, MIT License).</p>
-    </div>
-  </div>
-</footer>
+
 </main>
 </div>
 <div class="tip" id="tip"></div>
