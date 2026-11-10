@@ -1478,7 +1478,6 @@ $$p(x\mid z)=\frac{p(z\mid x)\,p(x)}{p(z)}=\frac{\text{likelihood}\times\text{pr
 ${panel('Covid test: what does a positive result really mean?', `<div class="controls"><div class="ctl"><label>Prevalence (prior) <output id="pv_v"></output></label><input type="range" id="pv" min="0.001" max="0.3" step="0.001" value="0.02"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:280px">The fraction of the population that is actually infected, before anyone is tested.</span></div><div class="ctl"><label>Sensitivity p(+|infected) <output id="se_v"></output></label><input type="range" id="se" min="0.5" max="1" step="0.01" value="0.95"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:280px">The chance the test comes back positive when the person really is infected (it catches true cases).</span></div><div class="ctl"><label>Specificity p(-|healthy) <output id="spc_v"></output></label><input type="range" id="spc" min="0.5" max="1" step="0.005" value="0.95"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:280px">The chance the test comes back negative when the person really is healthy (it avoids false alarms).</span></div></div><div class="grid2"><div id="iconGrid" style="display:grid;grid-template-columns:repeat(40,1fr);gap:1px;max-width:420px"></div><div class="readout" id="bayesOut"></div></div><p class="small muted" style="margin-top:6px">1,000 people. Dark green: infected and positive. Red: healthy but positive (false alarm). Light: negative.</p>`)}
 <h3>A priori and a posteriori</h3>
 <div class="grid2"><div class="mini"><h4>A priori (deductive reasoning)</h4><p>Knowledge independent of experience, derived by logic from general principles. In statistics, prior knowledge about a population rather than one estimated by recent observation.</p><p class="small muted">All men are mortal. Elon Musk is a man. Therefore Elon Musk is mortal.</p></div><div class="mini"><h4>A posteriori (inductive reasoning)</h4><p>Knowledge dependent on experience or empirical evidence: reasoning from effect to cause, from particular facts to a general conclusion.</p><p class="small muted">3 + 5 = 8 and 8 is even. Therefore an odd number plus an odd number is even.</p></div></div>
-${panel('How strongly does the prior matter?', `<div class="controls"><div class="ctl"><label>Likelihood ratio p(data|H)/p(data|not H) <output id="lr_v"></output></label><input type="range" id="lr" min="0" max="3" step="0.05" value="1"></div></div><canvas class="plot" id="priorCv"></canvas><p class="small">The slides illustrate this with belief in God's existence: the higher someone's prior, the higher their posterior after seeing the same data. A prior of exactly zero stays zero whatever the evidence, because zero times anything is zero. Never assign zero probability to anything that might be true.</p>`, 'Interactive')}
 <h2>The Naive Bayes classifier</h2>
 <p>Let $D$ be a training set where each tuple is an $n$-attribute vector $X=(x_1,\dots,x_n)$ with one of $m$ classes $C_1,\dots,C_m$. Classification picks the class with the highest posterior:</p>
 $$p(C_i\mid X)=\frac{p(X\mid C_i)\,p(C_i)}{p(X)}\;\propto\;p(X\mid C_i)\,p(C_i)$$
@@ -1506,10 +1505,6 @@ ${table(['Classifier','Feature type','Typical input','Model','Use cases','Notes'
       $('#iconGrid',root).innerHTML=cells;
       $('#bayesOut',root).textContent=`Infected: ${inf}  (true positives ${tp})\nHealthy: ${1000-inf}  (false positives ${fp})\n\np(infected | +) = p(+|inf) p(inf) / p(+)\n  = ${se} x ${pv} / (${se} x ${pv} + ${(1-sp).toFixed(3)} x ${(1-pv).toFixed(3)})\n  = ${post.toFixed(3)}\n\nOnly ${(post*100).toFixed(1)}% of positives are truly infected.`; };
     ['pv','se','spc'].forEach(k=>bindRange(root,k,bay)); bay();
-    const pr=()=>{ const lr=10**(+$('#lr',root).value*2-2); $('#lr_v',root).textContent=lr<1?lr.toFixed(2):lr.toFixed(1);
-      const P=Plot($('#priorCv',root),{xmin:0,xmax:1,ymin:0,ymax:1,height:240}); P.axes({xlabel:'Prior p(H)',ylabel:'Posterior p(H | data)',nx:5});
-      P.line([0,1],[0,1],cssVar('--muted'),1.2,[5,4]); P.fn(p=>lr*p/(lr*p+1-p),cssVar('--c1'),2.5); P.dot(0,0,cssVar('--c4'),6); P.text('prior 0 stays 0',0.02,0.06,cssVar('--c4')); };
-    $('#lr',root).addEventListener('input',pr); pr(); onResize(pr);
     // Gaussian NB
     const cls=['Faulty','Healthy'], feat=['Vibration (mm/s)','Temp (°C)','Acoustic (dB)'], rng=[[0,12],[55,120],[35,90]];
     const stats=cls.map(c=>[0,1,2].map(j=>{ const v=MACH.filter(r=>r[3]===c).map(r=>r[j]); const m=mean(v); return [m, mean(v.map(x=>(x-m)**2))]; }));
@@ -1528,9 +1523,14 @@ ${table(['Classifier','Feature type','Typical input','Model','Use cases','Notes'
     $('#carTbl',root).innerHTML=table(['#','Color','Origin','Type','Stolen?'],cars.map((c,i)=>[i+1].concat(c)));
     $('#carGo',root).onclick=()=>{ const q=[$('#cC',root).value,$('#cO',root).value,$('#cT',root).value]; const names=['Color','Origin','Type'];
       let txt=''; const sc={};
-      ['Yes','No'].forEach(y=>{ const sub=cars.filter(c=>c[3]===y); let s=sub.length/cars.length; txt+=`Stolen = ${y}:  P(${y}) = ${sub.length}/10\n`;
-        q.forEach((v,j)=>{ const n=sub.filter(c=>c[j]===v).length; s*=n/sub.length; txt+=`  P(${names[j]}=${v} | ${y}) = ${n}/${sub.length}\n`; }); sc[y]=s; txt+=`  Score = ${s.toFixed(4)}\n\n`; });
-      txt+=`Prediction: ${sc.Yes>sc.No?'YES, it will be stolen':'NO, it will not be stolen'} (${sc.Yes.toFixed(4)} vs ${sc.No.toFixed(4)})`; $('#carOut',root).textContent=txt; };
+      const ids=rows=>rows.map(c=>'#'+(cars.indexOf(c)+1)).join(', ')||'none';
+      ['Yes','No'].forEach(y=>{ const sub=cars.filter(c=>c[3]===y); let s=sub.length/cars.length; txt+=`Stolen = ${y}:  P(${y}) = ${sub.length}/10   (cars ${ids(sub)})\n`;
+        q.forEach((v,j)=>{ const m=sub.filter(c=>c[j]===v); s*=m.length/sub.length; txt+=`  P(${names[j]}=${v} | ${y}) = ${m.length}/${sub.length}   (${v} among those ${sub.length}: ${ids(m)})\n`; }); sc[y]=s; txt+=`  Score = ${s.toFixed(4)}\n\n`; });
+      txt+=`Prediction: ${sc.Yes>sc.No?'YES, it will be stolen':'NO, it will not be stolen'} (${sc.Yes.toFixed(4)} vs ${sc.No.toFixed(4)})\n\n`;
+      const t=q[2], withT=cars.filter(c=>c[2]===t), yes=cars.filter(c=>c[3]==='Yes');
+      txt+=`Watch the direction of the condition: P(Type=${t} | Yes) = ${yes.filter(c=>c[2]===t).length}/${yes.length} counts ${t}s among the ${yes.length} stolen cars, `+
+        `while P(Yes | Type=${t}) = ${withT.filter(c=>c[3]==='Yes').length}/${withT.length} counts stolen cars among the ${withT.length} ${t}s (${ids(withT)}). Naive Bayes uses P(attribute | class), the first one.`;
+      $('#carOut',root).textContent=txt; };
   },
   quiz:[
     {q:'In Bayes\' rule $p(x\\mid z)=p(z\\mid x)p(x)/p(z)$, the term $p(x)$ is the:', o:['Likelihood','Prior','Evidence','Posterior'], a:1, e:'$p(x)$ is the belief about the state before taking the measurement.'},
