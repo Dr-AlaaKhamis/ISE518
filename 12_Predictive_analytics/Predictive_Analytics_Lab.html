@@ -1989,7 +1989,7 @@ ${panel('Which hardware should you select? It depends on the use case.', `<div c
 <h2>Example: machine failure from synthetic sensor maps</h2>
 <p>Artificial 8×8 grayscale sensor maps: <b>healthy</b> machines have lower intensity and smooth readings; <b>faulty</b> machines have higher intensity and noisy readings. A small CNN learns to tell them apart.</p>
 ${panel('Generate sensor maps', `<div class="btnrow"><button class="btn sm" id="smNew">New samples</button></div><div class="grid4" id="smaps"></div><p class="small muted">Each tile is one 8×8 input image. The CNN sees only pixels and learns the intensity and texture cues itself.</p>`)}
-${panel('A small CNN for 8×8 maps', `<p class="small">A typical architecture for this kind of input (illustrative; see the notebook for the exact model). Change the number of filters to see how the parameter count responds.</p><div class="controls"><div class="ctl"><label>Filters in conv layer 1 <output id="f1_v"></output></label><input type="range" id="f1" min="4" max="64" step="4" value="16"></div><div class="ctl"><label>Filters in conv layer 2 <output id="f2_v"></output></label><input type="range" id="f2" min="4" max="128" step="4" value="32"></div><div class="ctl"><label>Dense units <output id="du_v"></output></label><input type="range" id="du" min="8" max="128" step="8" value="64"></div></div><div id="smallCnn"></div>`)}
+${panel('A small CNN for 8×8 maps', `<p class="small">A typical architecture for this kind of input (illustrative; see the notebook for the exact model). Change the number of filters to see how the parameter count responds. Each row shows how its parameters are calculated: a convolution has (3×3×input channels + 1) × filters, and a dense layer has (inputs + 1) × units. Click a row for the full breakdown.</p><div class="controls"><div class="ctl"><label>Filters in conv layer 1 <output id="f1_v"></output></label><input type="range" id="f1" min="4" max="64" step="4" value="16"></div><div class="ctl"><label>Filters in conv layer 2 <output id="f2_v"></output></label><input type="range" id="f2" min="4" max="128" step="4" value="32"></div><div class="ctl"><label>Dense units <output id="du_v"></output></label><input type="range" id="du" min="8" max="128" step="8" value="64"></div></div><div id="smallCnn"></div><div class="callout" id="smallCnnRow" style="margin-top:8px">Click a row to see how its output shape and parameter count are calculated.</div>`)}
 <h2>More case studies</h2>
 <div class="grid2"><div class="mini"><h4>CNN for fault detection in casting products</h4><p class="small">Images of cast parts are classified as defective or OK, replacing manual visual inspection.</p>${colab('CNN_Fault_Detection.ipynb')}</div><div class="mini"><h4>CNN for predictive maintenance</h4><p class="small">Sensor time series reshaped for convolution to predict machine condition.</p>${colab('CNN_Predictive_Maintenance.ipynb')}</div></div>
 <p>Notebook for the synthetic example: ${colab('CNN.ipynb')}</p>`,
@@ -2001,9 +2001,26 @@ ${panel('A small CNN for 8×8 maps', `<p class="small">A typical architecture fo
       html+=`<div class="mini" style="padding:8px"><div style="display:grid;grid-template-columns:repeat(8,1fr);border-radius:6px;overflow:hidden">${cells}</div><p class="small" style="text-align:center;margin:6px 0 0"><span class="pill ${f?'bad':'good'}">${f?'Faulty':'Healthy'}</span></p></div>`; }
       $('#smaps',root).innerHTML=html; };
     $('#smNew',root).onclick=()=>{sd++;maps();}; maps();
-    const sc=()=>{ const f1=+$('#f1',root).value, f2=+$('#f2',root).value, du=+$('#du',root).value;
-      const L=[['Input','8×8×1',0],['Conv2D 3×3, ReLU, padding same',`8×8×${f1}`,9*f1+f1],['MaxPooling2D 2×2',`4×4×${f1}`,0],['Conv2D 3×3, ReLU, padding same',`4×4×${f2}`,9*f1*f2+f2],['MaxPooling2D 2×2',`2×2×${f2}`,0],['Flatten',`${4*f2}`,0],['Dense, ReLU',`${du}`,4*f2*du+du],['Dense, sigmoid (Healthy/Faulty)','1',du+1]];
-      $('#smallCnn',root).innerHTML=table(['Layer','Output shape','Parameters'],L.map(l=>[l[0],l[1],l[2].toLocaleString()]))+`<p><b>Total trainable parameters: ${sum(L.map(l=>l[2])).toLocaleString()}</b></p>`; };
+    let scSel=null;
+    const sc=()=>{ const f1=+$('#f1',root).value, f2=+$('#f2',root).value, du=+$('#du',root).value, N=v=>v.toLocaleString(), M=v=>N(v).replace(/,/g,'{,}'), fl=2*2*f2;
+      const conv=(ci,co,h)=>`<b>Convolution with ${co} filters of size 3×3.</b> The input has $C_{in}=${ci}$ channel${ci>1?'s':''}, so each filter spans $3\\times3\\times${ci}=${9*ci}$ weights plus 1 bias.<br>Parameters: $(3\\cdot3\\cdot${ci}+1)\\times${co}=${9*ci+1}\\times${co}=${M((9*ci+1)*co)}$ (${N(9*ci*co)} weights + ${co} biases).<br>Output size: "same" padding keeps ${h}×${h}, and there is one output channel per filter, so the shape is ${h}×${h}×${co}.`;
+      const pool=(hi,c)=>`<b>Max pooling 2×2.</b> Takes the maximum of each 2×2 window with stride 2, so ${hi}×${hi} becomes ${hi/2}×${hi/2}; the ${c} channels pass through unchanged. It has <b>no learnable parameters</b>.`;
+      const dense=(a,b,act)=>`<b>Dense layer with ${b} unit${b>1?'s':''} (${act}).</b> Every unit connects to all ${N(a)} inputs and has one bias.<br>Parameters: $(${M(a)}+1)\\times${b}=${M((a+1)*b)}$ (${N(a*b)} weights + ${b} bias${b>1?'es':''}).`;
+      const L=[
+        {n:'Input',sh:'8×8×1',p:0,c:'no weights',d:'<b>Input.</b> One 8×8 sensor map with a single channel. Inputs have no learnable parameters.'},
+        {n:'Conv2D 3×3, ReLU, padding same',sh:`8×8×${f1}`,p:(9*1+1)*f1,c:`(3×3×1 + 1) × ${f1}`,d:conv(1,f1,8)},
+        {n:'MaxPooling2D 2×2',sh:`4×4×${f1}`,p:0,c:'no weights',d:pool(8,f1)},
+        {n:'Conv2D 3×3, ReLU, padding same',sh:`4×4×${f2}`,p:(9*f1+1)*f2,c:`(3×3×${f1} + 1) × ${f2}`,d:conv(f1,f2,4)},
+        {n:'MaxPooling2D 2×2',sh:`2×2×${f2}`,p:0,c:'no weights',d:pool(4,f2)},
+        {n:'Flatten',sh:`${fl}`,p:0,c:'no weights',d:`<b>Flatten.</b> Unrolls the 2×2×${f2} volume into a vector of $2\\cdot2\\cdot${f2}=${fl}$ values. It has <b>no learnable parameters</b>.`},
+        {n:'Dense, ReLU',sh:`${du}`,p:(fl+1)*du,c:`(${fl} + 1) × ${du}`,d:dense(fl,du,'ReLU')},
+        {n:'Dense, sigmoid (Healthy/Faulty)',sh:'1',p:du+1,c:`(${du} + 1) × 1`,d:dense(du,1,'sigmoid')+' The sigmoid turns the output into the probability that the machine is Faulty.'}];
+      const tot=L.reduce((a,l)=>a+l.p,0);
+      $('#smallCnn',root).innerHTML=`<div class="tblwrap"><table class="tbl"><thead><tr><th>Layer</th><th>Output shape</th><th>How the parameters are calculated</th><th>Parameters</th></tr></thead><tbody>${L.map((l,k)=>`<tr class="clickable ${k===scSel?'hl':''}" data-k="${k}"><td>${l.n}</td><td>${l.sh}</td><td class="mono small" style="white-space:nowrap">${l.c}</td><td>${N(l.p)}</td></tr>`).join('')}</tbody></table></div>`+
+        `<p><b>Total trainable parameters: ${L.filter(l=>l.p).map(l=>N(l.p)).join(' + ')} = ${N(tot)}</b></p>`;
+      const show=k=>{ scSel=k; $$('#smallCnn tbody tr',root).forEach(t=>t.classList.toggle('hl',+t.dataset.k===k)); const d=$('#smallCnnRow',root); d.innerHTML=L[k].d; typeset(d); };
+      $$('#smallCnn tbody tr',root).forEach(tr=>tr.onclick=()=>show(+tr.dataset.k));
+      if(scSel!==null) show(scSel); };
     ['f1','f2','du'].forEach(k=>bindRange(root,k,sc)); sc();
   },
   quiz:[
