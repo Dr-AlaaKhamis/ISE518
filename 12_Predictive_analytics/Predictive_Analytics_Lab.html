@@ -527,6 +527,38 @@ h4 .h4ico{width:17px;height:17px;color:var(--primary);vertical-align:-3px;margin
 .lcs-lane{cursor:pointer;transition:box-shadow .2s,border-color .2s}.lcs-lane:hover{border-color:var(--primary)}
 .lcs-lane.act{border-color:#f59e0b;box-shadow:0 0 0 3px color-mix(in srgb,#f59e0b 30%,transparent)}
 #lcsSvg .lc-val{transition:opacity .25s}
+.lb-belt{border:1px solid var(--border);border-radius:14px;padding:12px;background:var(--surface);margin:10px 0 16px}
+.lb-ends{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;font-weight:700;color:#15803d;margin-bottom:16px}.lb-ends span{display:inline-flex;align-items:center;gap:5px}.lb-ends .ico{width:15px;height:15px}
+.lb-track{position:relative;height:22px;border-radius:11px;background:linear-gradient(90deg,#15803d,#22c55e)}
+.lb-track::after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);border:12px solid transparent;border-left:16px solid #22c55e;border-right:0;right:-14px}
+.lb-stations{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-33px}
+.lb-st{display:flex;flex-direction:column;align-items:center}
+.lb-dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);z-index:1}
+.lb-dot .ico{width:22px;height:22px;color:#fff}.lb-f{background:#2563eb}.lb-i{background:#16a34a}.lb-o{background:#7c3aed}
+.lb-card{margin-top:6px;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--surface2);text-align:center;width:100%}
+.lb-card p{margin:4px 0 6px;font-size:.88rem}.lb-q{font-size:.8rem;font-style:italic;color:var(--muted)}
+.lb-mem{margin-top:10px;font-size:.88rem}.lb-mem .ico{color:#15803d;width:16px;height:16px;vertical-align:-3px;margin-right:4px}
+.lb-day{display:grid;gap:10px;margin-top:10px}
+.lb-entry-t{border-left:4px solid #64748b;background:var(--surface2);padding:8px 12px;border-radius:8px;font-style:italic}
+.lb-gates{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.lb-g{border:2px solid;border-radius:12px;padding:8px 10px;background:var(--surface)}
+.lb-gh{font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:6px;flex-wrap:wrap}.lb-gh .ico{width:17px;height:17px}
+.lb-gd{font-size:.86rem;margin-top:4px}
+.lb-badge{margin-left:auto;font-size:.72rem;padding:1px 8px;border-radius:999px;color:#fff}.lb-badge.open{background:#16a34a}.lb-badge.closed{background:#64748b}.lb-badge.partial{background:#d97706}
+.lb-board{border:2px solid #15803d;border-radius:12px;padding:8px 10px;background:color-mix(in srgb,#15803d 6%,var(--surface))}
+.lb-notes{display:flex;flex-wrap:wrap;gap:8px;min-height:30px}
+.lb-note{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:8px;background:#fef9c3;color:#1d1d1d;font-size:.86rem;border:1px solid #eab308}
+.lb-note .ico{width:14px;height:14px}
+.lb-note.new{background:#dcfce7;border-color:#16a34a;animation:mbFade .5s ease}
+.lb-note.gone{background:#f1f5f9;border-color:#94a3b8;color:#64748b;text-decoration:line-through}
+.lb-bubble{border:2px solid #be185d;border-radius:12px;padding:8px 12px;background:color-mix(in srgb,#be185d 6%,var(--surface))}
+@media (max-width: 760px){.lb-stations,.lb-gates{grid-template-columns:1fr}.lb-stations{margin-top:8px}}
+.lb-ends.st{color:#be185d;margin:14px 0 4px}
+.lb-track.st{height:14px;background:linear-gradient(90deg,#9d174d,#ec4899)}
+.lb-track.st::after{border-left-color:#ec4899;border-width:9px 0 9px 13px;right:-11px}
+.lb-mem+.lb-mem{margin-top:6px}
+.lb-prev{margin-top:6px;font-size:.84rem;border-left:4px solid #be185d;background:color-mix(in srgb,#be185d 6%,var(--surface));padding:6px 10px;border-radius:8px}
+.lb-prev .ico{width:14px;height:14px;color:#be185d;vertical-align:-2px}
 </style>
 </head>
 <body>
@@ -817,7 +849,7 @@ const HEAD_ICONS = {
   'CPUs':'cpu', 'GPUs':'monitor', 'DLAs':'circuit-board', 'CNN for fault detection':'scan-search', 'CNN for predictive maintenance':'wrench',
   // Sequential models and attention
   'Seq2Seq models':'arrow-right-left', 'One-to-one':'arrow-right', 'Regression for reliability':'gauge',
-  'The long-term dependency problem':'link', 'Inside the LSTM cell':'cpu', 'A worked numerical example':'calculator', 'Forget gate':'eraser', 'Input gate and candidate':'log-in', 'Cell update':'refresh-cw', 'Output gate':'log-out',
+  'The long-term dependency problem':'link', 'Inside the LSTM cell':'cpu', 'The building blocks of an LSTM':'blocks', 'A worked numerical example':'calculator', 'Forget gate':'eraser', 'Input gate and candidate':'log-in', 'Cell update':'refresh-cw', 'Output gate':'log-out',
   'Seq2Seq with RNNs and attention':'eye', 'A general operator':'sigma', 'Multiheaded self-attention':'copy', '1. Similarity':'scale', '2. Many queries':'list', '3. Separate keys and values':'key', '4. Self-attention':'repeat', 'Permutation equivariance':'shuffle', 'Masked self-attention':'eye-off',
   'Zooming in on each part':'zoom-in', 'Self-attention, step by step':'footprints', 'Multi-headed attention':'copy', 'Positional encoding':'map-pin', 'Residuals, the decoder':'layers', 'Residuals and layer norm':'corner-down-right', 'Decoder':'languages', 'Final linear and softmax':'percent',
   'The Transformer block':'box', 'A Transformer is a stack':'layers', 'Transformers for language modeling':'message-square', 'Vision Transformers':'image', 'Tweaking Transformers':'wrench',
@@ -2248,7 +2280,7 @@ function lstmCellSVG(id, W){
   ${gate('forget',200,'σ','lc-f')}${gate('input',290,'σ','lc-i')}${gate('cand',360,'tanh','lc-c')}${gate('output',480,'σ','lc-o')}
   ${op('mulF',200,90,'×')}${op('add',360,90,'+')}${op('mulI',360,170,'×')}${op('mulO',580,190,'×')}
   <g class="lc-k lc-op lc-tanhc" data-k="tanhC"><ellipse cx="580" cy="140" rx="24" ry="13"/><text x="580" y="144" text-anchor="middle" class="lc-sym" style="font-size:12px">tanh</text></g>
-  <text x="209" y="278" text-anchor="start" class="lc-tag">f<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="299" y="278" text-anchor="start" class="lc-tag">i<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="369" y="278" text-anchor="start" class="lc-tag">C̃<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="489" y="278" text-anchor="start" class="lc-tag">o<tspan baseline-shift="sub" font-size="9">t</tspan></text>
+  <text x="209" y="200" text-anchor="start" class="lc-tag">f<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="299" y="200" text-anchor="start" class="lc-tag">i<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="352" y="204" text-anchor="end" class="lc-tag">C̃<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="472" y="204" text-anchor="end" class="lc-tag">o<tspan baseline-shift="sub" font-size="9">t</tspan></text>
   ${wts}${val('C0',22,112)}${val('h0',22,342)}${val('x',W?120:140,370,W?'end':'start')}${val('f',192,200,'end')}${val('fC',218,70)}${val('i',284,164,'end')}${val('c',375,206)}${val('ic',376,160)}${val('C',700,112)}${val('o',490,181)}${val('tC',610,136)}${val('h',648,290,'start')}
 </svg>`;
 }
@@ -2283,6 +2315,28 @@ ${panel('A model of human memory', `<div class="mb" id="mb">
 <div class="btnrow" style="margin-top:4px"><button class="btn sm" id="mmGo">${ico('play')} Follow it</button></div><ol class="mm-steps small" id="mmSteps"></ol><div id="mmOut" class="callout" style="margin-top:8px;display:none"></div></div></div>`, 'Explore')}
 <h2>The long-term dependency problem</h2>
 <div class="grid2"><div class="mini"><p><b>"The clouds are in the sky."</b></p><p class="small">The gap between the relevant information ("clouds") and where it is needed ("sky") is small. RNNs can learn to use such recent context.</p></div><div class="mini"><p><b>"The clouds that drifted across the valley on a warm summer afternoon are in the sky."</b></p><p class="small">Now "clouds" and "sky" are far apart. Similarly, "I grew up in France ... I speak fluent <i>French</i>": recent words suggest a language, but you need context from much further back to know which. As the gap grows, RNNs fail.</p></div></div>
+<h2>The building blocks of an LSTM</h2>
+<p>Before any equations, here is the big idea. An LSTM carries <b>two memories</b> from one step of the sequence to the next. The <b>long-term memory</b> is like a whiteboard handed from shift to shift: it holds what still matters. The <b>short-term memory</b> is like the shift's handover note: what the cell just concluded, passed straight to the next step. At every step, three <b>gates</b> decide what to erase from the whiteboard, what to write on it, and what to read out into the handover note.</p>
+<div class="lb-belt">
+  <div class="lb-ends"><span>${ico('history')} Long-term memory from the previous step</span><span>to the next step ${ico('arrow-right')}</span></div><div class="lb-track"></div>
+  <div class="lb-stations">
+    <div class="lb-st"><div class="lb-dot lb-f">${ico('eraser')}</div><div class="lb-card"><b style="color:#2563eb">Forget gate</b><p>Decides what information can be <b>forgotten</b> because it is no longer relevant in the current context.</p><span class="lb-q">"Is this still relevant?"</span></div></div>
+    <div class="lb-st"><div class="lb-dot lb-i">${ico('pen-line')}</div><div class="lb-card"><b style="color:#16a34a">Input gate</b><p>Decides what <b>new</b> information should be added to, or stored in, the memory.</p><span class="lb-q">"Is this worth remembering?"</span></div></div>
+    <div class="lb-st"><div class="lb-dot lb-o">${ico('megaphone')}</div><div class="lb-card"><b style="color:#7c3aed">Output gate</b><p>Of everything stored in the memory, decides <b>which part to output</b> at this particular step. That output becomes the new <b>short-term memory</b>.</p><span class="lb-q">"What matters for the answer right now?"</span></div></div>
+  </div>
+  <div class="lb-ends st"><span>${ico('history')} Short-term memory from the previous step + today's input ${ico('arrow-up')} feed all three gates</span><span>new short-term memory (the output) ${ico('arrow-right')}</span></div><div class="lb-track st"></div>
+  <div class="lb-mem">${ico('route')} <b style="color:#15803d">Long-term memory (cell state):</b> the path along the top of the cell. It carries what still matters from far back, and it changes only when the forget or input gate allows it.</div>
+  <div class="lb-mem">${ico('message-square')} <b style="color:#be185d">Short-term memory (hidden state):</b> the path along the bottom. It is what the cell outputs at each step: used for the prediction now, and handed to the next step, where the gates read it together with the new input to make their decisions.</div>
+</div>
+${panel('Follow the memory: a pump maintenance log', `<p class="small" style="margin-top:0">An LSTM reads a pump's log one day at a time and answers the same question every day: <b>is a bearing failure likely?</b> Step through the days and watch what each gate does to the memory.</p>
+<div class="btnrow"><button class="btn ghost sm" id="lbPrev">${ico('chevron-left')} Previous day</button><button class="btn sm" id="lbNext">Next day ${ico('chevron-right')}</button><button class="btn ghost sm" id="lbReset">${ico('rotate-ccw')} Start over</button><span class="tag" id="lbTag"></span></div>
+<div class="lb-day">
+  <div class="lb-entry" id="lbEntry"></div>
+  <div class="lb-gates" id="lbGates"></div>
+  <div class="lb-board"><div class="og-label">${ico('clipboard-list')} Long-term memory after today</div><div class="lb-notes" id="lbNotes"></div></div>
+  <div class="lb-out" id="lbOut"></div>
+</div>
+<div class="callout key" id="lbLesson" style="margin-top:10px"></div>`, 'Step by step')}
 <h2>Inside the LSTM cell</h2>
 <p>The repeating module in a standard RNN contains a single tanh layer. The repeating module of an LSTM contains <b>four interacting layers</b>. The horizontal <b>cell state</b> $C_t$ is the long-term memory highway; the <b>gates</b> (sigmoid layers with outputs between 0 and 1) regulate short-term information flowing in and out.</p>
 ${panel('Explore the LSTM cell', `<div class="seg" id="lcSeg" style="margin-bottom:10px"><button class="on" data-v="0">${ico('layout-grid')} Whole cell</button><button data-v="1">1. Forget gate</button><button data-v="2">2. Input gate</button><button data-v="3">3. Update cell state</button><button data-v="4">4. Output gate</button></div>
@@ -2323,6 +2377,40 @@ ${panel('Remembering across a long gap: RNN versus LSTM', `<p class="small" styl
 <p>Notebook: ${colab('LSTM_RUL.ipynb')} (LSTM-based RUL prediction)</p>
 <p class="callout src">Figures in the slides follow C. Olah, "Understanding LSTM Networks," 2015.</p>`,
   init(root){
+    { // Building blocks: an intuitive, non-numerical walk through the three gates
+      const DAYS=[
+        {entry:'Start of the log. Nothing has been read yet.', f:null, i:null, o:null, notes:[], add:[], erase:[], out:'No information yet.', lesson:'The memory starts empty. Press <b>Next day</b> to read the first log entry.'},
+        {entry:'Day 1: "Bearing temperature rising; vibration slightly above normal."',
+         f:['open','Keep everything','Nothing in memory is out of date.'], i:['open','Write it down','A hot, vibrating bearing is important for the question.'], o:['open','Reveal the bearing note','It is directly relevant to failure risk.'],
+         notes:['Bearing running hot'], add:['Bearing running hot'], erase:[], out:'Failure risk: <b>rising</b>, because the bearing is running hot.', lesson:'The <b>input gate</b> stored new, useful information in the long-term memory.'},
+        {entry:'Day 2: "Floor cleaned around the pump; paint touched up on the guard."',
+         f:['open','Keep everything','The bearing problem has not gone away.'], i:['closed','Store nothing','Cleaning and paint say nothing about bearing failure.'], o:['open','Reveal the bearing note','It is still the most relevant fact.'],
+         notes:['Bearing running hot'], add:[], erase:[], out:'Failure risk: <b>still rising</b>. The warning from Day 1 is remembered even though today was uneventful.', lesson:'The <b>input gate</b> ignored irrelevant information, and the <b>forget gate</b> kept the old warning. This is how an LSTM remembers something important across many unrelated steps.'},
+        {entry:'Day 3: "Bearing replaced with a new one; temperature back to normal."',
+         f:['closed','Erase "Bearing running hot"','The old warning is no longer relevant: that bearing is gone.'], i:['open','Write "New bearing installed"','This changes the answer to the question.'], o:['open','Reveal the new bearing note','It is now the most relevant fact.'],
+         notes:['New bearing installed'], add:['New bearing installed'], erase:['Bearing running hot'], out:'Failure risk: <b>low</b>, because a new bearing was just installed.', lesson:'The <b>forget gate</b> erased information that was no longer relevant, and the <b>input gate</b> replaced it with the new situation.'},
+        {entry:'Day 4: "Pump speed increased to meet a large order."',
+         f:['open','Keep everything','The new bearing is still in place.'], i:['open','Write "Running at high speed"','Higher speed may matter for future wear.'], o:['partial','Reveal only the bearing note','Today\'s question is about the bearing, so the speed note stays stored but is not used yet.'],
+         notes:['New bearing installed','Running at high speed'], add:['Running at high speed'], erase:[], out:'Failure risk: <b>low</b> for now. The high-speed note stays in memory in case wear builds up later.', lesson:'The <b>output gate</b> chose which part of the memory to use for today\'s answer. Information can be stored without being output.'}
+      ];
+      const G={f:['Forget gate','eraser','#2563eb'],i:['Input gate','pen-line','#16a34a'],o:['Output gate','megaphone','#7c3aed']};
+      const ST={open:['open','Open'],closed:['closed','Closed'],partial:['partial','Partly open']};
+      let d=0;
+      const draw=()=>{ const D=DAYS[d];
+        $('#lbEntry',root).innerHTML=`<div class="og-label">${ico('file-text')} Today's log entry (the input)</div><div class="lb-entry-t">${D.entry}</div>`+(d>1?`<div class="lb-prev">${ico('history')} <b>Short-term memory from yesterday:</b> ${DAYS[d-1].out.replace(/<[^>]+>/g,'')}</div>`:'');
+        $('#lbGates',root).innerHTML=['f','i','o'].map(k=>{ const g=G[k], s=D[k];
+          if(!s) return `<div class="lb-g" style="border-color:${g[2]}"><div class="lb-gh" style="color:${g[2]}">${ico(g[1])} ${g[0]}</div><div class="lb-gd muted">Waiting for input</div></div>`;
+          const st=ST[(k==='f'&&s[0]==='closed')?'closed':s[0]];
+          return `<div class="lb-g" style="border-color:${g[2]}"><div class="lb-gh" style="color:${g[2]}">${ico(g[1])} ${g[0]} <span class="lb-badge ${st[0]}">${k==='f'?(s[0]==='closed'?'Erases':'Keeps'):k==='i'?(s[0]==='closed'?'Closed':'Writes'):(s[0]==='partial'?'Reveals part':'Reveals')}</span></div><div class="lb-gd"><b>${s[1]}.</b> ${s[2]}</div></div>`; }).join('');
+        const shown=D.erase.map(n=>`<span class="lb-note gone">${ico('eraser')} ${n}</span>`).concat(D.notes.map(n=>`<span class="lb-note ${D.add.includes(n)?'new':''}">${D.add.includes(n)?ico('pen-line'):ico('sticky-note')} ${n}</span>`));
+        $('#lbNotes',root).innerHTML=shown.length?shown.join(''):'<span class="muted small">(empty)</span>';
+        $('#lbOut',root).innerHTML=`<div class="og-label" style="color:#be185d">${ico('message-square')} Short-term memory today (the output)</div><div class="lb-bubble">${D.out}</div><div class="small muted" style="margin-top:4px">${d<DAYS.length-1?ico('corner-down-right')+' Handed to tomorrow together with the next log entry, so the gates know what the cell concluded today.':ico('corner-down-right')+' Handed to the next day, like every short-term memory.'}</div>`;
+        $('#lbLesson',root).innerHTML=D.lesson;
+        $('#lbTag',root).textContent=d?`Day ${d} of ${DAYS.length-1}`:'Start'; $('#lbPrev',root).disabled=d===0; $('#lbNext',root).disabled=d===DAYS.length-1;
+        refreshIcons($('#lbGates',root).closest('.panel')); };
+      $('#lbPrev',root).onclick=()=>{ if(d>0){d--;draw();} }; $('#lbNext',root).onclick=()=>{ if(d<DAYS.length-1){d++;draw();} }; $('#lbReset',root).onclick=()=>{ d=0; draw(); };
+      draw();
+    }
     { // LSTM cell explorer
       const svg=$('#lcSvg',root);
       const INFO={
@@ -2358,7 +2446,7 @@ ${panel('Remembering across a long gap: RNN versus LSTM', `<p class="small" styl
       const PRE={1:[2,1,1],2:[2,1,-10]}; let k=0;
       const calc=()=>{ const C0=+$('#lnC',root).value, h0=+$('#lnH',root).value, x=+$('#lnX',root).value; const z=w=>w[0]*h0+w[1]*x+w[2];
         const f=sg(z(W.f)), i=sg(z(W.i)), c=Math.tanh(z(W.c)), o=sg(z(W.o)); const fC=f*C0, ic=i*c, C=fC+ic, tC=Math.tanh(C), h=o*tC; return {C0,h0,x,z,f,i,c,o,fC,ic,C,tC,h}; };
-      const sum=(w,v)=>`${w[0].toFixed(2)} × ${f2(v.h0)} + ${w[1].toFixed(2)} × ${f2(v.x)} + (${w[2].toFixed(2)}) = ${f2(v.z(w))}`;
+      const sum=(w,v)=>`sum = ${w[0].toFixed(2)} × ${f2(v.h0)} ${w[1]<0?'−':'+'} ${Math.abs(w[1]).toFixed(2)} × ${f2(v.x)} = ${f2(v.z(w)-w[2])}; adding the bias ${w[2]<0?'(':''}${w[2].toFixed(2)}${w[2]<0?')':''} gives ${f2(v.z(w)-w[2])} ${w[2]<0?'−':'+'} ${Math.abs(w[2]).toFixed(2)} = ${f2(v.z(w))}`;
       const STEP=[
         {on:['cline','hline','xin','forget','fpath','mulF'], vals:['C0','h0','x','zf','f','fC'], html:v=>`<b>Forget gate: % long-term memory to remember.</b> ${sum(W.f,v)}, so $f_t=\\sigma(${f2(v.z(W.f))})=${f3(v.f)}$. Long-term memory kept: $${f3(v.f)}\\times${f2(v.C0)}=${f2(v.fC)}$.`},
         {on:['hline','xin','input','cand','ipath','mulI'], vals:['zi','i','zc','c','ic'], html:v=>`<b>Input gate and candidate.</b> % potential memory to remember: ${sum(W.i,v)}, so $i_t=\\sigma(${f2(v.z(W.i))})=${f3(v.i)}$. Potential long-term memory: ${sum(W.c,v)}, so $\\tilde C_t=\\tanh(${f2(v.z(W.c))})=${f3(v.c)}$. New information to add: $${f3(v.i)}\\times${f3(v.c)}=${f2(v.ic)}$.`},
@@ -2379,8 +2467,8 @@ ${panel('Remembering across a long gap: RNN versus LSTM', `<p class="small" styl
             <path d="M ${x-45} ${PK} L ${x-45} 318 L ${x-24} 318" class="ln2-ar pk" marker-end="url(#lnA_pk)"/>${wbox(x-45,352,wt(w[0]),'pk')}
             <line x1="${x+0}" y1="${GY}" x2="${x}" y2="332" class="ln2-ar gy" marker-end="url(#lnA_gy)"/>${wbox(x,425,wt(w[1]),'gy')}
             <rect x="${x-22}" y="306" width="44" height="24" rx="12" class="ln2-sum"/><text x="${x}" y="322" text-anchor="middle" class="ln2-sumt">sum</text>
-            <text x="${x+28}" y="322" class="ln2-z">${show(st)?'= '+f2(z):''}</text>
-            ${ar(x,306,x,233,'gy')}${wbox(x,272,sg2(w[2]),'bias',62)}
+            <text x="${x+28}" y="322" class="ln2-z">${show(st)?'= '+f2(z-w[2]):''}</text>
+            ${ar(x,306,x,233,'gy')}${wbox(x,272,sg2(w[2]),'bias',62)}<text x="${x+8}" y="250" class="ln2-z">${show(st)?'= '+f2(z):''}</text>
             <rect x="${x-37}" y="185" width="74" height="46" rx="6" class="ln2-act" style="stroke:${c}"/><text x="${x}" y="214" text-anchor="middle" class="ln2-actt" style="fill:${c}">${act}</text>
             <text x="${x}" y="${title.length>1?150:156}" text-anchor="middle" class="ln2-title" style="fill:${c}">${title[0]}</text>${title[1]?`<text x="${x}" y="166" text-anchor="middle" class="ln2-title" style="fill:${c}">${title[1]}</text>`:''}${out(x,c)}</g>`; };
         let o=`<defs>${['gn','pk','gy','bl','gr','or','pu','dk'].map(id=>`<marker id="lnA_${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ln2-hd ${id}"/></marker>`).join('')}</defs>`;
