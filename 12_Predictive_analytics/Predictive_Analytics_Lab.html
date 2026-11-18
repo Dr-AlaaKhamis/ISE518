@@ -422,7 +422,7 @@ h4 .h4ico{width:17px;height:17px;color:var(--primary);vertical-align:-3px;margin
 .lc-cline line{stroke-width:3.4}
 .lc-head{fill:var(--text)}
 .lc-lab{font-size:15px;font-style:italic;fill:var(--text)}
-.lc-tag{font-size:13px;font-style:italic;fill:var(--muted)}
+.lc-tag{font-size:13px;font-style:italic;font-weight:600;fill:var(--muted);paint-order:stroke;stroke:color-mix(in srgb,var(--primary) 9%,var(--surface));stroke-width:4px;stroke-linejoin:round}
 .lc-gate rect{stroke-width:2}
 .lc-f rect{fill:#dbeafe;stroke:#2563eb}.lc-i rect{fill:#dcfce7;stroke:#16a34a}.lc-c rect{fill:#ffedd5;stroke:#ea580c}.lc-o rect{fill:#ede9fe;stroke:#7c3aed}
 .lc-gl{font-size:15px;font-weight:700;fill:#1d1d1d}
@@ -486,6 +486,47 @@ h4 .h4ico{width:17px;height:17px;color:var(--primary);vertical-align:-3px;margin
 .hl-w{font-size:12px;font-style:italic;fill:var(--muted)}
 .hl-ar{stroke:var(--text);stroke-width:1.6;fill:none}.hl-ar.rec{stroke-width:2.2}.hl-ar.fb{stroke:#ea580c;stroke-width:1.8}
 .hl-head{fill:var(--text)}
+.lc-wt rect{fill:var(--surface);stroke-width:1.6}
+.lc-wt-f rect{stroke:#2563eb}.lc-wt-i rect{stroke:#16a34a}.lc-wt-c rect{stroke:#ea580c}.lc-wt-o rect{stroke:#7c3aed}
+.lc-wl{font-size:12.5px}.lc-wn{font-weight:700;fill:#15803d}.lc-wh{fill:#be185d;font-style:italic;font-weight:700}.lc-wx{fill:#64748b;font-style:italic;font-weight:700}.lc-wb{fill:#15803d;font-style:italic}
+#lnSvg [data-k="hline"] line,#lnSvg [data-k="hline"] polyline{stroke:#be185d}
+#lnSvg [data-k="xin"] line{stroke:#64748b}
+#lnSvg .lc-cline line{stroke:#16a34a}
+.ln2-svg{display:block;width:100%;min-width:760px;height:auto}
+.ln2-svg text{font-family:Inter,system-ui,sans-serif}
+.ln2-g,.ln2-svg g{transition:opacity .25s}.ln2-dim{opacity:.22}
+.ln2-blk{stroke-width:1.6;stroke-dasharray:5 4}
+.ln2-ar{fill:none;stroke-width:2.4}
+.ln2-ar.gn{stroke:#16a34a}.ln2-hd.gn{fill:#16a34a}.ln2-ar.pk{stroke:#be185d}.ln2-hd.pk{fill:#be185d}.ln2-ar.gy{stroke:#64748b}.ln2-hd.gy{fill:#64748b}.ln2-ar.bl{stroke:#2563eb}.ln2-hd.bl{fill:#2563eb}.ln2-ar.gr{stroke:#16a34a}.ln2-hd.gr{fill:#16a34a}.ln2-ar.or{stroke:#ea580c}.ln2-hd.or{fill:#ea580c}.ln2-ar.pu{stroke:#7c3aed}.ln2-hd.pu{fill:#7c3aed}.ln2-ar.dk{stroke:var(--text)}.ln2-hd.dk{fill:var(--text)}
+.ln2-ar.gn,.ln2-ar.pk,.ln2-ar.gy{stroke-width:3}
+.ln2-ar{fill:none!important}.ln2-hd{stroke:none}
+.ln2-vb{fill:#fff;stroke-width:2.2}.ln2-vb.gn{stroke:#16a34a}.ln2-vb.pk{stroke:#be185d}.ln2-vb.gy{stroke:#1f6fb2}.ln2-vb.bl{stroke:#2563eb}.ln2-vb.gr{stroke:#16a34a}.ln2-vb.or{stroke:#ea580c}.ln2-vb.pu{stroke:#7c3aed}.ln2-vb.dk{stroke:#14532d}
+.ln2-v{font-size:15px;font-weight:700;fill:#111}.ln2-v.unk{fill:#9ca3af}
+.ln2-wb{fill:#fff;stroke-width:1.6}.ln2-wb.pk{stroke:#be185d}.ln2-wb.gy{stroke:#64748b}.ln2-wb.bias{stroke:#15803d}
+.ln2-w{font-size:13.5px;font-weight:700;fill:#15803d}
+.ln2-sum{fill:var(--surface);stroke:var(--text);stroke-width:1.2}.ln2-sumt{font-size:12.5px;fill:var(--text)}
+.ln2-z{font-size:13px;font-weight:700;fill:#dc2626}
+.ln2-act{fill:#fff;stroke-width:2.4}.ln2-actt{font-size:17px;font-weight:700}
+.ln2-op{fill:var(--surface);stroke:var(--text);stroke-width:1.6}.ln2-sym{font-size:16px;font-weight:700;fill:var(--text)}
+.ln2-title{font-size:12px;font-weight:700}
+.ln2-lab{font-size:12.5px;font-weight:700}.ln2-lab.gn{fill:#16a34a}.ln2-lab.pk{fill:#be185d}.ln2-lab.gy{fill:var(--text)}.ln2-lab.bl{fill:#2563eb}
+.gap-key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.84rem;margin:6px 0 4px}.gap-key span{display:inline-flex;align-items:center;gap:6px}.gap-key i{display:inline-block;width:22px;height:3px;border-radius:2px}.gap-key i.dot{height:0;border-top:2px dotted var(--muted)}
+.lcs-lane{display:grid;grid-template-columns:190px 1fr;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:12px;margin:8px 0;background:var(--surface)}
+.lcs-lane.hl{background:var(--surface2)}
+.lcs-step{font-size:.88rem;font-weight:600}.lcs-step b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--primary);color:#fff;font-size:.78rem;margin-right:6px}
+.lcs-eq{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+.lcs-chip{flex:1 1 120px;min-width:110px;border:2px solid;border-radius:10px;padding:6px 10px;background:var(--surface)}
+.lcs-lab{font-size:.74rem;font-weight:700}
+.lcs-val{font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums}
+.lcs-bar{position:relative;height:8px;border-radius:4px;background:var(--surface2);border:1px solid var(--border);margin-top:4px;overflow:hidden}
+.lcs-bar i{position:absolute;top:0;bottom:0;border-radius:3px;transition:width .2s}
+.lcs-mid{position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted)}
+.lcs-sub{font-size:.72rem;color:var(--muted);margin-top:3px}
+.lcs-op{align-self:center;font-size:1.4rem;font-weight:700;color:var(--muted);min-width:14px;text-align:center}
+@media (max-width: 760px){.lcs-lane{grid-template-columns:1fr}.lcs-chip{flex:1 1 90px;min-width:86px}}
+.lcs-lane{cursor:pointer;transition:box-shadow .2s,border-color .2s}.lcs-lane:hover{border-color:var(--primary)}
+.lcs-lane.act{border-color:#f59e0b;box-shadow:0 0 0 3px color-mix(in srgb,#f59e0b 30%,transparent)}
+#lcsSvg .lc-val{transition:opacity .25s}
 </style>
 </head>
 <body>
@@ -2186,16 +2227,20 @@ ${panel('NASA CMAPSS turbofan: from sensors to an RUL label', `<p class="small">
 });
 
 /* LSTM cell diagram (Olah-style), shared by the explorer and the slide's numerical example */
-function lstmCellSVG(id){
+const LSTM_NUM_W={f:[2.70,1.63,1.62],i:[2.00,1.65,0.62],c:[1.41,0.94,-0.32],o:[4.38,-0.19,0.59]};
+function lstmCellSVG(id, W){
   const gate=(k,x,lab,cls)=>`<g class="lc-k lc-gate ${cls}" data-k="${k}"><rect x="${x-29}" y="213" width="58" height="34" rx="8"/><text x="${x}" y="235" text-anchor="middle" class="lc-gl">${lab}</text></g>`;
   const op=(k,x,y,sym)=>`<g class="lc-k lc-op" data-k="${k}"><circle cx="${x}" cy="${y}" r="14"/><text x="${x}" y="${y+5}" text-anchor="middle" class="lc-sym">${sym}</text></g>`;
   const val=(v,x,y,anc='start')=>`<text class="lc-val" data-v="${v}" x="${x}" y="${y}" text-anchor="${anc}"></text>`;
+  const wcard=(k,g,x)=>{ const w=W[g], f=v=>(v<0?'-':'')+Math.abs(v).toFixed(2);
+    return `<g class="lc-k lc-wt lc-wt-${g}" data-k="${k}"><rect x="${x-33}" y="308" width="66" height="76" rx="7"/><text x="${x-27}" y="324" class="lc-wl"><tspan class="lc-wn">× ${f(w[0])}</tspan> <tspan class="lc-wh">h</tspan></text><text x="${x-27}" y="340" class="lc-wl"><tspan class="lc-wn">× ${f(w[1])}</tspan> <tspan class="lc-wx">x</tspan></text><text x="${x-27}" y="356" class="lc-wl"><tspan class="lc-wn">+ ${f(w[2])}</tspan> <tspan class="lc-wb">b</tspan></text><text x="${x-27}" y="375" class="lc-val" data-v="z${g}"></text></g>`; };
+  const wts = W ? wcard('forget','f',200)+wcard('input','i',290)+wcard('cand','c',360)+wcard('output','o',480) : '';
   return `<svg class="lc-svg" id="${id}" viewBox="0 0 760 400" role="img" aria-label="Diagram of an LSTM cell with forget, input, and output gates">
   <defs><marker id="${id}A" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="lc-head"/></marker></defs>
   <rect x="88" y="44" width="590" height="290" rx="26" class="lc-cell"/>
   <g class="lc-k lc-line lc-cline" data-k="cline"><line x1="18" y1="90" x2="186" y2="90"/><line x1="214" y1="90" x2="346" y2="90"/><line x1="374" y1="90" x2="742" y2="90" marker-end="url(#${id}A)"/><text x="22" y="78" class="lc-lab">C<tspan baseline-shift="sub" font-size="10">t-1</tspan></text><text x="700" y="78" class="lc-lab">C<tspan baseline-shift="sub" font-size="10">t</tspan></text></g>
   <g class="lc-k lc-line" data-k="hline"><polyline points="18,300 480,300"/><line x1="200" y1="300" x2="200" y2="247"/><line x1="290" y1="300" x2="290" y2="247"/><line x1="360" y1="300" x2="360" y2="247"/><line x1="480" y1="300" x2="480" y2="247"/><text x="22" y="320" class="lc-lab">h<tspan baseline-shift="sub" font-size="10">t-1</tspan></text></g>
-  <g class="lc-k lc-line" data-k="xin"><line x1="130" y1="392" x2="130" y2="300"/><text x="140" y="386" class="lc-lab">x<tspan baseline-shift="sub" font-size="10">t</tspan></text></g>
+  <g class="lc-k lc-line" data-k="xin"><line x1="130" y1="392" x2="130" y2="300"/><text x="${W?120:140}" y="${W?390:386}" text-anchor="${W?'end':'start'}" class="lc-lab">x<tspan baseline-shift="sub" font-size="10">t</tspan></text></g>
   <g class="lc-k lc-line" data-k="fpath"><line x1="200" y1="213" x2="200" y2="106" marker-end="url(#${id}A)"/></g>
   <g class="lc-k lc-line" data-k="ipath"><polyline points="290,213 290,170 344,170" marker-end="url(#${id}A)"/><line x1="360" y1="213" x2="360" y2="186" marker-end="url(#${id}A)"/><line x1="360" y1="156" x2="360" y2="106" marker-end="url(#${id}A)"/></g>
   <g class="lc-k lc-line" data-k="opath"><polyline points="480,213 480,190 564,190" marker-end="url(#${id}A)"/><line x1="580" y1="90" x2="580" y2="126" marker-end="url(#${id}A)"/><line x1="580" y1="154" x2="580" y2="174" marker-end="url(#${id}A)"/></g>
@@ -2203,8 +2248,8 @@ function lstmCellSVG(id){
   ${gate('forget',200,'σ','lc-f')}${gate('input',290,'σ','lc-i')}${gate('cand',360,'tanh','lc-c')}${gate('output',480,'σ','lc-o')}
   ${op('mulF',200,90,'×')}${op('add',360,90,'+')}${op('mulI',360,170,'×')}${op('mulO',580,190,'×')}
   <g class="lc-k lc-op lc-tanhc" data-k="tanhC"><ellipse cx="580" cy="140" rx="24" ry="13"/><text x="580" y="144" text-anchor="middle" class="lc-sym" style="font-size:12px">tanh</text></g>
-  <text x="200" y="266" text-anchor="middle" class="lc-tag">f<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="290" y="266" text-anchor="middle" class="lc-tag">i<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="360" y="266" text-anchor="middle" class="lc-tag">C̃<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="480" y="266" text-anchor="middle" class="lc-tag">o<tspan baseline-shift="sub" font-size="9">t</tspan></text>
-  ${val('C0',22,112)}${val('h0',22,342)}${val('x',140,370)}${val('f',192,200,'end')}${val('fC',218,70)}${val('i',284,164,'end')}${val('c',368,200)}${val('ic',376,160)}${val('C',700,112)}${val('o',488,200)}${val('tC',610,136)}${val('h',648,290,'start')}
+  <text x="209" y="278" text-anchor="start" class="lc-tag">f<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="299" y="278" text-anchor="start" class="lc-tag">i<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="369" y="278" text-anchor="start" class="lc-tag">C̃<tspan baseline-shift="sub" font-size="9">t</tspan></text><text x="489" y="278" text-anchor="start" class="lc-tag">o<tspan baseline-shift="sub" font-size="9">t</tspan></text>
+  ${wts}${val('C0',22,112)}${val('h0',22,342)}${val('x',W?120:140,370,W?'end':'start')}${val('f',192,200,'end')}${val('fC',218,70)}${val('i',284,164,'end')}${val('c',375,206)}${val('ic',376,160)}${val('C',700,112)}${val('o',490,181)}${val('tC',610,136)}${val('h',648,290,'start')}
 </svg>`;
 }
 
@@ -2244,7 +2289,18 @@ ${panel('Explore the LSTM cell', `<div class="seg" id="lcSeg" style="margin-bott
 <div class="lc-wrap">${lstmCellSVG('lcSvg')}</div>
 <div class="grid2" style="margin-top:10px"><div style="min-width:0"><div class="og-label">${ico('footprints')} Step</div><div id="lcStep" class="callout" style="margin:0"></div></div><div style="min-width:0"><div class="og-label">${ico('mouse-pointer-click')} Selected component</div><div id="lcInfo" class="callout" style="margin:0">Click any gate, operation, or line in the diagram.</div></div></div>`, 'Explore')}
 <div class="grid2"><div class="mini"><h4>Forget gate</h4><p>$f_t=\sigma(W_f\cdot[h_{t-1},x_t]+b_f)$ decides what to throw away from the cell state: information no longer contextually relevant.</p></div><div class="mini"><h4>Input gate and candidate</h4><p>$i_t=\sigma(W_i\cdot[h_{t-1},x_t]+b_i)$ and $\tilde C_t=\tanh(W_C\cdot[h_{t-1},x_t]+b_C)$ decide what new information to store. tanh pushes values to $(-1,1)$.</p></div><div class="mini"><h4>Cell update</h4><p>$C_t=f_t\odot C_{t-1}+i_t\odot\tilde C_t$: forget part of the old memory, add part of the new candidate.</p></div><div class="mini"><h4>Output gate</h4><p>$o_t=\sigma(W_o\cdot[h_{t-1},x_t]+b_o)$ and $h_t=o_t\odot\tanh(C_t)$: output a filtered version of the cell state.</p></div></div>
-${panel('One LSTM cell step', `<div class="controls"><div class="ctl"><label>Previous cell C<sub>t-1</sub> <output id="cp_v"></output></label><input type="range" id="cp" min="-2" max="2" step="0.05" value="1"></div><div class="ctl"><label>Forget gate f <output id="fg_v"></output></label><input type="range" id="fg" min="0" max="1" step="0.01" value="0.9"></div><div class="ctl"><label>Input gate i <output id="ig_v"></output></label><input type="range" id="ig" min="0" max="1" step="0.01" value="0.3"></div><div class="ctl"><label>Candidate C̃ <output id="cc_v"></output></label><input type="range" id="cc" min="-1" max="1" step="0.05" value="-0.6"></div><div class="ctl"><label>Output gate o <output id="og_v"></output></label><input type="range" id="og" min="0" max="1" step="0.01" value="0.7"></div></div><div class="grid2"><div id="cellSvg"></div><div class="readout" id="cellOut"></div></div>`)}
+${panel('One LSTM cell step', `<p class="small" style="margin-top:0">Set the gates yourself and watch one update of the cell, read as four short equations: what is <b>kept</b> from the old memory, what is <b>added</b>, the <b>new memory</b>, and what is <b>output</b>. Gates are fractions between 0 (closed) and 1 (fully open).</p>
+<div class="controls"><div class="ctl"><label>Try a scenario</label><div class="seg" id="lcsPre"><button data-v="keep">Keep the memory</button><button data-v="replace">Replace it</button><button data-v="add">Add to it</button><button data-v="quiet">Store but stay quiet</button></div></div></div>
+<div class="controls">
+<div class="ctl"><label>Old memory C<sub>t-1</sub> <output id="cp_v"></output></label><input type="range" id="cp" min="-2" max="2" step="0.05" value="1"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:220px">What the cell remembered before this step.</span></div>
+<div class="ctl"><label>Forget gate f <output id="fg_v"></output></label><input type="range" id="fg" min="0" max="1" step="0.01" value="0.9"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:220px">Fraction of the old memory to keep.</span></div>
+<div class="ctl"><label>Candidate C̃ <output id="cc_v"></output></label><input type="range" id="cc" min="-1" max="1" step="0.05" value="-0.6"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:220px">New information proposed by this input (between -1 and 1).</span></div>
+<div class="ctl"><label>Input gate i <output id="ig_v"></output></label><input type="range" id="ig" min="0" max="1" step="0.01" value="0.3"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:220px">Fraction of the candidate to write into memory.</span></div>
+<div class="ctl"><label>Output gate o <output id="og_v"></output></label><input type="range" id="og" min="0" max="1" step="0.01" value="0.7"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:220px">Fraction of the memory to reveal as output.</span></div></div>
+<div class="btnrow" style="margin:10px 0 4px"><button class="btn sm" id="lcsPlay">${ico('play')} Play the update step by step</button><button class="btn ghost sm" id="lcsAllOn">${ico('layout-grid')} Show the whole cell</button><span class="small muted">or click a row below to highlight its part of the cell</span></div>
+<div class="lc-wrap">${lstmCellSVG('lcsSvg')}</div>
+<p class="small muted" style="margin:4px 0 0">In this panel you set the gates directly. In a trained LSTM each gate is computed from $h_{t-1}$ and $x_t$ (see the worked example below).</p>
+<div id="cellLanes"></div><div class="callout" id="cellOut" style="margin-top:10px"></div>`)}
 <h2>A worked numerical example</h2>
 <p>The slides walk through one LSTM unit with real numbers. The trained weights below are fixed; only the inputs change. Every weight multiplies one input, then the bias is added, and the gate's activation is applied.</p>
 ${table(['Layer','× short-term memory h<sub>t-1</sub>','× input x<sub>t</sub>','+ bias','Activation'],[
@@ -2253,9 +2309,17 @@ ${table(['Layer','× short-term memory h<sub>t-1</sub>','× input x<sub>t</sub>'
 ${panel('Run the numbers step by step', `<div class="controls"><div class="ctl"><label>Example</label><div class="seg" id="lnSeg"><button class="on" data-v="1">Example 1 (input = 1)</button><button data-v="2">Example 2 (input = -10)</button><button data-v="c">Custom</button></div></div></div>
 <div class="controls"><div class="ctl"><label>Long-term memory C<sub>t-1</sub> <output id="lnC_v"></output></label><input type="range" id="lnC" min="-3" max="3" step="0.1" value="2"></div><div class="ctl"><label>Short-term memory h<sub>t-1</sub> <output id="lnH_v"></output></label><input type="range" id="lnH" min="-1" max="1" step="0.05" value="1"></div><div class="ctl"><label>Input x<sub>t</sub> <output id="lnX_v"></output></label><input type="range" id="lnX" min="-10" max="10" step="0.5" value="1"></div></div>
 <div class="btnrow"><button class="btn sm" id="lnNext">${ico('step-forward')} Next step</button><button class="btn ghost sm" id="lnAll">${ico('fast-forward')} Show all steps</button><button class="btn ghost sm" id="lnReset">${ico('rotate-ccw')} Start over</button><span class="small muted" id="lnPos"></span></div>
-<div class="lc-wrap" style="margin-top:8px">${lstmCellSVG('lnSvg')}</div>
+<div class="lc-wrap" style="margin-top:8px"><svg class="ln2-svg" id="lnSvg" viewBox="0 0 1100 560" role="img" aria-label="LSTM unit with every weight, bias, and intermediate value"></svg></div>
 <ol class="ln-steps" id="lnSteps"></ol><div class="callout" id="lnNote" style="display:none"></div>`, 'Step by step')}
-${panel('Remembering across a long gap: RNN versus LSTM', `<div class="controls"><div class="ctl"><label>Gap length (time steps) <output id="gap_v"></output></label><input type="range" id="gap" min="5" max="200" step="5" value="60"></div><div class="ctl"><label>LSTM forget gate (kept open) <output id="fk_v"></output></label><input type="range" id="fk" min="0.9" max="1" step="0.001" value="0.99"></div><div class="ctl"><label>RNN recurrent factor <output id="rf_v"></output></label><input type="range" id="rf" min="0.5" max="0.99" step="0.01" value="0.9"></div></div><canvas class="plot" id="gapCv"></canvas><p class="small" id="gapTxt"></p>`)}
+${panel('Remembering across a long gap: RNN versus LSTM', `<p class="small" style="margin-top:0">A piece of information (for example, an early warning sign in a sensor stream) is stored at step 0 and is needed again many steps later. At every step, a vanilla RNN multiplies what it remembers by its <b>recurrent factor</b>, while an LSTM multiplies its cell state by its <b>forget gate</b>. After $t$ steps, the fraction left is simply $(\\text{factor})^t$.</p>
+<div class="controls"><div class="ctl"><label>Gap length (time steps) <output id="gap_v"></output></label><input type="range" id="gap" min="5" max="200" step="5" value="60"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:270px">How many steps later the information is needed.</span></div>
+<div class="ctl"><label>RNN recurrent factor <output id="rf_v"></output></label><input type="range" id="rf" min="0.5" max="0.99" step="0.01" value="0.9"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:270px">Fraction of the signal a vanilla RNN keeps from one step to the next.</span></div>
+<div class="ctl"><label>LSTM forget gate (kept open) <output id="fk_v"></output></label><input type="range" id="fk" min="0.9" max="1" step="0.001" value="0.99"><span class="small muted" style="display:block;font-weight:400;margin-top:2px;max-width:270px">Fraction of the cell state the LSTM keeps each step. Close to 1 means "keep almost everything".</span></div>
+<div class="ctl"><label>Vertical scale</label><div class="seg" id="gapScale"><button class="on" data-v="lin">Linear</button><button data-v="log">Log (see tiny values)</button></div></div></div>
+<div class="gap-key"><span><i style="background:var(--c4)"></i>Vanilla RNN</span><span><i style="background:var(--c3)"></i>LSTM cell state</span><span><i class="dot"></i>Dotted lines: fraction still remembered when the information is needed</span></div>
+<canvas class="plot" id="gapCv"></canvas>
+<div class="grid2" style="margin-top:10px" id="gapCards"></div>
+<p class="small" id="gapTxt" style="margin-bottom:0"></p>`)}
 <p>Notebook: ${colab('LSTM_RUL.ipynb')} (LSTM-based RUL prediction)</p>
 <p class="callout src">Figures in the slides follow C. Olah, "Understanding LSTM Networks," 2015.</p>`,
   init(root){
@@ -2290,21 +2354,58 @@ ${panel('Remembering across a long gap: RNN versus LSTM', `<div class="controls"
     }
     { // Worked numerical example (slides 254-257)
       const svg=$('#lnSvg',root), sg=v=>1/(1+Math.exp(-v)), f2=v=>(Math.abs(v)<0.005?0:v).toFixed(2), f3=v=>(Math.abs(v)<0.0005?0:v).toFixed(3);
-      const W={f:[2.70,1.63,1.62],i:[2.00,1.65,0.62],c:[1.41,0.94,-0.32],o:[4.38,-0.19,0.59]};
+      const W=LSTM_NUM_W;
       const PRE={1:[2,1,1],2:[2,1,-10]}; let k=0;
       const calc=()=>{ const C0=+$('#lnC',root).value, h0=+$('#lnH',root).value, x=+$('#lnX',root).value; const z=w=>w[0]*h0+w[1]*x+w[2];
         const f=sg(z(W.f)), i=sg(z(W.i)), c=Math.tanh(z(W.c)), o=sg(z(W.o)); const fC=f*C0, ic=i*c, C=fC+ic, tC=Math.tanh(C), h=o*tC; return {C0,h0,x,z,f,i,c,o,fC,ic,C,tC,h}; };
       const sum=(w,v)=>`${w[0].toFixed(2)} × ${f2(v.h0)} + ${w[1].toFixed(2)} × ${f2(v.x)} + (${w[2].toFixed(2)}) = ${f2(v.z(w))}`;
       const STEP=[
-        {on:['cline','hline','xin','forget','fpath','mulF'], vals:['C0','h0','x','f','fC'], html:v=>`<b>Forget gate: % long-term memory to remember.</b> ${sum(W.f,v)}, so $f_t=\\sigma(${f2(v.z(W.f))})=${f3(v.f)}$. Long-term memory kept: $${f3(v.f)}\\times${f2(v.C0)}=${f2(v.fC)}$.`},
-        {on:['hline','xin','input','cand','ipath','mulI'], vals:['i','c','ic'], html:v=>`<b>Input gate and candidate.</b> % potential memory to remember: ${sum(W.i,v)}, so $i_t=\\sigma(${f2(v.z(W.i))})=${f3(v.i)}$. Potential long-term memory: ${sum(W.c,v)}, so $\\tilde C_t=\\tanh(${f2(v.z(W.c))})=${f3(v.c)}$. New information to add: $${f3(v.i)}\\times${f3(v.c)}=${f2(v.ic)}$.`},
+        {on:['cline','hline','xin','forget','fpath','mulF'], vals:['C0','h0','x','zf','f','fC'], html:v=>`<b>Forget gate: % long-term memory to remember.</b> ${sum(W.f,v)}, so $f_t=\\sigma(${f2(v.z(W.f))})=${f3(v.f)}$. Long-term memory kept: $${f3(v.f)}\\times${f2(v.C0)}=${f2(v.fC)}$.`},
+        {on:['hline','xin','input','cand','ipath','mulI'], vals:['zi','i','zc','c','ic'], html:v=>`<b>Input gate and candidate.</b> % potential memory to remember: ${sum(W.i,v)}, so $i_t=\\sigma(${f2(v.z(W.i))})=${f3(v.i)}$. Potential long-term memory: ${sum(W.c,v)}, so $\\tilde C_t=\\tanh(${f2(v.z(W.c))})=${f3(v.c)}$. New information to add: $${f3(v.i)}\\times${f3(v.c)}=${f2(v.ic)}$.`},
         {on:['cline','mulF','mulI','add'], vals:['C'], html:v=>`<b>Update the cell state.</b> $C_t=${f2(v.fC)}+${f2(v.ic)}=${f2(v.C)}$: the new long-term memory.`},
-        {on:['cline','hline','xin','output','opath','tanhC','mulO','hout'], vals:['o','tC','h'], html:v=>`<b>Output gate.</b> % potential memory to output: ${sum(W.o,v)}, so $o_t=\\sigma(${f2(v.z(W.o))})=${f3(v.o)}$. Potential short-term memory: $\\tanh(${f2(v.C)})=${f3(v.tC)}$. New short-term memory: $h_t=${f3(v.o)}\\times${f3(v.tC)}=${f2(v.h)}$.`}
+        {on:['cline','hline','xin','output','opath','tanhC','mulO','hout'], vals:['zo','o','tC','h'], html:v=>`<b>Output gate.</b> % potential memory to output: ${sum(W.o,v)}, so $o_t=\\sigma(${f2(v.z(W.o))})=${f3(v.o)}$. Potential short-term memory: $\\tanh(${f2(v.C)})=${f3(v.tC)}$. New short-term memory: $h_t=${f3(v.o)}\\times${f3(v.tC)}=${f2(v.h)}$.`}
       ];
-      const LBL={C0:v=>'C = '+f2(v.C0),h0:v=>'h = '+f2(v.h0),x:v=>'x = '+f2(v.x),f:v=>'f = '+f3(v.f),fC:v=>f2(v.fC),i:v=>'i = '+f3(v.i),c:v=>'C̃ = '+f3(v.c),ic:v=>f2(v.ic),C:v=>'C = '+f2(v.C),o:v=>'o = '+f3(v.o),tC:v=>f3(v.tC),h:v=>'h = '+f2(v.h)};
+      const LBL={zf:v=>'= '+f2(v.z(W.f)),zi:v=>'= '+f2(v.z(W.i)),zc:v=>'= '+f2(v.z(W.c)),zo:v=>'= '+f2(v.z(W.o)),C0:v=>'C = '+f2(v.C0),h0:v=>'h = '+f2(v.h0),x:v=>'x = '+f2(v.x),f:v=>'f = '+f3(v.f),fC:v=>f2(v.fC),i:v=>'i = '+f3(v.i),c:v=>'C̃ = '+f3(v.c),ic:v=>f2(v.ic),C:v=>'C = '+f2(v.C),o:v=>'o = '+f3(v.o),tC:v=>f3(v.tC),h:v=>'h = '+f2(v.h)};
+      // Flow diagram: each gate is a block; weights sit on the paths they scale (layout follows the slides)
+      const renderNum=(v,k)=>{ const T=60, PK=380, GY=470, BX={f:200,i:440,c:690,o:880}, COL={f:'#2563eb',i:'#16a34a',c:'#ea580c',o:'#7c3aed'};
+        const show=st=>st<=k, dim=st=>k>0&&k<4&&st!==k?' ln2-dim':'', q=(st,txt)=>show(st)?txt:'?';
+        const ar=(x1,y1,x2,y2,cls)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="ln2-ar ${cls}" marker-end="url(#lnA_${cls})"/>`;
+        const vbox=(x,y,txt,cls,w=62)=>`<rect x="${x-w/2}" y="${y-13}" width="${w}" height="26" rx="4" class="ln2-vb ${cls}"/><text x="${x}" y="${y+5}" text-anchor="middle" class="ln2-v ${txt==='?'?'unk':''}">${txt}</text>`;
+        const wbox=(x,y,txt,cls,w=66)=>`<rect x="${x-w/2}" y="${y-12}" width="${w}" height="24" rx="4" class="ln2-wb ${cls}"/><text x="${x}" y="${y+5}" text-anchor="middle" class="ln2-w">${txt}</text>`;
+        const op=(x,y,sym)=>`<circle cx="${x}" cy="${y}" r="14" class="ln2-op"/><text x="${x}" y="${y+5}" text-anchor="middle" class="ln2-sym">${sym}</text>`;
+        const sg2=n=>(n<0?'- ':'+ ')+Math.abs(n).toFixed(2), wt=n=>'× '+n.toFixed(2);
+        const gate=(g,st,title,act,z,out)=>{ const x=BX[g], w=W[g], c=COL[g];
+          return `<g class="ln2-g${dim(st)}"><rect x="${x-75}" y="138" width="150" height="318" rx="10" class="ln2-blk" style="stroke:${c};fill:${c}12"/>
+            <path d="M ${x-45} ${PK} L ${x-45} 318 L ${x-24} 318" class="ln2-ar pk" marker-end="url(#lnA_pk)"/>${wbox(x-45,352,wt(w[0]),'pk')}
+            <line x1="${x+0}" y1="${GY}" x2="${x}" y2="332" class="ln2-ar gy" marker-end="url(#lnA_gy)"/>${wbox(x,425,wt(w[1]),'gy')}
+            <rect x="${x-22}" y="306" width="44" height="24" rx="12" class="ln2-sum"/><text x="${x}" y="322" text-anchor="middle" class="ln2-sumt">sum</text>
+            <text x="${x+28}" y="322" class="ln2-z">${show(st)?'= '+f2(z):''}</text>
+            ${ar(x,306,x,233,'gy')}${wbox(x,272,sg2(w[2]),'bias',62)}
+            <rect x="${x-37}" y="185" width="74" height="46" rx="6" class="ln2-act" style="stroke:${c}"/><text x="${x}" y="214" text-anchor="middle" class="ln2-actt" style="fill:${c}">${act}</text>
+            <text x="${x}" y="${title.length>1?150:156}" text-anchor="middle" class="ln2-title" style="fill:${c}">${title[0]}</text>${title[1]?`<text x="${x}" y="166" text-anchor="middle" class="ln2-title" style="fill:${c}">${title[1]}</text>`:''}${out(x,c)}</g>`; };
+        let o=`<defs>${['gn','pk','gy','bl','gr','or','pu','dk'].map(id=>`<marker id="lnA_${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ln2-hd ${id}"/></marker>`).join('')}</defs>`;
+        // long-term memory line (top)
+        o+=`<text x="80" y="30" text-anchor="middle" class="ln2-lab gn">Long-term memory</text>${vbox(80,T,f2(v.C0),'gn')}`+ar(111,T,184,T,'gn')+op(200,T,'×')+ar(214,T,286,T,'gn')
+          +`<g class="${dim(1)}">${vbox(320,T,q(1,f2(v.fC)),'gn')}</g>`+ar(351,T,549,T,'gn')+op(565,T,'+')+ar(579,T,646,T,'gn')
+          +`<text x="680" y="30" text-anchor="middle" class="ln2-lab gn">New long-term memory</text><g class="${dim(3)}">${vbox(680,T,q(3,f2(v.C)),'gn')}</g>`
+          +`<polyline points="711,${T} 1040,${T} 1040,98" class="ln2-ar gn" marker-end="url(#lnA_gn)"/>`;
+        // short-term memory (pink) and input (gray) lines
+        o+=`<text x="55" y="350" text-anchor="middle" class="ln2-lab pk">Short-term</text><text x="55" y="415" text-anchor="middle" class="ln2-lab pk">memory</text>${vbox(55,PK,f2(v.h0),'pk',56)}<line x1="83" y1="${PK}" x2="835" y2="${PK}" class="ln2-ar pk"/>`;
+        o+=`<text x="110" y="545" text-anchor="middle" class="ln2-lab gy">Input</text>${vbox(110,515,f2(v.x),'gy',56)}<polyline points="110,502 110,${GY} 880,${GY}" class="ln2-ar gy"/>`;
+        // the four gates
+        o+=gate('f',1,['',''],'σ',v.z(W.f),(x,c)=>ar(x,185,x,123,'bl')+`<g>${vbox(x,108,q(1,f3(v.f)),'bl',66)}</g>`+ar(x,95,x,76,'bl')+`<text x="${x-40}" y="104" text-anchor="end" class="ln2-lab bl">% Long-term</text><text x="${x-40}" y="119" text-anchor="end" class="ln2-lab bl">to remember</text>`);
+        o+=gate('i',2,['% Potential memory','to remember'],'σ',v.z(W.i),(x,c)=>ar(x+37,208,549,208,'gr')+vbox(513,208,q(2,f3(v.i)),'gr',58));
+        o+=gate('c',2,['Potential','long-term memory'],'tanh',v.z(W.c),(x,c)=>ar(x-37,208,581,208,'or')+vbox(617,208,q(2,f3(v.c)),'or',58));
+        o+=gate('o',4,['% Potential memory','to output'],'σ',v.z(W.o),(x,c)=>ar(x+37,208,1024,208,'pu')+vbox(967,208,q(4,f3(v.o)),'pu',58));
+        // combine input and candidate, then add to long-term memory
+        o+=`<g class="${dim(2)}">${op(565,208,'×')}${ar(565,194,565,76,'dk')}${vbox(565,140,q(2,f2(v.ic)),'dk',58)}</g>`;
+        // output: tanh of the new long-term memory, times the output gate
+        o+=`<g class="${dim(4)}"><rect x="1005" y="100" width="70" height="30" rx="6" class="ln2-act" style="stroke:#be185d"/><text x="1040" y="120" text-anchor="middle" class="ln2-actt" style="fill:#be185d">tanh</text>
+            ${ar(1040,130,1040,145,'dk')}${vbox(1040,160,q(4,f3(v.tC)),'pk',62)}${ar(1040,173,1040,192,'dk')}${op(1040,208,'×')}${ar(1040,222,1040,287,'pk')}
+            ${vbox(1040,302,q(4,f2(v.h)),'pk',62)}<text x="1040" y="336" text-anchor="middle" class="ln2-lab pk">New short-term</text><text x="1040" y="352" text-anchor="middle" class="ln2-lab pk">memory</text></g>`;
+        svg.innerHTML=o; };
       const draw=()=>{ const v=calc(); const shown=new Set(['C0','h0','x']), on=new Set(); STEP.slice(0,k).forEach(s=>{ s.vals.forEach(x=>shown.add(x)); }); const cur=STEP[k-1];
-        $$('.lc-val',svg).forEach(t=>{ const n=t.dataset.v; t.textContent=shown.has(n)?LBL[n](v):''; t.classList.toggle('new',!!cur&&cur.vals.includes(n)); });
-        $$('.lc-k',svg).forEach(g=>{ g.classList.toggle('dim',!!cur&&!cur.on.includes(g.dataset.k)); g.classList.toggle('hi',!!cur&&cur.on.includes(g.dataset.k)); });
+        renderNum(v,k);
         $('#lnSteps',root).innerHTML=STEP.slice(0,k).map(s=>`<li>${s.html(v)}</li>`).join(''); typeset($('#lnSteps',root));
         $('#lnPos',root).textContent=k<STEP.length?`Step ${k} of 4`:'All 4 steps done';
         const ex=$('#lnSeg button.on',root).dataset.v, note=$('#lnNote',root);
@@ -2367,16 +2468,73 @@ ${panel('Remembering across a long gap: RNN versus LSTM', `<div class="controls"
         sc.steps.forEach(([k,txt],n)=>timers.push(setTimeout(()=>{ if(!mb.isConnected) return; all().forEach(e=>{ if(e.dataset.k===k) e.classList.add('act'); e.classList.toggle('cur',e.dataset.k===k); }); ol.insertAdjacentHTML('beforeend',`<li><b>${INFO[k][0]}:</b> ${txt}</li>`); },n*900)));
         timers.push(setTimeout(()=>{ if(!mb.isConnected) return; all().forEach(e=>e.classList.remove('cur')); const o=$('#mmOut',root); o.innerHTML=sc.out; o.style.display=''; typeset(o); },sc.steps.length*900+200)); };
     }
-    const cell=()=>{ const cp=+$('#cp',root).value, f=+$('#fg',root).value, i=+$('#ig',root).value, cc=+$('#cc',root).value, o=+$('#og',root).value; const C=f*cp+i*cc, h=o*Math.tanh(C);
-      const bar=(x,v,l,c,mx=2)=>{ const hgt=Math.abs(v)/mx*60; return `<rect x="${x}" y="${v>=0?90-hgt:90}" width="34" height="${hgt}" fill="${c}" rx="3"/><text x="${x+17}" y="170" text-anchor="middle" font-size="10" fill="var(--muted)">${l}</text><text x="${x+17}" y="${v>=0?84-hgt:104+hgt}" text-anchor="middle" font-size="10" fill="var(--text)">${v.toFixed(2)}</text>`; };
-      $('#cellSvg',root).innerHTML=`<svg viewBox="0 0 330 180" width="100%"><line x1="0" y1="90" x2="330" y2="90" stroke="var(--axis)"/>${bar(5,cp,'C(t-1)','var(--muted)')}${bar(55,f*cp,'f·C(t-1)','var(--c4)')}${bar(105,i*cc,'i·C̃','var(--c2)')}${bar(165,C,'C(t)','var(--c1)')}${bar(225,Math.tanh(C),'tanh C','var(--c5)',1)}${bar(280,h,'h(t)','var(--c3)',1)}</svg>`;
-      $('#cellOut',root).textContent=`C_t = f·C_(t-1) + i·C̃\n    = ${f.toFixed(2)}×${cp.toFixed(2)} + ${i.toFixed(2)}×${cc.toFixed(2)} = ${C.toFixed(3)}\nh_t = o·tanh(C_t) = ${o.toFixed(2)}×${Math.tanh(C).toFixed(3)} = ${h.toFixed(3)}\n\n`+(f>.95&&i<.05?'Memory preserved: forget gate open, input gate closed.':f<.1?'Memory wiped: the forget gate erased the old cell state.':'Old memory partly kept, new information partly written.'); };
-    ['cp','fg','ig','cc','og'].forEach(k=>bindRange(root,k,cell)); cell();
-    const gap=()=>{ const G=+$('#gap',root).value, fk=+$('#fk',root).value, rf=+$('#rf',root).value; const xs=[],a=[],b=[]; for(let t=0;t<=G;t++){ xs.push(t); a.push(rf**t); b.push(fk**t); }
-      const P=Plot($('#gapCv',root),{xmin:0,xmax:G,ymin:0,ymax:1,height:240}); P.axes({xlabel:'Steps since the information was stored',ylabel:'Fraction remembered'}); P.line(xs,a,cssVar('--c4'),2.5); P.line(xs,b,cssVar('--c3'),2.5);
-      P.legend([['Vanilla RNN (multiplicative decay)',cssVar('--c4')],['LSTM cell state (forget gate ≈ 1)',cssVar('--c3')]],P.w-260);
-      $('#gapTxt',root).textContent=`After ${G} steps the RNN keeps ${(100*a[G]).toFixed(2)}% of the signal; the LSTM keeps ${(100*b[G]).toFixed(1)}%. The additive cell update lets gradients flow across long gaps, which is how LSTMs ease the vanishing gradient problem.`; };
-    ['gap','fk','rf'].forEach(k=>bindRange(root,k,gap)); gap(); onResize(gap);
+    { // One LSTM cell step, read as four small equations
+      const COL={mem:'#15803d',f:'#2563eb',cand:'#ea580c',i:'#16a34a',o:'#7c3aed',h:'#be185d'};
+      const sv=(v,mx)=>{ const w=Math.min(50,Math.abs(v)/mx*50); return `<div class="lcs-bar"><span class="lcs-mid"></span><i style="${v>=0?'left:50%':'right:50%'};width:${w}%;background:VAR"></i></div>`; };
+      const chip=(lab,v,col,kind,mx,sub='')=>{ const bar=kind==='gate'?`<div class="lcs-bar"><i style="left:0;width:${v*100}%;background:${col}"></i></div>`:sv(v,mx).replace('VAR',col);
+        return `<div class="lcs-chip" style="border-color:${col}"><div class="lcs-lab" style="color:${col}">${lab}</div><div class="lcs-val">${kind==='gate'?v.toFixed(2):(v>=0?'':'−')+Math.abs(v).toFixed(2)}</div>${bar}${sub?`<div class="lcs-sub">${sub}</div>`:''}</div>`; };
+      const op=s=>`<div class="lcs-op">${s}</div>`;
+      const lane=(n,title,body,hl)=>`<div class="lcs-lane ${hl?'hl':''}"><div class="lcs-step"><b>${n}</b> ${title}</div><div class="lcs-eq">${body}</div></div>`;
+      const pct=v=>Math.round(v*100)+'%';
+      const cell=()=>{ const cp=+$('#cp',root).value, f=+$('#fg',root).value, i=+$('#ig',root).value, cc=+$('#cc',root).value, o=+$('#og',root).value;
+        const kept=f*cp, add=i*cc, C=kept+add, tC=Math.tanh(C), h=o*tC;
+        $('#cellLanes',root).innerHTML=
+          lane('1','Keep part of the old memory',chip('Old memory C<sub>t-1</sub>',cp,COL.mem,'val',2)+op('×')+chip('Forget gate f',f,COL.f,'gate',1,'keeps '+pct(f))+op('=')+chip('Kept',kept,COL.mem,'val',3))+
+          lane('2','Prepare new information',chip('Candidate C̃',cc,COL.cand,'val',1)+op('×')+chip('Input gate i',i,COL.i,'gate',1,'writes '+pct(i))+op('=')+chip('Added',add,COL.cand,'val',3))+
+          lane('3','Update the memory',chip('Kept',kept,COL.mem,'val',3)+op('+')+chip('Added',add,COL.cand,'val',3)+op('=')+chip('New memory C<sub>t</sub>',C,COL.mem,'val',3),true)+
+          lane('4','Decide what to output',chip('tanh(C<sub>t</sub>)',tC,COL.mem,'val',1,'squashed to −1…1')+op('×')+chip('Output gate o',o,COL.o,'gate',1,'reveals '+pct(o))+op('=')+chip('Output h<sub>t</sub>',h,COL.h,'val',1),true);
+        let msg;
+        if(f>0.9&&i<0.1) msg='<b>Memory preserved.</b> The forget gate is open and the input gate is closed, so the old memory passes through almost unchanged. This is how an LSTM carries information across long gaps.';
+        else if(f<0.1&&i>0.9) msg='<b>Memory replaced.</b> The forget gate erased the old memory and the input gate wrote the new candidate in its place.';
+        else if(f<0.1&&i<0.1) msg='<b>Memory cleared.</b> Both gates are nearly closed: the old memory is forgotten and nothing new is stored.';
+        else if(f>0.9&&i>0.9) msg='<b>Memory accumulated.</b> The old memory is kept and the new information is added on top of it.';
+        else msg=`<b>Partial update.</b> The cell keeps ${pct(f)} of the old memory and writes ${pct(i)} of the new candidate.`;
+        if(o<0.1) msg+=' The output gate is nearly closed, so the network stores the memory but reveals almost none of it: useful when the information will matter only later.';
+        else if(o>0.9) msg+=' The output gate is open, so the output reflects the full (squashed) memory.';
+        $('#cellOut',root).innerHTML=msg+`<br><span class="small muted">In equations: $C_t=f\\cdot C_{t-1}+i\\cdot\\tilde C=${f.toFixed(2)}\\times${cp.toFixed(2)}+${i.toFixed(2)}\\times${cc.toFixed(2)}=${C.toFixed(2)}$ and $h_t=o\\cdot\\tanh(C_t)=${o.toFixed(2)}\\times${tC.toFixed(3)}=${h.toFixed(3)}$.</span>`;
+        typeset($('#cellOut',root));
+        // values on the diagram
+        const sgn=v=>(v<0?'−':'')+Math.abs(v).toFixed(2), V={C0:'C = '+sgn(cp),f:'f = '+f.toFixed(2),fC:sgn(kept),i:'i = '+i.toFixed(2),c:'C̃ = '+sgn(cc),ic:sgn(add),C:'C = '+sgn(C),o:'o = '+o.toFixed(2),tC:sgn(tC),h:'h = '+sgn(h),h0:'',x:''};
+        $$('#lcsSvg .lc-val',root).forEach(t=>{ t.textContent=V[t.dataset.v]??''; });
+        $$('#cellLanes .lcs-lane',root).forEach((ln,n)=>{ ln.onclick=()=>{ stopPlay(); hl(curLane===n+1?0:n+1); }; });
+        hl(curLane); };
+      const PARTS={1:['cline','forget','fpath','mulF'],2:['input','cand','ipath','mulI'],3:['cline','mulF','mulI','add'],4:['cline','output','opath','tanhC','mulO','hout']};
+      const VALS={1:['C0','f','fC'],2:['i','c','ic'],3:['fC','ic','C'],4:['C','o','tC','h']};
+      let curLane=0, timer=null;
+      const hl=n=>{ curLane=n; const on=PARTS[n], vs=VALS[n];
+        $$('#lcsSvg .lc-k',root).forEach(g=>{ g.classList.toggle('dim',!!on&&!on.includes(g.dataset.k)); g.classList.toggle('hi',!!on&&on.includes(g.dataset.k)); });
+        $$('#lcsSvg .lc-val',root).forEach(t=>{ t.classList.toggle('new',!!vs&&vs.includes(t.dataset.v)); t.style.opacity=!vs||vs.includes(t.dataset.v)?'1':'.25'; });
+        $$('#cellLanes .lcs-lane',root).forEach((ln,k)=>ln.classList.toggle('act',k+1===n)); };
+      const stopPlay=()=>{ if(timer){ clearInterval(timer); timer=null; } $('#lcsPlay',root).innerHTML=`${ico('play')} Play the update step by step`; refreshIcons($('#lcsPlay',root)); };
+      $('#lcsPlay',root).onclick=()=>{ if(timer){ stopPlay(); return; } let n=1; hl(n); $('#lcsPlay',root).innerHTML=`${ico('pause')} Pause`; refreshIcons($('#lcsPlay',root));
+        timer=setInterval(()=>{ if(!$('#lcsSvg',root)?.isConnected){ clearInterval(timer); return; } n++; if(n>4){ stopPlay(); return; } hl(n); },1800); };
+      $('#lcsAllOn',root).onclick=()=>{ stopPlay(); hl(0); };
+      const PRE={keep:{fg:1,ig:0,og:0.7},replace:{fg:0,ig:1,og:0.7},add:{fg:1,ig:1,og:0.7},quiet:{fg:1,ig:0,og:0}};
+      segmented(root,'#lcsPre',v=>{ Object.entries(PRE[v]).forEach(([id,val])=>{ const e=$('#'+id,root); e.value=val; $('#'+id+'_v',root).textContent=val; }); cell(); });
+      $$('#lcsPre button',root).forEach(b=>b.classList.remove('on'));
+      ['cp','fg','ig','cc','og'].forEach(k=>bindRange(root,k,()=>{ $$('#lcsPre button',root).forEach(b=>b.classList.remove('on')); cell(); })); cell();
+    }
+    let gapScale='lin';
+    const gap=()=>{ const G=+$('#gap',root).value, fk=+$('#fk',root).value, rf=+$('#rf',root).value, LOG=gapScale==='log';
+      const xs=[],a=[],b=[]; for(let t=0;t<=G;t++){ xs.push(t); a.push(rf**t); b.push(fk**t); }
+      const tr=v=>LOG?Math.log10(Math.max(v,1e-8)):v*100, ra=a[G], rb=b[G];
+      const pc=v=>v>=0.1?(100*v).toFixed(1)+'%':v>=0.001?(100*v).toFixed(2)+'%':v>=1e-6?(100*v).toPrecision(2)+'%':'< 0.0001%';
+      const P=Plot($('#gapCv',root),{xmin:0,xmax:G,ymin:LOG?-8:0,ymax:LOG?0:100,height:280,pad:{l:62,r:20,t:16,b:40}});
+      P.axes({xlabel:'Steps since the information was stored',ylabel:'Fraction remembered',ny:LOG?8:5,yfmt:LOG?(v=>{ const e=Math.round(v)+2; return (10**e).toFixed(Math.max(0,-e))+'%'; }):(v=>Math.round(v)+'%')});
+      const cR=cssVar('--c4'), cL=cssVar('--c3');
+      P.line(xs,a.map(tr),cR,2.5); P.line(xs,b.map(tr),cL,2.5);
+      P.vline(G,cssVar('--muted'));
+      P.text('information needed here ',G,LOG?-4:12,cssVar('--muted'),'right','11px Inter, sans-serif');
+      // dotted guides: from each curve at the gap, across to the fraction-remembered axis
+      [[rb,cL,'LSTM keeps '+pc(rb)],[ra,cR,'RNN keeps '+pc(ra)]].forEach(([v,c,lab],n)=>{ const y=tr(v); P.line([0,G],[y,y],c,1.6,[3,4]); P.dot(G,y,c,6);
+        const d=LOG?0.3:4.5, top=LOG?-0.45:94; let yl=y+d; if(yl>top) yl=y-d-(LOG?0.25:3.5); P.text(lab,G*0.02,Math.max(LOG?-7.8:1.5,yl),c,'left','bold 12px Inter, sans-serif'); });
+      
+      const half=f=>f>=1?Infinity:Math.log(0.5)/Math.log(f), hf=v=>v===Infinity?'never':v<10?v.toFixed(1)+' steps':Math.round(v)+' steps';
+      const card=(name,f,sym,v,c,icon)=>`<div class="mini"><h4 style="color:${c}">${ico(icon,'h4ico')}${name}</h4><div class="big" style="color:${c}">${pc(v)}</div><p class="small" style="margin:2px 0">left after ${G} steps: $${sym}^{${G}}=${f}^{${G}}$</p><div class="iw-meter" style="margin:6px 0"><i style="width:${Math.max(0.5,100*v)}%;background:${c}"></i></div><p class="small muted" style="margin:0">Half the information is gone after <b>${hf(half(f))}</b>.</p></div>`;
+      $('#gapCards',root).innerHTML=card('Vanilla RNN',rf,'r',ra,cR,'repeat')+card('LSTM cell state',fk,'f',rb,cL,'brain');
+      typeset($('#gapCards',root)); refreshIcons($('#gapCards',root));
+      $('#gapTxt',root).innerHTML=ra<rb?`At step ${G} the LSTM still holds <b>${(()=>{ const r=rb/Math.max(ra,1e-300); if(r<1e4) return Math.round(r).toLocaleString(); const [m,e]=r.toExponential(1).split('e+'); return m+' × 10<sup>'+e+'</sup>'; })()}</b> times more of the original signal than the RNN. Multiplying by a factor below 1 at every step shrinks the signal (and the gradient) exponentially; keeping the forget gate near 1 makes the cell state an almost lossless highway, which is how LSTMs ease the vanishing gradient problem. Switch to the log scale to see the RNN's tiny remainder.`:'With these settings the RNN factor is at least as large as the LSTM forget gate, so both forget at the same rate or slower. In practice, a vanilla RNN cannot keep its factor near 1 without unstable (exploding) gradients.'; };
+    ['gap','fk','rf'].forEach(k=>bindRange(root,k,gap)); segmented(root,'#gapScale',v=>{gapScale=v;gap();}); gap(); onResize(gap);
   },
   quiz:[
     {q:'Which LSTM gate decides what information to discard from the cell state?', o:['Input gate','Output gate','Forget gate','Candidate layer'], a:2, e:'The forget gate multiplies $C_{t-1}$ by values between 0 and 1.'},
